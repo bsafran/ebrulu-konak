@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../common/Button';
 import Loading from '../common/Loading';
-import { ChevronLeft, ChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const RestaurantDetail = ({ restaurant, loading }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -45,13 +45,13 @@ const RestaurantDetail = ({ restaurant, loading }) => {
                   onClick={handlePrevImage}
                   className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-all opacity-0 group-hover:opacity-100"
                 >
-                  <ChevronLeft className="w-6 h-6 text-primary-dark" />
+                  <FiChevronLeft className="w-6 h-6 text-primary-dark" />
                 </button>
                 <button
                   onClick={handleNextImage}
                   className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-all opacity-0 group-hover:opacity-100"
                 >
-                  <ChevronRight className="w-6 h-6 text-primary-dark" />
+                  <FiChevronRight className="w-6 h-6 text-primary-dark" />
                 </button>
               </>
             )}

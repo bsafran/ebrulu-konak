@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown } from 'react-icons/fi';
+import { FiChevronDown } from 'react-icons/fi';
 
 const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle = 'Lüksün ve Konforun Buluştuğu Yer' }) => {
   return (
@@ -50,7 +50,7 @@ const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 animate-bounce">
-          <ChevronDown className="w-8 h-8 text-white" />
+          <FiChevronDown className="w-8 h-8 text-white" />
         </div>
       </div>
     </div>

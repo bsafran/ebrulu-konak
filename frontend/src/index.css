@@ -28,7 +28,7 @@
   }
 
   .gold-gradient {
-    @apply bg-gradient-to-r from-primary-gold to-primary-light;
+    background: linear-gradient(to right, #d7c2a0, #ece6d8);
   }
 
   .container-custom {
