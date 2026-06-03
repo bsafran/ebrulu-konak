@@ -16,17 +16,14 @@ const RestaurantsPreview = () => {
     <section className="py-20 bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Restoranlarımız</h2>
-
-          {/* Decorative Divider - Below Heading */}
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
-            <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
-            <span style={{ color: '#9c714b', fontSize: '24px' }}>◆</span>
-            <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
-            <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
+          {/* Decorative Divider */}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="flex-1 h-px bg-gray-300"></div>
+            <span className="text-primary-dark text-lg">→</span>
+            <div className="flex-1 h-px bg-gray-300"></div>
           </div>
 
+          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Restoranlarımız</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Türk ve uluslararası mutfağından lezzetli yemekler, özel şef hizmetleriyle sunulmaktadır.
           </p>
@@ -116,14 +113,6 @@ const RestaurantsPreview = () => {
               })}
             </div>
 
-            {/* Decorative Divider - End of Section */}
-            <div className="flex items-center justify-center gap-2 mt-12">
-              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
-              <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
-              <span style={{ color: '#9c714b', fontSize: '24px' }}>◆</span>
-              <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
-              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
-            </div>
           </>
         )}
       </div>
