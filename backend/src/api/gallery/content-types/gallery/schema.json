@@ -1,6 +1,6 @@
 {
-  "kind": "collectionType",
-  "collectionName": "galleries",
+  "kind": "singleType",
+  "collectionName": "gallery",
   "info": {
     "singularName": "gallery",
     "pluralName": "galleries",
@@ -8,32 +8,16 @@
     "description": ""
   },
   "options": {
-    "increments": true,
-    "timestamps": true,
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "image": {
+    "photos": {
       "type": "media",
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ]
-    },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "rooms",
-        "restaurant",
-        "exterior",
-        "other"
+        "images"
       ]
     }
   }

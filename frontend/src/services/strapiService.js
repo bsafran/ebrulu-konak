@@ -57,10 +57,10 @@ export const getRestaurantById = async (id) => {
   }
 };
 
-// Gallery
+// Gallery (single type)
 export const getGallery = async () => {
   try {
-    const response = await api.get(`/galleries?populate=${POPULATE}`);
+    const response = await api.get(`/gallery?populate=${POPULATE}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching gallery:', error);

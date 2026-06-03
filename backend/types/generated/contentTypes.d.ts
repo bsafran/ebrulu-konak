@@ -440,8 +440,8 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
-  collectionName: 'galleries';
+export interface ApiGalleryGallery extends Struct.SingleTypeSchema {
+  collectionName: 'gallery';
   info: {
     description: '';
     displayName: 'Gallery';
@@ -450,26 +450,19 @@ export interface ApiGalleryGallery extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
-    increments: true;
-    timestamps: true;
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<
-      ['rooms', 'restaurant', 'exterior', 'other']
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
-      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::gallery.gallery'
     > &
       Schema.Attribute.Private;
+    photos: Schema.Attribute.Media<'images', true>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

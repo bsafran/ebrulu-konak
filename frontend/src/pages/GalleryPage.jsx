@@ -8,7 +8,8 @@ const GalleryPage = () => {
   const { data, loading, error } = useApi(() => getGallery());
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const galleryItems = data?.data || [];
+  // Single type: data.data.photos[] (Strapi v5 direct array)
+  const photos = data?.data?.photos || [];
 
   return (
     <Layout>
@@ -55,36 +56,22 @@ const GalleryPage = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {galleryItems.map((item) => {
-              const imageUrl = item.attributes?.image?.data
-                ? getMediaUrl(item.attributes.image.data?.attributes)
-                : null;
-
+            {photos.map((photo) => {
+              const imageUrl = getMediaUrl(photo);
               return (
                 <div
-                  key={item.id}
-                  className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                  onClick={() => setSelectedImage({ url: imageUrl, title: item.attributes?.title })}
+                  key={photo.id}
+                  className="rounded-lg overflow-hidden cursor-pointer group"
+                  style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.08)', transition: 'all 200ms linear' }}
+                  onClick={() => setSelectedImage({ url: imageUrl })}
+                  onMouseEnter={(e) => e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.14)'}
+                  onMouseLeave={(e) => e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.08)'}
                 >
-                  {imageUrl ? (
-                    <img
-                      src={imageUrl}
-                      alt={item.attributes?.title || 'Galeri Resmi'}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-48 bg-primary-light flex items-center justify-center">
-                      <span className="text-white text-4xl">📷</span>
-                    </div>
-                  )}
-
-                  {item.attributes?.title && (
-                    <div className="p-3 bg-primary-dark text-primary-light">
-                      <p className="text-sm font-semibold line-clamp-1">
-                        {item.attributes.title}
-                      </p>
-                    </div>
-                  )}
+                  <img
+                    src={imageUrl}
+                    alt="Galeri"
+                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               );
             })}
@@ -101,12 +88,9 @@ const GalleryPage = () => {
           <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
             <img
               src={selectedImage.url}
-              alt={selectedImage.title}
+              alt="Galeri"
               className="w-full rounded-lg"
             />
-            {selectedImage.title && (
-              <p className="text-white text-center mt-4">{selectedImage.title}</p>
-            )}
             <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-4 right-4 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl"
