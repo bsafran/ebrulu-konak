@@ -34,13 +34,13 @@ const BookingStrip = () => {
   };
 
   return (
-    <div className="py-8 -mt-12 relative z-10" style={{ backgroundColor: '#6a3613' }}>
+    <div className="py-8 -mt-12 relative z-10 bg-primary-light">
       <div className="container-custom">
-        <div className="bg-[#f5f1ed] p-8 md:p-6 rounded-lg">
+        <div className="p-8 md:p-6 rounded-lg" style={{ backgroundColor: '#6a3613' }}>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
             {/* Check-in Date */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold mb-2" style={{ color: '#a67c52' }}>
+              <label className="text-sm font-semibold mb-2 text-white">
                 Giriş Tarihi
               </label>
               <DatePicker
@@ -50,13 +50,13 @@ const BookingStrip = () => {
                 minDate={new Date()}
                 placeholderText="Giriş Tarihi"
                 className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
-                style={{ borderColor: '#a67c52', '--tw-ring-color': '#a67c52' }}
+                style={{ borderColor: '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
               />
             </div>
 
             {/* Check-out Date */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold mb-2" style={{ color: '#a67c52' }}>
+              <label className="text-sm font-semibold mb-2 text-white">
                 Çıkış Tarihi
               </label>
               <DatePicker
@@ -66,20 +66,20 @@ const BookingStrip = () => {
                 minDate={checkIn || new Date()}
                 placeholderText="Çıkış Tarihi"
                 className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
-                style={{ borderColor: '#a67c52', '--tw-ring-color': '#a67c52' }}
+                style={{ borderColor: '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
               />
             </div>
 
             {/* Guests */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold mb-2" style={{ color: '#a67c52' }}>
+              <label className="text-sm font-semibold mb-2 text-white">
                 Misafir Sayısı
               </label>
               <select
                 value={guests}
                 onChange={handleGuestsChange}
                 className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
-                style={{ borderColor: '#a67c52', '--tw-ring-color': '#a67c52' }}
+                style={{ borderColor: '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                   <option key={num} value={num}>
@@ -92,9 +92,9 @@ const BookingStrip = () => {
             {/* Search Button */}
             <div className="md:col-span-2">
               <button
-                className="w-full px-8 py-3 rounded-lg text-white font-semibold transition-all duration-200"
-                style={{ backgroundColor: '#a67c52' }}
-                onMouseEnter={(e) => e.target.style.opacity = '0.8'}
+                className="w-full px-8 py-3 rounded-lg text-primary-dark font-semibold transition-all duration-200"
+                style={{ backgroundColor: '#f5f1ed' }}
+                onMouseEnter={(e) => e.target.style.opacity = '0.9'}
                 onMouseLeave={(e) => e.target.style.opacity = '1'}
                 onClick={handleSearch}
               >
