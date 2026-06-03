@@ -35,7 +35,7 @@ export default {
         xs: '2px',
       },
       fontFamily: {
-        sans: ['Avenir', 'system-ui', 'sans-serif'],
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
         serif: ['Cormorant Garamond', 'serif'],
         display: ['Cormorant Garamond', 'serif'],
       },
