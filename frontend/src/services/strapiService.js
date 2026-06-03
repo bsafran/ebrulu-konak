@@ -114,6 +114,27 @@ export const formatRoomData = (room) => {
   // Handle both old format (with attributes) and new Strapi v5 format (direct properties)
   const data = room.attributes || room;
 
+  // Handle images array - support both v4 and v5 Strapi formats
+  let images = [];
+  if (data.images) {
+    // Strapi v4 format: images.data[].attributes
+    if (Array.isArray(data.images.data)) {
+      images = data.images.data.map(img => ({
+        id: img.id,
+        url: getMediaUrl(img.attributes || img),
+        alt: img.attributes?.alternativeText || img.alternativeText || 'Room image',
+      }));
+    }
+    // Strapi v5 format: images[] direct
+    else if (Array.isArray(data.images)) {
+      images = data.images.map(img => ({
+        id: img.id,
+        url: getMediaUrl(img),
+        alt: img.alternativeText || 'Room image',
+      }));
+    }
+  }
+
   return {
     id: room.id,
     title: data.title,
@@ -121,11 +142,7 @@ export const formatRoomData = (room) => {
     price: data.price,
     maxGuests: data.maxGuests,
     features: data.features,
-    images: data.images?.data?.map(img => ({
-      id: img.id,
-      url: getMediaUrl(img.attributes),
-      alt: img.attributes?.alternativeText || 'Room image',
-    })) || [],
+    images: images,
   };
 };
 
@@ -134,17 +151,34 @@ export const formatRestaurantData = (restaurant) => {
   // Handle both old format (with attributes) and new Strapi v5 format (direct properties)
   const data = restaurant.attributes || restaurant;
 
+  // Handle images array - support both v4 and v5 Strapi formats
+  let images = [];
+  if (data.images) {
+    // Strapi v4 format: images.data[].attributes
+    if (Array.isArray(data.images.data)) {
+      images = data.images.data.map(img => ({
+        id: img.id,
+        url: getMediaUrl(img.attributes || img),
+        alt: img.attributes?.alternativeText || img.alternativeText || 'Restaurant image',
+      }));
+    }
+    // Strapi v5 format: images[] direct
+    else if (Array.isArray(data.images)) {
+      images = data.images.map(img => ({
+        id: img.id,
+        url: getMediaUrl(img),
+        alt: img.alternativeText || 'Restaurant image',
+      }));
+    }
+  }
+
   return {
     id: restaurant.id,
     name: data.name,
     description: data.description,
     cuisine: data.cuisine,
     openingHours: data.openingHours,
-    images: data.images?.data?.map(img => ({
-      id: img.id,
-      url: getMediaUrl(img.attributes),
-      alt: img.attributes?.alternativeText || 'Restaurant image',
-    })) || [],
+    images: images,
     menu: data.menu?.data
       ? getMediaUrl(data.menu.data)
       : null,

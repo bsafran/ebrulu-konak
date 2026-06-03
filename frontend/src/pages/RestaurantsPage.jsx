@@ -1,18 +1,99 @@
-import React from 'react';
+import { useMemo } from 'react';
 import Layout from '../components/common/Layout';
-import RestaurantList from '../components/restaurants/RestaurantList';
+import RestaurantSection from '../components/restaurants/RestaurantSection';
+import Loading from '../components/common/Loading';
+import useApi from '../hooks/useApi';
+import { getRestaurants, formatRestaurantData } from '../services/strapiService';
 
 const RestaurantsPage = () => {
+  const { data, loading, error } = useApi(() => getRestaurants());
+
+  const restaurants = useMemo(() => {
+    const allRestaurants = data?.data?.map(formatRestaurantData) || [];
+    return allRestaurants.slice(0, 2);
+  }, [data]);
+
   return (
     <Layout>
-      <div className="container-custom py-16">
-        <div className="mb-12">
-          <h1 className="text-5xl font-bold text-primary-dark mb-4">Restoranlarımız</h1>
-          <p className="text-gray-600 text-lg">
-            Türk ve uluslararası mutfağının en iyi örnekleri
-          </p>
+      <div
+        style={{
+          backgroundColor: 'white',
+          minHeight: '100vh',
+          paddingTop: '64px',
+          paddingBottom: '64px',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
+          {/* Page Header */}
+          <div
+            style={{
+              marginBottom: '80px',
+              paddingBottom: '32px',
+              borderBottom: '2px solid #a67c52',
+            }}
+          >
+            <h1
+              style={{
+                fontSize: '48px',
+                fontWeight: 'bold',
+                color: '#9c714b',
+                margin: '0 0 16px 0',
+                wordSpacing: '100vw',
+              }}
+            >
+              Restoranlarımız
+            </h1>
+            <p
+              style={{
+                fontSize: '18px',
+                color: '#666',
+                lineHeight: '1.6',
+                margin: 0,
+                maxWidth: '600px',
+              }}
+            >
+              Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın.
+            </p>
+          </div>
+
+          {/* Loading State */}
+          {loading && (
+            <div style={{ display: 'flex', justifyContent: 'center', padding: '80px 0' }}>
+              <Loading />
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && (
+            <div style={{ textAlign: 'center', padding: '80px 0' }}>
+              <p style={{ color: '#d32f2f', fontWeight: '600', fontSize: '16px' }}>
+                Restoranlar yüklenemedi
+              </p>
+            </div>
+          )}
+
+          {/* Restaurants Grid */}
+          {!loading && !error && restaurants.length > 0 && (
+            <div>
+              {restaurants.map((restaurant, index) => (
+                <RestaurantSection
+                  key={restaurant.id}
+                  restaurant={restaurant}
+                  reversed={index % 2 === 1}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Empty State */}
+          {!loading && !error && restaurants.length === 0 && (
+            <div style={{ textAlign: 'center', padding: '80px 0' }}>
+              <p style={{ color: '#666', fontSize: '16px' }}>
+                Henüz restoran eklenmemiş
+              </p>
+            </div>
+          )}
         </div>
-        <RestaurantList />
       </div>
     </Layout>
   );

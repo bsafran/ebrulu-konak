@@ -18,30 +18,35 @@ const Navbar = ({ transparent = false }) => {
     ? 'fixed top-0 z-50 w-full bg-transparent'
     : 'fixed top-0 z-50 w-full bg-primary-dark/90';
 
-  const textClasses = transparent ? 'text-white' : 'text-white';
+  const textClasses = transparent ? 'text-white' : 'text-primary-dark';
 
   return (
     <>
-      <nav className={navClasses}>
-        <div className={transparent ? 'px-4 sm:px-8' : 'container-custom'}>
-          <div className="flex justify-between items-center h-20">
+      <nav className={navClasses} style={!transparent ? { backgroundColor: '#f3efea' } : {}}>
+        <div className="w-full px-4 sm:px-8 md:px-12">
+          <div className="flex items-center h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center flex-shrink-0">
               <img src={logo} alt="Ebrulu Konak" className="h-16 w-auto" />
             </Link>
 
             {/* Menu Button */}
             <button
-              className={`p-2 rounded-lg transition-colors z-50 relative ${
-                transparent ? 'hover:bg-white/20' : 'hover:bg-gray-100'
-              }`}
+              className="p-2 rounded-lg transition-colors z-50 relative ml-auto"
+              style={!transparent ? { cursor: 'pointer' } : { cursor: 'pointer' }}
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
+              onMouseEnter={(e) => {
+                if (!transparent) e.target.style.backgroundColor = 'rgba(156, 113, 75, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                if (!transparent) e.target.style.backgroundColor = 'transparent';
+              }}
             >
               {isOpen ? (
-                <FiX className="w-6 h-6 text-white" />
+                <FiX className="w-6 h-6" style={{ color: transparent ? 'white' : '#9c714b' }} />
               ) : (
-                <FiMenu className="w-6 h-6 text-white" />
+                <FiMenu className={`w-6 h-6 ${textClasses}`} />
               )}
             </button>
           </div>
@@ -62,12 +67,11 @@ const Navbar = ({ transparent = false }) => {
 
       {/* Side Menu Drawer */}
       <div
-        className={`fixed right-0 top-0 h-screen w-72 text-white shadow-2xl z-40 transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed right-0 top-20 h-[calc(100vh-80px)] w-72 text-white shadow-2xl z-40 transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
-          backgroundColor: '#f3efea',
-          paddingTop: transparent ? '80px' : '0'
+          backgroundColor: '#f3efea'
         }}
       >
         {/* Menu Items */}

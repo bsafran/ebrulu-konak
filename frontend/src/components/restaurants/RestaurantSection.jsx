@@ -1,0 +1,248 @@
+import { useState } from 'react';
+
+const RestaurantSection = ({ restaurant, reversed = false }) => {
+  const [hoveredImageIndex, setHoveredImageIndex] = useState(null);
+  const fallbackImage = 'https://images.unsplash.com/photo-1504674900769-e71fada305e0?w=800&h=600&fit=crop';
+
+  const images = restaurant.images && restaurant.images.length > 0
+    ? restaurant.images
+    : [
+        { url: fallbackImage, alt: 'Restaurant' },
+        { url: fallbackImage, alt: 'Restaurant' },
+        { url: fallbackImage, alt: 'Restaurant' },
+      ];
+
+  const textPanel = (
+    <div
+      style={{
+        padding: '48px',
+        backgroundColor: '#f3efea',
+        borderRadius: '24px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        gap: '24px',
+        height: '100%',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+      }}
+    >
+      {/* Restaurant Name - Small Caps */}
+      <div>
+        <p
+          style={{
+            fontSize: '13px',
+            fontWeight: '600',
+            color: '#a67c52',
+            letterSpacing: '2px',
+            textTransform: 'uppercase',
+            margin: 0,
+            marginBottom: '12px',
+          }}
+        >
+          {restaurant.name}
+        </p>
+      </div>
+
+      {/* Description */}
+      <p
+        style={{
+          fontSize: '18px',
+          lineHeight: '1.8',
+          color: '#555',
+          margin: 0,
+          fontWeight: '400',
+        }}
+      >
+        {restaurant.description}
+      </p>
+
+      {/* Tags/Pills */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '8px' }}>
+        {restaurant.cuisine && (
+          <span
+            style={{
+              fontSize: '12px',
+              fontWeight: '500',
+              color: '#9c714b',
+              backgroundColor: 'rgba(166, 124, 82, 0.1)',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              border: '1px solid rgba(166, 124, 82, 0.2)',
+            }}
+          >
+            {restaurant.cuisine} Mutfağı
+          </span>
+        )}
+        {restaurant.openingHours && (
+          <span
+            style={{
+              fontSize: '12px',
+              fontWeight: '500',
+              color: '#9c714b',
+              backgroundColor: 'rgba(166, 124, 82, 0.1)',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              border: '1px solid rgba(166, 124, 82, 0.2)',
+            }}
+          >
+            {restaurant.openingHours}
+          </span>
+        )}
+      </div>
+
+    </div>
+  );
+
+  const imagePanel = (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '16px',
+        height: '100%',
+      }}
+    >
+      {/* Left Column - Tall Image */}
+      <div
+        style={{
+          gridRow: '1 / 3',
+          borderRadius: '16px',
+          overflow: 'hidden',
+          backgroundColor: '#f3efea',
+          cursor: 'pointer',
+        }}
+        onMouseEnter={() => setHoveredImageIndex(0)}
+        onMouseLeave={() => setHoveredImageIndex(null)}
+      >
+        <img
+          src={images[0]?.url || fallbackImage}
+          alt={images[0]?.alt || 'Restaurant'}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            transform: hoveredImageIndex === 0 ? 'scale(1.08)' : 'scale(1)',
+            transition: 'transform 300ms ease-out',
+          }}
+        />
+      </div>
+
+      {/* Right Column - Top Image */}
+      <div
+        style={{
+          borderRadius: '16px',
+          overflow: 'hidden',
+          backgroundColor: '#f3efea',
+          cursor: 'pointer',
+        }}
+        onMouseEnter={() => setHoveredImageIndex(1)}
+        onMouseLeave={() => setHoveredImageIndex(null)}
+      >
+        <img
+          src={images[1]?.url || fallbackImage}
+          alt={images[1]?.alt || 'Restaurant'}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            transform: hoveredImageIndex === 1 ? 'scale(1.08)' : 'scale(1)',
+            transition: 'transform 300ms ease-out',
+          }}
+        />
+      </div>
+
+      {/* Right Column - Bottom Image */}
+      <div
+        style={{
+          borderRadius: '16px',
+          overflow: 'hidden',
+          backgroundColor: '#f3efea',
+          cursor: 'pointer',
+        }}
+        onMouseEnter={() => setHoveredImageIndex(2)}
+        onMouseLeave={() => setHoveredImageIndex(null)}
+      >
+        <img
+          src={images[2]?.url || fallbackImage}
+          alt={images[2]?.alt || 'Restaurant'}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            transform: hoveredImageIndex === 2 ? 'scale(1.08)' : 'scale(1)',
+            transition: 'transform 300ms ease-out',
+          }}
+        />
+      </div>
+    </div>
+  );
+
+  return (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: reversed ? '1fr 1fr' : '1fr 1fr',
+        gap: '48px',
+        alignItems: 'center',
+        marginBottom: '80px',
+        // Responsive: stack on mobile
+        '@media (max-width: 768px)': {
+          gridTemplateColumns: '1fr',
+        },
+      }}
+    >
+      {/* For smaller screens, use flexbox with media query */}
+      <style>{`
+        @media (max-width: 768px) {
+          .restaurant-section {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 32px !important;
+            grid-template-columns: unset !important;
+            margin-bottom: 48px !important;
+          }
+          .restaurant-text {
+            order: ${reversed ? 2 : 1} !important;
+          }
+          .restaurant-images {
+            order: ${reversed ? 1 : 2} !important;
+          }
+          .restaurant-image-grid {
+            min-height: 400px !important;
+          }
+        }
+      `}</style>
+
+      {reversed ? (
+        <>
+          <div
+            className="restaurant-images"
+            style={{
+              minHeight: '500px',
+            }}
+          >
+            {imagePanel}
+          </div>
+          <div className="restaurant-text">{textPanel}</div>
+        </>
+      ) : (
+        <>
+          <div className="restaurant-text">{textPanel}</div>
+          <div
+            className="restaurant-images"
+            style={{
+              minHeight: '500px',
+            }}
+          >
+            {imagePanel}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default RestaurantSection;

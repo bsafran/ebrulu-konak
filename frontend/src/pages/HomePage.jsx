@@ -17,7 +17,7 @@ const HomePage = () => {
     ? `http://localhost:1337${siteSettings.data.heroVideo.url}`
     : null;
 
-  const welcomeTitle = siteSettings?.data?.welcomeTitle || 'Hoş Geldiniz';
+  const welcomeTitle = siteSettings?.data?.welcomeTitle || '';
   const welcomeText = siteSettings?.data?.welcomeText || '';
   const aboutTitle = siteSettings?.data?.aboutTitle || 'Hakkımızda';
   const aboutText = siteSettings?.data?.aboutText || '';
@@ -30,7 +30,7 @@ const HomePage = () => {
         subtitle={siteSettings?.data?.heroSubtitle}
       />
       <BookingStrip />
-      <IntroSection title={welcomeTitle} text={welcomeText} />
+      <IntroSection title="" text={welcomeText} />
       <AboutSection title={aboutTitle} description={aboutText} />
       <RoomsPreview />
       <RestaurantsPreview />

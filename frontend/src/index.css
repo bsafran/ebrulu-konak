@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
+/* Custom Fonts */
+@font-face {
+  font-family: 'Canela';
+  src: url('/src/assets/fonts/CanelaBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('/src/assets/fonts/AvenirRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @layer base {
   body {
     @apply bg-white text-gray-900;
+    font-family: 'Avenir', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Canela', serif;
   }
 
   h1 {
@@ -19,6 +39,7 @@
 
   p {
     @apply text-base leading-relaxed;
+    font-family: 'Avenir', sans-serif;
   }
 }
 
@@ -33,6 +54,10 @@
 
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .preserve-whitespace {
+    @apply whitespace-pre-line;
   }
 }
 

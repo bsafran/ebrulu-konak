@@ -35,7 +35,9 @@ export default {
         xs: '2px',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Avenir', 'system-ui', 'sans-serif'],
+        serif: ['Canela', 'serif'],
+        display: ['Canela', 'serif'],
       },
       keyframes: {
         fadeIn: {
