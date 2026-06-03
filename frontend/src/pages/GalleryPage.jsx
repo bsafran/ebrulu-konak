@@ -82,10 +82,10 @@ const GalleryPage = () => {
       {/* Lightbox */}
       {selectedIndex !== null && photos[selectedIndex] && (
         <div
-          style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50, padding: '48px' }}
+          style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50, padding: '24px' }}
           onClick={handleClose}
         >
-          <div style={{ position: 'relative', maxWidth: '900px', width: '100%' }} onClick={(e) => e.stopPropagation()}>
+          <div style={{ position: 'relative', maxWidth: '1200px', width: '100%' }} onClick={(e) => e.stopPropagation()}>
             {/* Close */}
             <button
               onClick={handleClose}
@@ -119,7 +119,7 @@ const GalleryPage = () => {
             <img
               src={getMediaUrl(photos[selectedIndex])}
               alt="Galeri"
-              style={{ width: '100%', maxHeight: '80vh', objectFit: 'contain', borderRadius: '12px', display: 'block' }}
+              style={{ width: '100%', maxHeight: '90vh', objectFit: 'contain', borderRadius: '12px', display: 'block' }}
             />
 
             {/* Counter */}
