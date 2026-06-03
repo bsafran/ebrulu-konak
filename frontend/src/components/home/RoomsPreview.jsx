@@ -8,6 +8,7 @@ import { getRooms, getMediaUrl, formatRoomData } from '../../services/strapiServ
 
 const RoomsPreview = () => {
   const { data, loading, error } = useApi(() => getRooms());
+  const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
 
   const rooms = data?.data?.slice(0, 3) || [];
 
@@ -38,17 +39,11 @@ const RoomsPreview = () => {
                   <Link key={room.id} to={`/rooms/${room.id}`}>
                     <Card hover glassmorphism>
                       {/* Image */}
-                      {firstImage ? (
-                        <img
-                          src={firstImage.url}
-                          alt={formattedRoom.title}
-                          className="w-full h-48 object-cover rounded-lg mb-4"
-                        />
-                      ) : (
-                        <div className="w-full h-48 bg-gradient-to-br from-primary-gold to-primary-dark rounded-lg mb-4 flex items-center justify-center">
-                          <span className="text-white text-3xl">🏨</span>
-                        </div>
-                      )}
+                      <img
+                        src={firstImage?.url || fallbackImage}
+                        alt={formattedRoom.title}
+                        className="w-full h-48 object-cover rounded-lg mb-4"
+                      />
 
                       {/* Content */}
                       <h3 className="text-xl font-bold text-primary-dark mb-2">

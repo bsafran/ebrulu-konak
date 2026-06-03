@@ -4,6 +4,7 @@ import Card from '../common/Card';
 
 const RoomCard = ({ room, onClick }) => {
   const firstImage = room.images?.[0];
+  const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
 
   return (
     <Link to={`/rooms/${room.id}`} onClick={onClick}>
@@ -16,9 +17,11 @@ const RoomCard = ({ room, onClick }) => {
             className="w-full h-64 object-cover rounded-lg mb-4"
           />
         ) : (
-          <div className="w-full h-64 bg-gradient-to-br from-primary-gold to-primary-dark rounded-lg mb-4 flex items-center justify-center">
-            <span className="text-white text-5xl">🏨</span>
-          </div>
+          <img
+            src={fallbackImage}
+            alt={room.title}
+            className="w-full h-64 object-cover rounded-lg mb-4"
+          />
         )}
 
         {/* Content */}
