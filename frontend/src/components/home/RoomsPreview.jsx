@@ -113,13 +113,12 @@ const RoomsPreview = () => {
                 onTouchEnd={handleTouchEnd}
               >
                 <div
-                  key={`carousel-${currentIndex}`}
                   className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${
                     slideDirection === 'left'
                       ? 'animate-slideInLeft'
                       : slideDirection === 'right'
                       ? 'animate-slideInRight'
-                      : 'animate-fadeIn'
+                      : ''
                   }`}
                 >
                   {visibleRooms.map((room, index) => {
@@ -127,16 +126,28 @@ const RoomsPreview = () => {
                     const firstImage = formattedRoom.images?.[0];
                     const isHovered = hoveredIndex === index;
 
+                    console.log('Rendering room:', formattedRoom.title, 'slideDirection:', slideDirection);
+
                     return (
-                      <Link key={`${room.id}-${Math.random()}`} to={`/rooms/${room.id}`}>
-                        <div
-                          className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl"
-                          style={{
-                            border: isHovered ? '4px solid #9c714b' : '4px solid transparent',
-                          }}
-                          onMouseEnter={() => setHoveredIndex(index)}
-                          onMouseLeave={() => setHoveredIndex(null)}
-                        >
+                      <div
+                        key={`${room.id}-carousel`}
+                        className={`${
+                          slideDirection === 'left'
+                            ? 'animate-slideInLeft'
+                            : slideDirection === 'right'
+                            ? 'animate-slideInRight'
+                            : ''
+                        }`}
+                      >
+                        <Link to={`/rooms/${room.id}`}>
+                          <div
+                            className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl"
+                            style={{
+                              border: isHovered ? '4px solid #9c714b' : '4px solid transparent',
+                            }}
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                          >
                           {/* Image Container */}
                           <div className="relative w-full h-full overflow-hidden bg-gray-200">
                             <img
@@ -187,6 +198,7 @@ const RoomsPreview = () => {
                           </div>
                         </div>
                       </Link>
+                      </div>
                     );
                   })}
                 </div>
