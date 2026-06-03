@@ -58,7 +58,7 @@ const Navbar = ({ transparent = false }) => {
           onClick={() => setIsOpen(false)}
           style={{
             top: transparent ? '80px' : '0',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)'
+            backgroundColor: 'rgba(0, 0, 0, 0.85)'
           }}
         />
       )}
@@ -106,8 +106,8 @@ const Navbar = ({ transparent = false }) => {
         <div className="p-6">
           <Link
             to="/reservation"
-            className="block w-full px-6 py-4 rounded-lg font-light text-center transition-all duration-200 text-primary-dark"
-            style={{ backgroundColor: '#f5f1ed' }}
+            className="block w-full px-6 py-4 rounded-lg font-light text-center transition-all duration-200 text-white"
+            style={{ backgroundColor: '#9c714b' }}
             onClick={() => setIsOpen(false)}
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
