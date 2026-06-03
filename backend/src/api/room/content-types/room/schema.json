@@ -50,13 +50,17 @@
       "required": true,
       "unique": true
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "standart",
-        "comfort",
-        "aile"
-      ]
+    "isStandart": {
+      "type": "boolean",
+      "default": false
+    },
+    "isComfort": {
+      "type": "boolean",
+      "default": false
+    },
+    "isAile": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

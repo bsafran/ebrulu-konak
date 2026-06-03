@@ -145,7 +145,9 @@ export const formatRoomData = (room) => {
     price: data.price,
     maxGuests: data.maxGuests,
     features: data.features,
-    category: data.category,
+    isStandart: data.isStandart || false,
+    isComfort: data.isComfort || false,
+    isAile: data.isAile || false,
     images: images,
   };
 };

@@ -566,13 +566,15 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<['standart', 'comfort', 'aile']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText;
     features: Schema.Attribute.JSON;
     images: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
+    isAile: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isComfort: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isStandart: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::room.room'> &
       Schema.Attribute.Private;

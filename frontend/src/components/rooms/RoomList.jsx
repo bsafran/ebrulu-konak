@@ -17,7 +17,10 @@ const RoomList = () => {
 
   const filteredRooms = rooms.filter((room) => {
     if (filterType === 'all') return true;
-    return room.category === filterType;
+    if (filterType === 'standart') return room.isStandart;
+    if (filterType === 'comfort') return room.isComfort;
+    if (filterType === 'aile') return room.isAile;
+    return true;
   });
 
   const handleRoomClick = (room) => {
