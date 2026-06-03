@@ -63,12 +63,9 @@ const ContactPage = () => {
 
         {/* Main Content - Photo + Form */}
         <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-16 mb-20 lg:mb-section"
           style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '64px',
             alignItems: 'flex-start',
-            marginBottom: '120px',
           }}
         >
           {/* Left - Photo */}
@@ -76,7 +73,7 @@ const ContactPage = () => {
             style={{
               borderRadius: '24px',
               overflow: 'hidden',
-              height: '600px',
+              height: 'clamp(300px, 50vh, 600px)',
               backgroundColor: '#f3efea',
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
             }}
