@@ -1,34 +1,28 @@
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../common/Button';
 import Loading from '../common/Loading';
 import { useBooking } from '../../context/BookingContext';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const RoomDetail = ({ room, loading }) => {
   const navigate = useNavigate();
   const { updateBooking } = useBooking();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
 
   if (loading) return <Loading fullScreen />;
 
   if (!room) {
     return (
-      <div className="text-center py-12">
-        <p className="text-red-600 font-semibold">Oda bulunamadı</p>
+      <div style={{ textAlign: 'center', padding: '48px 20px' }}>
+        <p style={{ color: '#d32f2f', fontWeight: '600' }}>Oda bulunamadı</p>
       </div>
     );
   }
 
-  const images = room.images || [];
-
-  const handlePrevImage = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  const handleNextImage = () => {
-    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
+  const images = room.images && room.images.length > 0 ? room.images : [
+    { url: fallbackImage, alt: 'Room' },
+    { url: fallbackImage, alt: 'Room' },
+    { url: fallbackImage, alt: 'Room' },
+  ];
 
   const handleBookNow = () => {
     updateBooking({ selectedRoomId: room.id, selectedRoom: room });
@@ -36,124 +30,234 @@ const RoomDetail = ({ room, loading }) => {
   };
 
   return (
-    <div className="space-y-8">
-      {/* Image Carousel */}
-      {images.length > 0 && (
-        <div className="relative">
-          <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden group">
-            <img
-              src={images[currentImageIndex].url}
-              alt={images[currentImageIndex].alt}
-              className="w-full h-full object-cover"
-            />
-
-            {/* Navigation Buttons */}
-            {images.length > 1 && (
-              <>
-                <button
-                  onClick={handlePrevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-all opacity-0 group-hover:opacity-100"
-                >
-                  <FiChevronLeft className="w-6 h-6 text-primary-dark" />
-                </button>
-                <button
-                  onClick={handleNextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-all opacity-0 group-hover:opacity-100"
-                >
-                  <FiChevronRight className="w-6 h-6 text-primary-dark" />
-                </button>
-
-                {/* Indicators */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {images.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentImageIndex(idx)}
-                      className={`h-2 rounded-full transition-all ${
-                        idx === currentImageIndex ? 'bg-white w-8' : 'bg-white/50 w-2'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
-
-          {/* Thumbnails */}
-          {images.length > 1 && (
-            <div className="flex gap-4 mt-4 overflow-x-auto pb-2">
-              {images.map((img, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentImageIndex(idx)}
-                  className={`flex-shrink-0 h-20 w-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    idx === currentImageIndex ? 'border-primary-accent' : 'border-transparent'
-                  }`}
-                >
-                  <img src={img.url} alt={img.alt} className="w-full h-full object-cover" />
-                </button>
-              ))}
-            </div>
-          )}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '64px' }}>
+      {/* Image Grid - Airbnb style */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '2fr 1fr',
+          gridTemplateRows: '1fr 1fr',
+          gap: '24px',
+          minHeight: '500px',
+          borderRadius: '24px',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Left - Big Image */}
+        <div
+          style={{
+            gridRow: '1 / 3',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            backgroundColor: '#f3efea',
+          }}
+        >
+          <img
+            src={images[0]?.url || fallbackImage}
+            alt={images[0]?.alt || 'Room'}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+            }}
+          />
         </div>
-      )}
 
-      {/* Room Details */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Info */}
-        <div className="md:col-span-2 space-y-8">
+        {/* Right Top */}
+        <div
+          style={{
+            borderRadius: '16px',
+            overflow: 'hidden',
+            backgroundColor: '#f3efea',
+          }}
+        >
+          <img
+            src={images[1]?.url || fallbackImage}
+            alt={images[1]?.alt || 'Room'}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+            }}
+          />
+        </div>
+
+        {/* Right Bottom */}
+        <div
+          style={{
+            borderRadius: '16px',
+            overflow: 'hidden',
+            backgroundColor: '#f3efea',
+          }}
+        >
+          <img
+            src={images[2]?.url || fallbackImage}
+            alt={images[2]?.alt || 'Room'}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Content Section - 2 Col Layout */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '2fr 1fr',
+          gap: '48px',
+          alignItems: 'flex-start',
+        }}
+      >
+        {/* Left - Info */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          {/* Title & Description */}
           <div>
-            <h1 className="text-4xl font-bold text-primary-dark mb-4">{room.title}</h1>
-            <p className="text-gray-600 text-lg leading-relaxed">{room.description}</p>
+            <h1
+              style={{
+                fontSize: '32px',
+                fontWeight: 'bold',
+                color: '#9c714b',
+                margin: '0 0 16px 0',
+              }}
+            >
+              {room.title}
+            </h1>
+            <p
+              style={{
+                fontSize: '18px',
+                lineHeight: '1.8',
+                color: '#666',
+                margin: 0,
+              }}
+            >
+              {room.description}
+            </p>
           </div>
+        </div>
 
-          {/* Features */}
+        {/* Right - Sticky Booking Card */}
+        <div
+          style={{
+            position: 'sticky',
+            top: '120px',
+            backgroundColor: '#f3efea',
+            borderRadius: '24px',
+            padding: '32px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '24px',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+          }}
+        >
+          {/* Features Section */}
           {room.features && room.features.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold text-primary-dark mb-4">Özellikler</h3>
-              <div className="grid grid-cols-2 gap-3">
+              <p
+                style={{
+                  fontSize: '12px',
+                  fontWeight: '600',
+                  color: '#a67c52',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  margin: '0 0 16px 0',
+                }}
+              >
+                Oda Özellikleri
+              </p>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: '12px 16px',
+                }}
+              >
                 {room.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary-accent"></div>
-                    <span className="text-gray-700">{feature}</span>
+                  <div
+                    key={idx}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: '14px',
+                        fontWeight: 'bold',
+                        color: '#a67c52',
+                        flexShrink: 0,
+                      }}
+                    >
+                      ✓
+                    </span>
+                    <span
+                      style={{
+                        fontSize: '13px',
+                        color: '#555',
+                        lineHeight: '1.4',
+                      }}
+                    >
+                      {feature}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
           )}
-        </div>
 
-        {/* Booking Card */}
-        <div className="md:col-span-1">
-          <div className="sticky top-24 bg-primary-dark rounded-2xl p-8 text-white space-y-6">
-            <div>
-              <p className="text-primary-accent text-sm font-semibold mb-2">Oda Ücreti</p>
-              <p className="text-4xl font-bold">₺{room.price}</p>
-              <p className="text-sm text-primary-light/80">Gece başına</p>
-            </div>
+          {/* Divider */}
+          <div style={{ height: '1px', backgroundColor: '#e5d4c4' }} />
 
-            <div className="border-t border-primary-accent/20 pt-6 space-y-4">
-              <div className="flex items-center justify-between">
-                <span>Kapasite:</span>
-                <span className="font-semibold">{room.maxGuests} Kişi</span>
-              </div>
-            </div>
+          {/* Booking Button */}
+          <Button
+            variant="primary"
+            size="lg"
+            onClick={handleBookNow}
+            style={{ width: '100%' }}
+          >
+            Şimdi Rezervasyon Yap
+          </Button>
 
-            <Button
-              variant="primary"
-              size="lg"
-              className="w-full"
-              onClick={handleBookNow}
-            >
-              Şimdi Rezervasyon Yap
-            </Button>
-
-            <p className="text-xs text-primary-light/80 text-center">
-              Ödeme sayfasında tüm ödeme yöntemlerini göreceksiniz
-            </p>
-          </div>
+          {/* Payment Note */}
+          <p
+            style={{
+              fontSize: '12px',
+              color: '#999',
+              textAlign: 'center',
+              margin: 0,
+            }}
+          >
+            Ödeme sayfasında tüm ödeme yöntemlerini göreceksiniz
+          </p>
         </div>
       </div>
+
+      {/* Responsive Styles */}
+      <style>{`
+        @media (max-width: 1024px) {
+          .room-grid {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+          }
+          .room-grid > div:first-child {
+            grid-row: 1 / 3;
+          }
+        }
+        @media (max-width: 768px) {
+          .room-layout {
+            grid-template-columns: 1fr !important;
+          }
+          .booking-card {
+            position: static !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

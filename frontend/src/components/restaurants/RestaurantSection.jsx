@@ -182,32 +182,24 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
 
   return (
     <div
+      className="restaurant-section"
       style={{
         display: 'flex',
         flexDirection: reversed ? 'row-reverse' : 'row',
         gap: '64px',
         alignItems: 'center',
         marginBottom: '120px',
-        // Responsive: stack on mobile
       }}
     >
       {/* For smaller screens, use flexbox with media query */}
       <style>{`
         @media (max-width: 768px) {
           .restaurant-section {
-            display: flex !important;
             flex-direction: column !important;
             gap: 32px !important;
-            grid-template-columns: unset !important;
             margin-bottom: 48px !important;
           }
-          .restaurant-text {
-            order: ${reversed ? 2 : 1} !important;
-          }
           .restaurant-images {
-            order: ${reversed ? 1 : 2} !important;
-          }
-          .restaurant-image-grid {
             min-height: 400px !important;
           }
         }

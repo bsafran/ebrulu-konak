@@ -63,7 +63,7 @@ const RoomCard = ({ room, onClick }) => {
 
         {/* Explore Button - Show on hover */}
         <Link
-          to={`/rooms/${room.id}`}
+          to={`/rooms/${room.slug}`}
           style={{
             position: 'absolute',
             inset: 0,

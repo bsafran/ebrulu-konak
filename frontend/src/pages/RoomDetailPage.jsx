@@ -10,7 +10,7 @@ const RoomDetailPage = () => {
   const { id } = useParams();
   const { data, loading, error } = useApi(() => getRoomById(id), [id]);
 
-  const room = data?.data ? formatRoomData(data.data) : null;
+  const room = data?.data && data.data.length > 0 ? formatRoomData(data.data[0]) : null;
 
   return (
     <Layout>

@@ -25,12 +25,13 @@ export const getRooms = async () => {
   }
 };
 
-export const getRoomById = async (id) => {
+export const getRoomById = async (slugOrId) => {
   try {
-    const response = await api.get(`/rooms/${id}?populate=${POPULATE}`);
+    // Support both slug and documentId/id for backwards compatibility
+    const response = await api.get(`/rooms?filters[slug][$eq]=${slugOrId}&populate=${POPULATE}`);
     return response.data;
   } catch (error) {
-    console.error(`Error fetching room ${id}:`, error);
+    console.error(`Error fetching room ${slugOrId}:`, error);
     throw error;
   }
 };
@@ -137,6 +138,8 @@ export const formatRoomData = (room) => {
 
   return {
     id: room.id,
+    documentId: room.documentId,
+    slug: data.slug,
     title: data.title,
     description: data.description,
     price: data.price,
@@ -174,6 +177,7 @@ export const formatRestaurantData = (restaurant) => {
 
   return {
     id: restaurant.id,
+    documentId: restaurant.documentId,
     name: data.name,
     description: data.description,
     cuisine: data.cuisine,

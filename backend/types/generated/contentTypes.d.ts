@@ -564,8 +564,6 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
   };
   options: {
     draftAndPublish: true;
-    increments: true;
-    timestamps: true;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -584,6 +582,9 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::reservation.reservation'
     >;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
