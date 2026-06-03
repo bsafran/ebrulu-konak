@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { FiArrowUpRight } from 'react-icons/fi';
 
+const stripHtml = (html) => html?.replace(/<[^>]*>/g, '') || '';
+
 const RoomCard = ({ room }) => {
   const firstImage = room.images?.[0];
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
   const imageUrl = firstImage?.url || fallbackImage;
+  const description = stripHtml(room.description) || 'Konforlu ve modern tasarımlı oda';
 
   return (
     <Link to={`/rooms/${room.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
@@ -88,9 +91,9 @@ const RoomCard = ({ room }) => {
           padding: 16px 4px 8px;
         }
         .room-card .content h3 {
-          font-size: 22px;
+          font-size: 28px;
           font-weight: 700;
-          color: #1a1a1a;
+          color: #9c714b;
           margin: 0 0 8px 0;
         }
         .room-card .content p {
@@ -139,7 +142,7 @@ const RoomCard = ({ room }) => {
 
         <div className="content">
           <h3>{room.title}</h3>
-          <p>{room.description || 'Konforlu ve modern tasarımlı oda'}</p>
+          <p>{description}</p>
           {room.features && room.features.length > 0 && (
             <ul>
               {room.features.slice(0, 3).map((feature, idx) => (
