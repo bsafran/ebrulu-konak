@@ -35,13 +35,13 @@ const BookingStrip = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-primary-dark/95 to-primary-dark/85 py-8 -mt-12 relative z-10">
+    <div className="bg-primary-dark py-8 -mt-12 relative z-10">
       <div className="container-custom">
-        <div className="glass-effect p-8 md:p-6">
+        <div className="bg-white/95 p-8 md:p-6 rounded-lg">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
             {/* Check-in Date */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold text-primary-gold mb-2">
+              <label className="text-sm font-semibold text-primary-accent mb-2">
                 Giriş Tarihi
               </label>
               <DatePicker
@@ -50,13 +50,13 @@ const BookingStrip = () => {
                 dateFormat="dd/MM/yyyy"
                 minDate={new Date()}
                 placeholderText="Giriş Tarihi"
-                className="w-full px-4 py-2 border border-primary-gold/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-gold"
+                className="w-full px-4 py-2 border border-primary-accent/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-accent"
               />
             </div>
 
             {/* Check-out Date */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold text-primary-gold mb-2">
+              <label className="text-sm font-semibold text-primary-accent mb-2">
                 Çıkış Tarihi
               </label>
               <DatePicker
@@ -65,19 +65,19 @@ const BookingStrip = () => {
                 dateFormat="dd/MM/yyyy"
                 minDate={checkIn || new Date()}
                 placeholderText="Çıkış Tarihi"
-                className="w-full px-4 py-2 border border-primary-gold/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-gold"
+                className="w-full px-4 py-2 border border-primary-accent/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-accent"
               />
             </div>
 
             {/* Guests */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold text-primary-gold mb-2">
+              <label className="text-sm font-semibold text-primary-accent mb-2">
                 Misafir Sayısı
               </label>
               <select
                 value={guests}
                 onChange={handleGuestsChange}
-                className="w-full px-4 py-2 border border-primary-gold/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-gold"
+                className="w-full px-4 py-2 border border-primary-accent/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-accent"
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                   <option key={num} value={num}>

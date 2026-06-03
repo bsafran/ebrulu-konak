@@ -4,23 +4,20 @@ const Card = ({
   children,
   className = '',
   onClick,
-  glassmorphism = false,
   hover = true,
   ...props
 }) => {
-  const baseStyles = 'rounded-2xl p-6 shadow-lg transition-all duration-300';
+  const baseStyles = 'rounded-lg p-6 bg-white transition-all duration-200';
 
-  const glassStyles = glassmorphism
-    ? 'glass-effect'
-    : 'bg-white border border-gray-100';
+  const borderStyles = 'border border-gray-200';
 
   const hoverStyles = hover
-    ? 'hover:shadow-xl hover:scale-105 cursor-pointer'
+    ? 'hover:shadow-md cursor-pointer'
     : '';
 
   return (
     <div
-      className={`${baseStyles} ${glassStyles} ${hoverStyles} ${className}`}
+      className={`${baseStyles} ${borderStyles} ${hoverStyles} ${className}`}
       onClick={onClick}
       {...props}
     >

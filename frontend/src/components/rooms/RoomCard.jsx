@@ -38,7 +38,7 @@ const RoomCard = ({ room, onClick }) => {
               {room.features.slice(0, 3).map((feature, idx) => (
                 <span
                   key={idx}
-                  className="text-xs bg-primary-gold/20 text-primary-gold px-3 py-1 rounded-full"
+                  className="text-xs bg-primary-accent/20 text-primary-accent px-3 py-1 rounded-full"
                 >
                   {feature}
                 </span>
@@ -48,7 +48,7 @@ const RoomCard = ({ room, onClick }) => {
 
           {/* Footer */}
           <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-            <div className="text-3xl font-bold text-primary-gold">₺{room.price}</div>
+            <div className="text-3xl font-bold text-primary-accent">₺{room.price}</div>
             <div className="text-right">
               <p className="text-xs text-gray-500">Kapasite</p>
               <p className="text-lg font-semibold text-primary-dark">{room.maxGuests} Kişi</p>

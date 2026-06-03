@@ -35,7 +35,7 @@ const RoomList = () => {
               onClick={() => setFilterPrice(filter.value)}
               className={`px-4 py-2 rounded-lg font-medium transition-all ${
                 filterPrice === filter.value
-                  ? 'bg-primary-gold text-primary-dark'
+                  ? 'bg-primary-accent text-primary-dark'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
               }`}
             >

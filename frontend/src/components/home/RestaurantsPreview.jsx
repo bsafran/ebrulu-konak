@@ -47,7 +47,7 @@ const RestaurantsPreview = () => {
                                 className="w-full h-full object-cover"
                               />
                             ) : (
-                              <div className="w-full h-full bg-gradient-to-br from-primary-gold to-primary-dark flex items-center justify-center">
+                              <div className="w-full h-full bg-primary-light flex items-center justify-center">
                                 <span className="text-white text-2xl">🍽️</span>
                               </div>
                             )}
@@ -59,7 +59,7 @@ const RestaurantsPreview = () => {
                         {formattedRes.name}
                       </h3>
                       <p className="text-gray-600 text-sm mb-4">
-                        <span className="font-semibold text-primary-gold">{formattedRes.cuisine}</span> Mutfağı
+                        <span className="font-semibold text-primary-accent">{formattedRes.cuisine}</span> Mutfağı
                       </p>
                       <p className="text-gray-600 text-sm line-clamp-2 mb-4">
                         {formattedRes.description || 'Özel şef hizmetleriyle sunulan lezzetli yemekler'}

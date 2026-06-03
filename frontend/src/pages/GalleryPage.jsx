@@ -46,7 +46,7 @@ const GalleryPage = () => {
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   ) : (
-                    <div className="w-full h-48 bg-gradient-to-br from-primary-gold to-primary-dark flex items-center justify-center">
+                    <div className="w-full h-48 bg-primary-light flex items-center justify-center">
                       <span className="text-white text-4xl">📷</span>
                     </div>
                   )}

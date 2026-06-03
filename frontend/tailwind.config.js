@@ -25,13 +25,9 @@ export default {
         700: '#b91c1c',
       },
       primary: {
-        dark: '#23180c',
-        light: '#ece6d8',
-        gold: '#d7c2a0',
-      },
-      wood: {
-        light: '#8a7a61',
-        dark: '#8b6a42',
+        dark: '#6a3613',
+        light: '#f5f1ed',
+        accent: '#a67c52',
       },
     },
     extend: {

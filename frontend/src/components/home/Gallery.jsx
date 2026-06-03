@@ -11,7 +11,7 @@ const Gallery = () => {
   const galleryItems = data?.data?.slice(0, 8) || [];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-primary-light">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary-dark mb-4">Galeri</h2>
@@ -46,7 +46,7 @@ const Gallery = () => {
                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                     ) : (
-                      <div className="w-full h-48 bg-gradient-to-br from-primary-gold to-primary-dark flex items-center justify-center">
+                      <div className="w-full h-48 bg-primary-light flex items-center justify-center">
                         <span className="text-white text-4xl">📷</span>
                       </div>
                     )}

@@ -40,11 +40,11 @@ const Footer = () => {
             const Icon = item.icon;
             return (
               <div key={index} className="flex items-start gap-4">
-                <Icon className="w-6 h-6 text-primary-gold flex-shrink-0 mt-1" />
+                <Icon className="w-6 h-6 text-primary-accent flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-primary-gold mb-2">{item.title}</h3>
+                  <h3 className="font-semibold text-primary-accent mb-2">{item.title}</h3>
                   {item.link ? (
-                    <a href={item.link} className="hover:text-primary-gold transition-colors">
+                    <a href={item.link} className="hover:text-primary-accent transition-colors">
                       {item.content}
                     </a>
                   ) : (
@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-primary-gold to-transparent my-8"></div>
+        <div className="h-px bg-primary-accent/30 my-8"></div>
 
         {/* Social Media and Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -70,7 +70,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-light hover:text-primary-gold transition-colors duration-200"
+                  className="text-primary-light hover:text-primary-accent transition-colors duration-200"
                   aria-label={social.label}
                 >
                   <Icon className="w-6 h-6" />

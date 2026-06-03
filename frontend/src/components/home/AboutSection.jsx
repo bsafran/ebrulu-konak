@@ -10,7 +10,7 @@ const AboutSection = ({ title = 'Hakkımızda', description = '' }) => {
             <img
               src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop"
               alt="Ebrulu Konak"
-              className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-96 object-cover"
             />
           </div>
 
@@ -39,7 +39,7 @@ const AboutSection = ({ title = 'Hakkımızda', description = '' }) => {
                   key={index}
                   className="flex items-center gap-2 text-gray-700 font-medium"
                 >
-                  <div className="w-3 h-3 rounded-full bg-primary-gold"></div>
+                  <div className="w-3 h-3 rounded-full bg-primary-accent"></div>
                   {feature}
                 </div>
               ))}

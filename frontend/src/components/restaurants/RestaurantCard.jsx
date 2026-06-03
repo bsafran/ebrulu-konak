@@ -19,7 +19,7 @@ const RestaurantCard = ({ restaurant }) => {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-primary-gold to-primary-dark flex items-center justify-center">
+                <div className="w-full h-full bg-primary-light flex items-center justify-center">
                   <span className="text-white text-xl">🍽️</span>
                 </div>
               )}
@@ -30,7 +30,7 @@ const RestaurantCard = ({ restaurant }) => {
         {/* Content */}
         <div className="space-y-2">
           <h3 className="text-xl font-bold text-primary-dark">{restaurant.name}</h3>
-          <p className="text-sm text-primary-gold font-semibold">{restaurant.cuisine} Mutfağı</p>
+          <p className="text-sm text-primary-accent font-semibold">{restaurant.cuisine} Mutfağı</p>
           <p className="text-gray-600 text-sm line-clamp-2">
             {restaurant.description || 'Özel şef hizmetleriyle sunulan lezzetli yemekler'}
           </p>

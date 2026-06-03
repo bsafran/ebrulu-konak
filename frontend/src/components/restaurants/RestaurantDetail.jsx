@@ -65,7 +65,7 @@ const RestaurantDetail = ({ restaurant, loading }) => {
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
                   className={`flex-shrink-0 h-20 w-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    idx === currentImageIndex ? 'border-primary-gold' : 'border-transparent'
+                    idx === currentImageIndex ? 'border-primary-accent' : 'border-transparent'
                   }`}
                 >
                   <img src={img.url} alt={img.alt} className="w-full h-full object-cover" />
@@ -82,7 +82,7 @@ const RestaurantDetail = ({ restaurant, loading }) => {
         <div className="md:col-span-2 space-y-8">
           <div>
             <h1 className="text-4xl font-bold text-primary-dark mb-2">{restaurant.name}</h1>
-            <p className="text-primary-gold font-semibold text-lg mb-4">
+            <p className="text-primary-accent font-semibold text-lg mb-4">
               {restaurant.cuisine} Mutfağı
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">{restaurant.description}</p>
@@ -102,7 +102,7 @@ const RestaurantDetail = ({ restaurant, loading }) => {
                 href={restaurant.menu}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary-gold text-primary-dark px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+                className="inline-flex items-center gap-2 bg-primary-accent text-primary-dark px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
               >
                 📄 Menüyü İndir
               </a>
@@ -114,7 +114,7 @@ const RestaurantDetail = ({ restaurant, loading }) => {
         <div className="md:col-span-1">
           <div className="sticky top-24 bg-primary-dark rounded-2xl p-8 text-white space-y-6">
             <div>
-              <p className="text-primary-gold text-sm font-semibold mb-2">Bilgiler</p>
+              <p className="text-primary-accent text-sm font-semibold mb-2">Bilgiler</p>
               <div className="space-y-3">
                 <div>
                   <p className="text-primary-light/80 text-sm">Tür</p>

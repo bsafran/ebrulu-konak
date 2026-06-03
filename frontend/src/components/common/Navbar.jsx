@@ -27,7 +27,7 @@ const Navbar = ({ transparent = false }) => {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-gold to-primary-dark flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
                 <span className="text-white font-bold text-lg">E</span>
               </div>
               <span className={`text-xl font-bold hidden sm:inline ${logoTextClasses}`}>Ebrulu Konak</span>
@@ -72,7 +72,7 @@ const Navbar = ({ transparent = false }) => {
             <Link
               key={link.path}
               to={link.path}
-              className="text-white hover:text-primary-gold hover:bg-white/10 transition-all py-3 px-4 rounded-lg font-medium border-l-2 border-transparent hover:border-primary-gold"
+              className="text-white hover:text-primary-accent hover:bg-white/10 transition-all py-3 px-4 rounded-lg font-medium border-l-2 border-transparent hover:border-primary-accent"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
@@ -83,7 +83,7 @@ const Navbar = ({ transparent = false }) => {
 
           <Link
             to="/reservation"
-            className="bg-primary-gold text-primary-dark px-4 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all text-center"
+            className="bg-primary-accent text-primary-dark px-4 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all text-center"
             onClick={() => setIsOpen(false)}
           >
             Rezervasyon Yap

@@ -17,11 +17,11 @@ const RoomDetailPage = () => {
       <div className="container-custom py-16">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 mb-8 text-sm">
-          <Link to="/" className="text-primary-gold hover:underline">
+          <Link to="/" className="text-primary-accent hover:underline">
             Ana Sayfa
           </Link>
           <span className="text-gray-400">/</span>
-          <Link to="/rooms" className="text-primary-gold hover:underline">
+          <Link to="/rooms" className="text-primary-accent hover:underline">
             Odalar
           </Link>
           <span className="text-gray-400">/</span>
@@ -31,7 +31,7 @@ const RoomDetailPage = () => {
         {error ? (
           <div className="text-center py-12">
             <p className="text-red-600 font-semibold mb-4">Oda yüklenemedi</p>
-            <Link to="/rooms" className="text-primary-gold hover:underline">
+            <Link to="/rooms" className="text-primary-accent hover:underline">
               Odalar sayfasına dön
             </Link>
           </div>

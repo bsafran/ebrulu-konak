@@ -13,7 +13,7 @@ const RoomsPreview = () => {
   const rooms = data?.data?.slice(0, 3) || [];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 bg-primary-light">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary-dark mb-4">Odalarımız</h2>
@@ -37,7 +37,7 @@ const RoomsPreview = () => {
 
                 return (
                   <Link key={room.id} to={`/rooms/${room.id}`}>
-                    <Card hover glassmorphism>
+                    <Card hover>
                       {/* Image */}
                       <img
                         src={firstImage?.url || fallbackImage}
@@ -55,10 +55,10 @@ const RoomsPreview = () => {
 
                       {/* Price */}
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-primary-gold">
+                        <span className="text-2xl font-bold text-primary-accent">
                           ₺{formattedRoom.price}
                         </span>
-                        <span className="text-sm bg-primary-gold/20 text-primary-gold px-3 py-1 rounded-full">
+                        <span className="text-sm bg-primary-accent/20 text-primary-accent px-3 py-1 rounded-full">
                           {formattedRoom.maxGuests} Kişi
                         </span>
                       </div>

@@ -17,7 +17,7 @@ const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle
           <source src={videoUrl} type="video/mp4" />
         </video>
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark to-primary-gold"></div>
+        <div className="absolute inset-0 bg-primary-dark"></div>
       )}
 
       {/* Overlay */}
@@ -35,7 +35,7 @@ const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle
           <div className="pt-8 space-x-4">
             <Link
               to="/rooms"
-              className="inline-block bg-primary-gold text-primary-dark px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition-all duration-200 hover:scale-105"
+              className="inline-block bg-primary-accent text-primary-dark px-8 py-4 rounded-lg font-semibold hover:bg-opacity-80 transition-all duration-200"
             >
               Odaları Keşfet
             </Link>
@@ -49,8 +49,8 @@ const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 animate-bounce">
-          <FiChevronDown className="w-8 h-8 text-white" />
+        <div className="absolute bottom-8">
+          <FiChevronDown className="w-8 h-8 text-white opacity-70" />
         </div>
       </div>
     </div>

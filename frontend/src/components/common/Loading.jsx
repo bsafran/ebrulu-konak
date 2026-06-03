@@ -4,9 +4,9 @@ const Loading = ({ fullScreen = false, text = 'Yükleniyor...' }) => {
   const spinnerContent = (
     <div className="flex flex-col items-center justify-center gap-4">
       <div className="relative w-12 h-12">
-        <div className="absolute inset-0 rounded-full border-4 border-primary-light border-t-primary-gold animate-spin"></div>
+        <div className="absolute inset-0 rounded-full border-4 border-primary-light border-t-primary-accent animate-spin"></div>
       </div>
-      {text && <p className="text-primary-gold font-semibold">{text}</p>}
+      {text && <p className="text-primary-accent font-semibold">{text}</p>}
     </div>
   );
 

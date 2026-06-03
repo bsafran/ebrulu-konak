@@ -102,7 +102,7 @@ const ReservationPage = () => {
             {/* Reservation Summary */}
             <div className="md:col-span-1">
               <div className="sticky top-24 bg-primary-dark rounded-2xl p-6 text-white space-y-4">
-                <h3 className="text-xl font-bold text-primary-gold">Rezervasyon Özeti</h3>
+                <h3 className="text-xl font-bold text-primary-accent">Rezervasyon Özeti</h3>
 
                 {booking.checkIn && (
                   <div>
@@ -130,10 +130,10 @@ const ReservationPage = () => {
                 )}
 
                 {booking.selectedRoom && (
-                  <div className="border-t border-primary-gold/20 pt-4">
+                  <div className="border-t border-primary-accent/20 pt-4">
                     <p className="text-primary-light/80 text-sm">Seçilen Oda</p>
                     <p className="font-semibold">{booking.selectedRoom.title}</p>
-                    <p className="text-primary-gold text-xl mt-2">₺{booking.selectedRoom.price}</p>
+                    <p className="text-primary-accent text-xl mt-2">₺{booking.selectedRoom.price}</p>
                   </div>
                 )}
               </div>
@@ -156,7 +156,7 @@ const ReservationPage = () => {
                   <input
                     {...register('fullName')}
                     type="text"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-accent"
                     placeholder="Ad Soyad"
                   />
                   {errors.fullName && (
@@ -172,7 +172,7 @@ const ReservationPage = () => {
                   <input
                     {...register('email')}
                     type="email"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-accent"
                     placeholder="email@example.com"
                   />
                   {errors.email && (
@@ -188,7 +188,7 @@ const ReservationPage = () => {
                   <input
                     {...register('phone')}
                     type="tel"
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-accent"
                     placeholder="+90 5XX XXX XXXX"
                   />
                   {errors.phone && (
@@ -203,7 +203,7 @@ const ReservationPage = () => {
                   </label>
                   <textarea
                     {...register('specialRequests')}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-accent"
                     placeholder="Varsa özel isteklerinizi yazınız..."
                     rows="4"
                   />

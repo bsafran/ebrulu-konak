@@ -87,7 +87,7 @@ const RoomDetail = ({ room, loading }) => {
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
                   className={`flex-shrink-0 h-20 w-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    idx === currentImageIndex ? 'border-primary-gold' : 'border-transparent'
+                    idx === currentImageIndex ? 'border-primary-accent' : 'border-transparent'
                   }`}
                 >
                   <img src={img.url} alt={img.alt} className="w-full h-full object-cover" />
@@ -114,7 +114,7 @@ const RoomDetail = ({ room, loading }) => {
               <div className="grid grid-cols-2 gap-3">
                 {room.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-primary-gold"></div>
+                    <div className="w-2 h-2 rounded-full bg-primary-accent"></div>
                     <span className="text-gray-700">{feature}</span>
                   </div>
                 ))}
@@ -127,12 +127,12 @@ const RoomDetail = ({ room, loading }) => {
         <div className="md:col-span-1">
           <div className="sticky top-24 bg-primary-dark rounded-2xl p-8 text-white space-y-6">
             <div>
-              <p className="text-primary-gold text-sm font-semibold mb-2">Oda Ücreti</p>
+              <p className="text-primary-accent text-sm font-semibold mb-2">Oda Ücreti</p>
               <p className="text-4xl font-bold">₺{room.price}</p>
               <p className="text-sm text-primary-light/80">Gece başına</p>
             </div>
 
-            <div className="border-t border-primary-gold/20 pt-6 space-y-4">
+            <div className="border-t border-primary-accent/20 pt-6 space-y-4">
               <div className="flex items-center justify-between">
                 <span>Kapasite:</span>
                 <span className="font-semibold">{room.maxGuests} Kişi</span>
