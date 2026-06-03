@@ -54,9 +54,12 @@ const Navbar = ({ transparent = false }) => {
       {/* Backdrop Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-30 transition-opacity"
+          className="fixed inset-0 z-30 transition-opacity"
           onClick={() => setIsOpen(false)}
-          style={{ top: transparent ? '80px' : '0' }}
+          style={{
+            top: transparent ? '80px' : '0',
+            backgroundColor: 'rgba(0, 0, 0, 0.7)'
+          }}
         />
       )}
 
@@ -67,19 +70,25 @@ const Navbar = ({ transparent = false }) => {
         }`}
         style={{ paddingTop: transparent ? '80px' : '0' }}
       >
-        {/* Menu Header */}
-        <div className="px-6 py-8 border-b border-white/10">
-          <h2 className="text-2xl font-light tracking-wide">Menu</h2>
-        </div>
-
         {/* Menu Items */}
-        <div className="flex-1 overflow-y-auto px-4 py-6">
-          <div className="flex flex-col gap-1">
+        <div className="flex-1 overflow-y-auto px-4 py-8">
+          <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-white/90 hover:text-primary-accent transition-colors py-4 px-4 rounded-lg font-light text-lg hover:bg-white/5"
+                className="text-white/80 transition-all py-4 px-4 rounded-lg font-light text-lg"
+                style={{
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#9c714b';
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
+                }}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
