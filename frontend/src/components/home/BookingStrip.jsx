@@ -57,33 +57,25 @@ const BookingStrip = () => {
     color: '#f5f1ed',
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
-    marginBottom: '8px',
     display: 'block',
   };
 
   const inputContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
-    height: '100%',
+    gap: '8px',
   };
 
   const inputWrapperStyle = {
     position: 'relative',
     height: '40px',
-    marginBottom: '20px',
-    display: 'flex',
-    flexDirection: 'column',
   };
 
   const errorStyle = {
-    position: 'absolute',
-    top: 'calc(100% + 4px)',
-    left: 0,
     fontSize: '11px',
     color: '#ffb3ba',
     fontWeight: '500',
     minHeight: '16px',
-    whiteSpace: 'nowrap',
   };
 
   return (
