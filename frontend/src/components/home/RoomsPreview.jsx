@@ -13,18 +13,26 @@ const RoomsPreview = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const allRooms = data?.data || [];
-  // Duplicate rooms if less than 6
-  const displayRooms = allRooms.length > 0 ?
-    [...allRooms, ...allRooms].slice(0, 6) : [];
-
   const itemsPerPage = 3;
+
+  // Create display rooms by duplicating to ensure at least 6 items
+  let displayRooms = allRooms;
+  if (allRooms.length > 0) {
+    while (displayRooms.length < 6) {
+      displayRooms = [...displayRooms, ...allRooms];
+    }
+    displayRooms = displayRooms.slice(0, 6);
+  }
+
   const maxIndex = Math.max(0, displayRooms.length - itemsPerPage);
 
   const handlePrev = () => {
+    if (maxIndex === 0) return; // No carousel needed
     setCurrentIndex(prev => prev === 0 ? maxIndex : prev - 1);
   };
 
   const handleNext = () => {
+    if (maxIndex === 0) return; // No carousel needed
     setCurrentIndex(prev => prev === maxIndex ? 0 : prev + 1);
   };
 
@@ -53,8 +61,14 @@ const RoomsPreview = () => {
               {/* Left Arrow */}
               <button
                 onClick={handlePrev}
+                disabled={maxIndex === 0}
                 className="p-3 rounded-full transition-all"
-                style={{ backgroundColor: '#9c714b', color: 'white' }}
+                style={{
+                  backgroundColor: '#9c714b',
+                  color: 'white',
+                  opacity: maxIndex === 0 ? 0.5 : 1,
+                  cursor: maxIndex === 0 ? 'not-allowed' : 'pointer',
+                }}
                 aria-label="Önceki"
               >
                 <FiChevronLeft className="w-6 h-6" />
@@ -104,8 +118,14 @@ const RoomsPreview = () => {
               {/* Right Arrow */}
               <button
                 onClick={handleNext}
+                disabled={maxIndex === 0}
                 className="p-3 rounded-full transition-all"
-                style={{ backgroundColor: '#9c714b', color: 'white' }}
+                style={{
+                  backgroundColor: '#9c714b',
+                  color: 'white',
+                  opacity: maxIndex === 0 ? 0.5 : 1,
+                  cursor: maxIndex === 0 ? 'not-allowed' : 'pointer',
+                }}
                 aria-label="Sonraki"
               >
                 <FiChevronRight className="w-6 h-6" />

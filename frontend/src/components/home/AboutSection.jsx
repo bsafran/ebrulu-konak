@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutSection = ({ title = 'Hakkımızda', description = '' }) => {
   return (
-    <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
+    <section className="py-20 bg-white">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Image */}
