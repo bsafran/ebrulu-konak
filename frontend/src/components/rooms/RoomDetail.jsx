@@ -34,75 +34,118 @@ const RoomDetail = ({ room, loading }) => {
       {/* Image Grid - Airbnb style */}
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: '2fr 1fr',
-          gridTemplateRows: '1fr 1fr',
+          display: 'flex',
+          flexDirection: 'column',
           gap: '24px',
-          minHeight: '500px',
-          borderRadius: '24px',
-          overflow: 'hidden',
         }}
       >
-        {/* Left - Big Image */}
+        {/* Main 3 Images Grid */}
         <div
           style={{
-            gridRow: '1 / 3',
-            borderRadius: '16px',
+            display: 'grid',
+            gridTemplateColumns: '2fr 1fr',
+            gridTemplateRows: '1fr 1fr',
+            gap: '24px',
+            minHeight: '500px',
+            borderRadius: '24px',
             overflow: 'hidden',
-            backgroundColor: '#f3efea',
           }}
         >
-          <img
-            src={images[0]?.url || fallbackImage}
-            alt={images[0]?.alt || 'Room'}
+          {/* Left - Big Image */}
+          <div
             style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
+              gridRow: '1 / 3',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              backgroundColor: '#f3efea',
             }}
-          />
+          >
+            <img
+              src={images[0]?.url || fallbackImage}
+              alt={images[0]?.alt || 'Room'}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+          </div>
+
+          {/* Right Top */}
+          <div
+            style={{
+              borderRadius: '16px',
+              overflow: 'hidden',
+              backgroundColor: '#f3efea',
+            }}
+          >
+            <img
+              src={images[1]?.url || fallbackImage}
+              alt={images[1]?.alt || 'Room'}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+          </div>
+
+          {/* Right Bottom */}
+          <div
+            style={{
+              borderRadius: '16px',
+              overflow: 'hidden',
+              backgroundColor: '#f3efea',
+            }}
+          >
+            <img
+              src={images[2]?.url || fallbackImage}
+              alt={images[2]?.alt || 'Room'}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+          </div>
         </div>
 
-        {/* Right Top */}
-        <div
-          style={{
-            borderRadius: '16px',
-            overflow: 'hidden',
-            backgroundColor: '#f3efea',
-          }}
-        >
-          <img
-            src={images[1]?.url || fallbackImage}
-            alt={images[1]?.alt || 'Room'}
+        {/* Additional Images Gallery */}
+        {images.length > 3 && (
+          <div
             style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+              gap: '16px',
             }}
-          />
-        </div>
-
-        {/* Right Bottom */}
-        <div
-          style={{
-            borderRadius: '16px',
-            overflow: 'hidden',
-            backgroundColor: '#f3efea',
-          }}
-        >
-          <img
-            src={images[2]?.url || fallbackImage}
-            alt={images[2]?.alt || 'Room'}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-            }}
-          />
-        </div>
+          >
+            {images.slice(3).map((image, idx) => (
+              <div
+                key={idx + 3}
+                style={{
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  backgroundColor: '#f3efea',
+                  aspectRatio: '1',
+                }}
+              >
+                <img
+                  src={image?.url || fallbackImage}
+                  alt={image?.alt || 'Room'}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Content Section - 2 Col Layout */}
