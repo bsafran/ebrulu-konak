@@ -8,10 +8,12 @@ import RoomsPreview from '../components/home/RoomsPreview';
 import RestaurantsPreview from '../components/home/RestaurantsPreview';
 import Gallery from '../components/home/Gallery';
 import useApi from '../hooks/useApi';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 import { getSiteSettings, getMediaUrl } from '../services/strapiService';
 
 const HomePage = () => {
+  useScrollRestoration();
   const { data: siteSettings } = useApi(() => getSiteSettings());
 
   const heroVideo = siteSettings?.data?.heroVideo?.url

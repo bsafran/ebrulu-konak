@@ -1,9 +1,10 @@
 import Layout from '../components/common/Layout';
 import PageHeader from '../components/common/PageHeader';
 import { FiAward, FiUsers, FiTrendingUp, FiHeart } from 'react-icons/fi';
-
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const CorporatePage = () => {
+  useScrollRestoration();
   const hotelImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
 
   const values = [

@@ -4,10 +4,12 @@ import PageHeader from '../components/common/PageHeader';
 import RestaurantSection from '../components/restaurants/RestaurantSection';
 import Loading from '../components/common/Loading';
 import useApi from '../hooks/useApi';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 import { getRestaurants, formatRestaurantData } from '../services/strapiService';
 
 const RestaurantsPage = () => {
+  useScrollRestoration();
   const { data, loading, error } = useApi(() => getRestaurants());
 
   const restaurants = useMemo(() => {

@@ -4,10 +4,12 @@ import PageHeader from '../components/common/PageHeader';
 import Loading from '../components/common/Loading';
 import Lightbox from '../components/common/Lightbox';
 import useApi from '../hooks/useApi';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 import { getGallery, getMediaUrl } from '../services/strapiService';
 
 const GalleryPage = () => {
+  useScrollRestoration();
   const { data, loading, error } = useApi(() => getGallery());
   const [selectedIndex, setSelectedIndex] = useState(null);
 

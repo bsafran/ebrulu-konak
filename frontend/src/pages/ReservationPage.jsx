@@ -8,6 +8,7 @@ import PageHeader from '../components/common/PageHeader';
 import Button from '../components/common/Button';
 import Loading from '../components/common/Loading';
 import { useBooking } from '../context/BookingContext';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 import { createReservation, getRooms, formatRoomData } from '../services/strapiService';
 import useApi from '../hooks/useApi';
@@ -21,6 +22,7 @@ const ReservationSchema = yup.object({
 });
 
 const ReservationPage = () => {
+  useScrollRestoration();
   const { booking, updateBooking, reservationForm, updateReservationForm } = useBooking();
   const { data: roomsData, loading: roomsLoading } = useApi(() => getRooms());
 

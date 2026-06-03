@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, ScrollRestoration } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BookingProvider } from './context/BookingContext';
 import { ToastProvider } from './context/ToastContext';
 import ErrorBoundary from './components/common/ErrorBoundary';
@@ -21,7 +21,6 @@ function App() {
       <ToastProvider>
         <BookingProvider>
           <Router>
-            <ScrollRestoration />
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/rooms" element={<RoomsPage />} />

@@ -1,9 +1,10 @@
 import Layout from '../components/common/Layout';
 import PageHeader from '../components/common/PageHeader';
 import RoomList from '../components/rooms/RoomList';
-
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const RoomsPage = () => {
+  useScrollRestoration();
   return (
     <Layout>
       <div className="container-custom py-16">
