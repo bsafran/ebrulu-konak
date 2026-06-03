@@ -10,7 +10,7 @@ export const getSiteSettings = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching site settings:', error);
-    throw error;
+    throw new Error('Site ayarları yüklenemedi. Lütfen daha sonra tekrar deneyin.');
   }
 };
 
@@ -21,7 +21,7 @@ export const getRooms = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching rooms:', error);
-    throw error;
+    throw new Error('Odalar yüklenemedi. Lütfen daha sonra tekrar deneyin.');
   }
 };
 
@@ -32,7 +32,7 @@ export const getRoomById = async (slugOrId) => {
     return response.data;
   } catch (error) {
     console.error(`Error fetching room ${slugOrId}:`, error);
-    throw error;
+    throw new Error('Oda bilgileri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
   }
 };
 
@@ -43,7 +43,7 @@ export const getRestaurants = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching restaurants:', error);
-    throw error;
+    throw new Error('Restoranlar yüklenemedi. Lütfen daha sonra tekrar deneyin.');
   }
 };
 
@@ -64,7 +64,7 @@ export const getGallery = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching gallery:', error);
-    throw error;
+    throw new Error('Galeri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
   }
 };
 
@@ -77,7 +77,7 @@ export const createReservation = async (reservationData) => {
     return response.data;
   } catch (error) {
     console.error('Error creating reservation:', error);
-    throw error;
+    throw new Error('Rezervasyon oluşturulamadı. Lütfen daha sonra tekrar deneyin.');
   }
 };
 
@@ -87,7 +87,7 @@ export const getReservations = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching reservations:', error);
-    throw error;
+    throw new Error('Rezervasyonlar yüklenemedi. Lütfen daha sonra tekrar deneyin.');
   }
 };
 

@@ -31,6 +31,31 @@ export default {
       },
     },
     extend: {
+      spacing: {
+        'section': '120px',
+        'section-sm': '80px',
+        'content': '64px',
+        'content-sm': '32px',
+      },
+      fontSize: {
+        'h1': '48px',
+        'h2': '36px',
+        'h3': '28px',
+        'h4': '20px',
+        'body': '16px',
+        'small': '14px',
+        'xs': '12px',
+      },
+      boxShadow: {
+        'card': '0 4px 12px rgba(0, 0, 0, 0.08)',
+        'card-hover': '0 8px 24px rgba(0, 0, 0, 0.12)',
+        'elevated': '0 8px 16px rgba(0, 0, 0, 0.1)',
+      },
+      borderRadius: {
+        'card': '24px',
+        'button': '8px',
+        'image': '16px',
+      },
       backdropBlur: {
         xs: '2px',
       },

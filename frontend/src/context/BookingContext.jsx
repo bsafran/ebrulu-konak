@@ -7,6 +7,8 @@ export const BookingProvider = ({ children }) => {
     checkIn: null,
     checkOut: null,
     guests: 1,
+    adults: 1,
+    children: 0,
     selectedRoomId: null,
     selectedRoom: null,
   });
@@ -37,6 +39,8 @@ export const BookingProvider = ({ children }) => {
       checkIn: null,
       checkOut: null,
       guests: 1,
+      adults: 1,
+      children: 0,
       selectedRoomId: null,
       selectedRoom: null,
     });
