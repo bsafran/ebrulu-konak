@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import Card from '../common/Card';
+import { FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi';
 import Loading from '../common/Loading';
 import Button from '../common/Button';
 import useApi from '../../hooks/useApi';
@@ -11,6 +10,7 @@ const RoomsPreview = () => {
   const { data, loading, error } = useApi(() => getRooms());
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const allRooms = data?.data || [];
   const itemsPerPage = 3;
@@ -27,12 +27,12 @@ const RoomsPreview = () => {
   const maxIndex = Math.max(0, displayRooms.length - itemsPerPage);
 
   const handlePrev = () => {
-    if (maxIndex === 0) return; // No carousel needed
+    if (maxIndex === 0) return;
     setCurrentIndex(prev => prev === 0 ? maxIndex : prev - 1);
   };
 
   const handleNext = () => {
-    if (maxIndex === 0) return; // No carousel needed
+    if (maxIndex === 0) return;
     setCurrentIndex(prev => prev === maxIndex ? 0 : prev + 1);
   };
 
@@ -62,7 +62,7 @@ const RoomsPreview = () => {
               <button
                 onClick={handlePrev}
                 disabled={maxIndex === 0}
-                className="p-3 rounded-full transition-all"
+                className="p-3 rounded-full transition-all hover:scale-110"
                 style={{
                   backgroundColor: '#9c714b',
                   color: 'white',
@@ -77,38 +77,61 @@ const RoomsPreview = () => {
               {/* Rooms Grid */}
               <div className="flex-1">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {visibleRooms.map((room) => {
+                  {visibleRooms.map((room, index) => {
                     const formattedRoom = formatRoomData(room);
                     const firstImage = formattedRoom.images?.[0];
+                    const isHovered = hoveredIndex === index;
 
                     return (
                       <Link key={`${room.id}-${Math.random()}`} to={`/rooms/${room.id}`}>
-                        <Card hover>
-                          {/* Image */}
-                          <img
-                            src={firstImage?.url || fallbackImage}
-                            alt={formattedRoom.title}
-                            className="w-full h-48 object-cover rounded-lg mb-4"
-                          />
+                        <div
+                          className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg transition-all duration-300 hover:shadow-2xl"
+                          onMouseEnter={() => setHoveredIndex(index)}
+                          onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                          {/* Image Container */}
+                          <div className="relative w-full h-full overflow-hidden bg-gray-200">
+                            <img
+                              src={firstImage?.url || fallbackImage}
+                              alt={formattedRoom.title}
+                              className={`w-full h-full object-cover transition-all duration-500 ${
+                                isHovered ? 'blur-sm scale-105' : 'blur-0 scale-100'
+                              }`}
+                            />
 
-                          {/* Content */}
-                          <h3 className="text-2xl font-bold text-primary-dark mb-3">
-                            {formattedRoom.title}
-                          </h3>
-                          <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                            {formattedRoom.description || 'Konforlu ve modern tasarımlı oda'}
-                          </p>
+                            {/* Overlay Gradient */}
+                            <div
+                              className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent transition-all duration-500 ${
+                                isHovered ? 'opacity-100' : 'opacity-60'
+                              }`}
+                            />
 
-                          {/* Price */}
-                          <div className="flex items-center justify-between">
-                            <span className="text-2xl font-bold text-primary-accent">
-                              ₺{formattedRoom.price}
-                            </span>
-                            <span className="text-sm bg-primary-accent/20 text-primary-accent px-3 py-1 rounded-full">
-                              {formattedRoom.maxGuests} Kişi
-                            </span>
+                            {/* Explore Button */}
+                            <div
+                              className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+                                isHovered ? 'opacity-100' : 'opacity-0'
+                              }`}
+                            >
+                              <div className="text-center">
+                                <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full hover:bg-white transition-all duration-300">
+                                  <span className="text-primary-dark font-semibold text-lg">Odayı İncele</span>
+                                  <FiArrowRight className="w-5 h-5 text-primary-dark" />
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </Card>
+
+                          {/* Room Title - Bottom */}
+                          <div
+                            className={`absolute bottom-0 left-0 right-0 px-6 py-6 transition-all duration-500 ${
+                              isHovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-90'
+                            }`}
+                          >
+                            <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
+                              {formattedRoom.title}
+                            </h3>
+                          </div>
+                        </div>
                       </Link>
                     );
                   })}
@@ -119,7 +142,7 @@ const RoomsPreview = () => {
               <button
                 onClick={handleNext}
                 disabled={maxIndex === 0}
-                className="p-3 rounded-full transition-all"
+                className="p-3 rounded-full transition-all hover:scale-110"
                 style={{
                   backgroundColor: '#9c714b',
                   color: 'white',
