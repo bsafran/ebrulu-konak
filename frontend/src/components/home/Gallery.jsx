@@ -14,9 +14,9 @@ const Gallery = () => {
     <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary-dark mb-4">Galeri</h2>
+          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Galeri</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Ebrulu Konak\'ın muhteşem ve etkileyici görselleri
+            Ebrulu Konak'ın muhteşem ve etkileyici görselleri
           </p>
         </div>
 
