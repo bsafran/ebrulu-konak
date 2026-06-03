@@ -9,18 +9,15 @@ import { getRooms, formatRoomData } from '../../services/strapiService';
 const RoomList = () => {
   const { data, loading, error } = useApi(() => getRooms());
   const navigate = useNavigate();
-  const [filterPrice, setFilterPrice] = useState('all');
+  const [filterType, setFilterType] = useState('all');
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const rooms = data?.data?.map(formatRoomData) || [];
 
   const filteredRooms = rooms.filter((room) => {
-    if (filterPrice === 'all') return true;
-    if (filterPrice === 'budget') return room.price < 2000;
-    if (filterPrice === 'standard') return room.price >= 2000 && room.price < 4000;
-    if (filterPrice === 'luxury') return room.price >= 4000;
-    return true;
+    if (filterType === 'all') return true;
+    return room.title?.toLowerCase().includes(filterType);
   });
 
   const handleRoomClick = (room) => {
@@ -31,11 +28,11 @@ const RoomList = () => {
   const getFilterTitle = () => {
     const filterLabels = {
       all: 'Tüm Odalar',
-      budget: 'Ekonomik Odalar',
-      standard: 'Standart Odalar',
-      luxury: 'Lüks Odalar',
+      standart: 'Standart Odalar',
+      comfort: 'Comfort Odalar',
+      aile: 'Aile Odaları',
     };
-    return filterLabels[filterPrice] || 'Tüm Odalar';
+    return filterLabels[filterType] || 'Tüm Odalar';
   };
 
   const handleBookNow = (room) => {
@@ -66,13 +63,13 @@ const RoomList = () => {
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           {[
             { value: 'all', label: 'Tümü' },
-            { value: 'budget', label: 'Ekonomik' },
-            { value: 'standard', label: 'Standart' },
-            { value: 'luxury', label: 'Lüks' },
+            { value: 'standart', label: 'Standart' },
+            { value: 'comfort', label: 'Comfort' },
+            { value: 'aile', label: 'Aile' },
           ].map((filter) => (
             <button
               key={filter.value}
-              onClick={() => setFilterPrice(filter.value)}
+              onClick={() => setFilterType(filter.value)}
               style={{
                 padding: '10px 20px',
                 borderRadius: '8px',
@@ -81,16 +78,16 @@ const RoomList = () => {
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'all 200ms linear',
-                backgroundColor: filterPrice === filter.value ? '#a67c52' : '#f0f0f0',
-                color: filterPrice === filter.value ? 'white' : '#666',
+                backgroundColor: filterType === filter.value ? '#a67c52' : '#f0f0f0',
+                color: filterType === filter.value ? 'white' : '#666',
               }}
               onMouseEnter={(e) => {
-                if (filterPrice !== filter.value) {
+                if (filterType !== filter.value) {
                   e.currentTarget.style.backgroundColor = '#e5e5e5';
                 }
               }}
               onMouseLeave={(e) => {
-                if (filterPrice !== filter.value) {
+                if (filterType !== filter.value) {
                   e.currentTarget.style.backgroundColor = '#f0f0f0';
                 }
               }}
