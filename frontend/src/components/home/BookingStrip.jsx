@@ -39,57 +39,111 @@ const BookingStrip = () => {
     }
   };
 
+  const inputStyle = {
+    width: '100%',
+    padding: '10px 14px',
+    borderRadius: '8px',
+    backgroundColor: '#ffffff',
+    color: '#333',
+    fontSize: '14px',
+    border: '1px solid #e5e5e5',
+    fontFamily: 'inherit',
+  };
+
+  const labelStyle = {
+    fontSize: '12px',
+    fontWeight: '600',
+    color: '#f5f1ed',
+    textTransform: 'uppercase',
+    letterSpacing: '0.5px',
+    marginBottom: '8px',
+    display: 'block',
+  };
+
+  const errorStyle = {
+    fontSize: '11px',
+    color: '#ffb3ba',
+    marginTop: '4px',
+    fontWeight: '500',
+  };
+
   return (
-    <div className="py-8 -mt-12 relative z-10 bg-primary-light">
+    <div style={{ marginTop: '-48px', position: 'relative', zIndex: 10, backgroundColor: 'transparent', paddingTop: '32px', paddingBottom: '32px' }}>
       <div className="container-custom">
-        <div className="p-8 md:p-6 rounded-lg" style={{ backgroundColor: '#9c714b' }}>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end mx-auto" style={{ maxWidth: '1000px' }}>
+        <div
+          style={{
+            backgroundColor: '#9c714b',
+            borderRadius: '16px',
+            padding: 'clamp(20px, 4vw, 40px)',
+            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.2)',
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+              gap: 'clamp(16px, 3vw, 24px)',
+              alignItems: 'flex-end',
+            }}
+            className="sm:grid-cols-2 md:grid-cols-4"
+          >
             {/* Check-in Date */}
-            <div className="flex flex-col" style={{ minHeight: '98px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <label htmlFor="check-in" style={labelStyle}>
+                Giriş Tarihi
+              </label>
               <DatePicker
+                id="check-in"
                 selected={checkIn}
                 onChange={handleCheckIn}
                 dateFormat="dd/MM/yyyy"
                 minDate={new Date()}
-                placeholderText="Giriş Tarihi"
+                placeholderText="Tarih seçin"
                 aria-label="Giriş Tarihi"
-                className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
-                style={{ borderColor: errors.checkIn ? '#ef4444' : '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
+                style={{
+                  ...inputStyle,
+                  borderColor: errors.checkIn ? '#ef4444' : '#e5e5e5',
+                }}
               />
-              <div style={{ height: '16px', marginTop: '4px' }}>
-                {errors.checkIn && (
-                  <p className="text-red-300 text-xs">Giriş tarihi seçiniz</p>
-                )}
-              </div>
+              {errors.checkIn && (
+                <div style={errorStyle}>Giriş tarihi seçiniz</div>
+              )}
             </div>
 
             {/* Check-out Date */}
-            <div className="flex flex-col" style={{ minHeight: '98px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <label htmlFor="check-out" style={labelStyle}>
+                Çıkış Tarihi
+              </label>
               <DatePicker
+                id="check-out"
                 selected={checkOut}
                 onChange={handleCheckOut}
                 dateFormat="dd/MM/yyyy"
                 minDate={checkIn || new Date()}
-                placeholderText="Çıkış Tarihi"
+                placeholderText="Tarih seçin"
                 aria-label="Çıkış Tarihi"
-                className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
-                style={{ borderColor: errors.checkOut ? '#ef4444' : '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
+                style={{
+                  ...inputStyle,
+                  borderColor: errors.checkOut ? '#ef4444' : '#e5e5e5',
+                }}
               />
-              <div style={{ height: '16px', marginTop: '4px' }}>
-                {errors.checkOut && (
-                  <p className="text-red-300 text-xs">Çıkış tarihi seçiniz</p>
-                )}
-              </div>
+              {errors.checkOut && (
+                <div style={errorStyle}>Çıkış tarihi seçiniz</div>
+              )}
             </div>
 
             {/* Guests */}
-            <div className="flex flex-col" style={{ minHeight: '98px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <label htmlFor="guests" style={labelStyle}>
+                Misafir Sayısı
+              </label>
               <select
+                id="guests"
                 value={guests}
                 onChange={handleGuestsChange}
                 aria-label="Misafir Sayısı"
-                className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
-                style={{ borderColor: '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
+                style={inputStyle}
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                   <option key={num} value={num}>
@@ -100,13 +154,31 @@ const BookingStrip = () => {
             </div>
 
             {/* Search Button */}
-            <div className="flex items-center" style={{ minHeight: '98px' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-end' }}>
               <button
-                className="w-full px-6 py-3 rounded-lg text-primary-dark font-semibold transition-all duration-200 border-none"
-                style={{ backgroundColor: '#f5f1ed' }}
-                onMouseEnter={(e) => e.target.style.opacity = '0.9'}
-                onMouseLeave={(e) => e.target.style.opacity = '1'}
                 onClick={handleSearch}
+                style={{
+                  width: '100%',
+                  padding: '12px 24px',
+                  backgroundColor: '#f5f1ed',
+                  color: '#9c714b',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '14px',
+                  fontWeight: '700',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  cursor: 'pointer',
+                  transition: 'all 200ms linear',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#ede9e0';
+                  e.currentTarget.style.transform = 'scale(0.98)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#f5f1ed';
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
               >
                 Oda Ara
               </button>
