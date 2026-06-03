@@ -118,8 +118,8 @@ const RoomDetail = ({ room, loading }) => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-              gap: '16px',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
+              gap: '12px',
             }}
           >
             {images.slice(3).map((image, idx) => (
