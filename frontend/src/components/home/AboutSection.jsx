@@ -18,7 +18,7 @@ Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak
         <div className="space-y-8">
           {/* Header */}
           <h2 className="text-6xl md:text-7xl font-bold text-primary-dark">
-            Hakkımızda
+            Ebrulu Konak
           </h2>
 
           {/* Subtitle with arrow */}
@@ -29,10 +29,10 @@ Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak
 
           {/* Text Content */}
           <div className="space-y-8">
-            <p className="max-w-4xl text-base text-gray-700 leading-relaxed preserve-whitespace">
+            <p className="max-w-4xl text-lg text-gray-700 leading-relaxed preserve-whitespace">
               {content}
             </p>
-            <p className="max-w-4xl text-base font-display text-primary-dark">
+            <p className="max-w-4xl text-lg font-display text-primary-dark">
               <span className="font-bold">Ebrulu Konak</span> - Reliving History in Safranbolu
             </p>
           </div>
