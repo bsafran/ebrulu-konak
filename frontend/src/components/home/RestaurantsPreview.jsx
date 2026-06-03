@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../common/Loading';
+import Button from '../common/Button';
 import useApi from '../../hooks/useApi';
 import { getRestaurants, formatRestaurantData } from '../../services/strapiService';
 
@@ -44,6 +45,9 @@ const RestaurantsPreview = () => {
                         hoveredIndex !== null && !isHovered
                           ? 'blur(8px)'
                           : 'blur(0px)',
+                      transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                      transformOrigin: 'center',
+                      willChange: 'transform',
                     }}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
