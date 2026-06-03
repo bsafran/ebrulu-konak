@@ -16,6 +16,13 @@ const RestaurantsPreview = () => {
     <section className="py-20 bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
+          {/* Decorative Divider */}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="flex-1 h-px bg-gray-300"></div>
+            <span className="text-primary-dark text-lg">→</span>
+            <div className="flex-1 h-px bg-gray-300"></div>
+          </div>
+
           <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Restoranlarımız</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Türk ve uluslararası mutfağından lezzetli yemekler, özel şef hizmetleriyle sunulmaktadır.
