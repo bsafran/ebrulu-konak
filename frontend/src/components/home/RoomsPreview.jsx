@@ -12,11 +12,12 @@ const RoomsPreview = () => {
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [slideDirection, setSlideDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
   const allRooms = data?.data || [];
-  const itemsPerPage = 3;
+  const itemsPerPage = 1;
 
   // Create display rooms by duplicating to ensure at least 6 items
   let displayRooms = allRooms;
@@ -31,11 +32,13 @@ const RoomsPreview = () => {
 
   const handlePrev = () => {
     if (maxIndex === 0) return;
+    setSlideDirection(-1); // Soldan sağa
     setCurrentIndex(prev => prev === 0 ? maxIndex : prev - 1);
   };
 
   const handleNext = () => {
     if (maxIndex === 0) return;
+    setSlideDirection(1); // Sağdan sola
     setCurrentIndex(prev => prev === maxIndex ? 0 : prev + 1);
   };
 
@@ -106,28 +109,25 @@ const RoomsPreview = () => {
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
               >
-                <motion.div
-                  layout
-                  className="grid grid-cols-1 md:grid-cols-3 gap-6"
-                >
-                  <AnimatePresence>
-                    {visibleRooms.map((room, index) => {
+                <div className="flex items-center justify-center">
+                  <AnimatePresence mode="wait">
+                    {visibleRooms.map((room) => {
                       const formattedRoom = formatRoomData(room);
                       const firstImage = formattedRoom.images?.[0];
-                      const isHovered = hoveredIndex === index;
 
                       return (
                         <motion.div
                           key={`${room.id}-carousel`}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3, ease: 'easeInOut' }}
+                          initial={{ x: slideDirection > 0 ? -300 : 300 }}
+                          animate={{ x: 0 }}
+                          exit={{ x: slideDirection > 0 ? 300 : -300 }}
+                          transition={{ duration: 0.4, ease: 'easeInOut' }}
+                          className="w-full"
                         >
                           <div
-                            className="relative overflow-hidden rounded-2xl"
+                            className="relative overflow-hidden rounded-2xl mx-auto max-w-md"
                             style={{ paddingBottom: '150%' }}
-                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseEnter={() => setHoveredIndex(0)}
                             onMouseLeave={() => setHoveredIndex(null)}
                           >
                             {/* Background Image */}
@@ -135,12 +135,10 @@ const RoomsPreview = () => {
                               className="absolute inset-0 bg-cover bg-center transition-all duration-300"
                               style={{
                                 backgroundImage: `url(${firstImage?.url || fallbackImage})`,
-                                filter: isHovered
+                                filter: hoveredIndex === 0
                                   ? 'brightness(0.75) saturate(1.2) contrast(0.85)'
-                                  : hoveredIndex !== null
-                                  ? 'brightness(0.5) saturate(0.5) contrast(1.2) blur(20px)'
                                   : 'brightness(0.75) saturate(1.2) contrast(0.85)',
-                                transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+                                transform: hoveredIndex === 0 ? 'scale(1.08)' : 'scale(1)',
                                 transformOrigin: 'center',
                                 willChange: 'transform',
                               }}
@@ -169,7 +167,7 @@ const RoomsPreview = () => {
                             <div
                               className="absolute inset-0 flex items-center justify-center z-20 transition-all duration-300"
                               style={{
-                                opacity: isHovered ? 1 : 0,
+                                opacity: hoveredIndex === 0 ? 1 : 0,
                               }}
                             >
                               <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full">
@@ -184,7 +182,7 @@ const RoomsPreview = () => {
                       );
                     })}
                   </AnimatePresence>
-                </motion.div>
+                </div>
               </div>
 
               {/* Right Arrow */}
