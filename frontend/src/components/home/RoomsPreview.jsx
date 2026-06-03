@@ -116,11 +116,12 @@ const RoomsPreview = () => {
                     return (
                       <div
                         key={`${room.id}-${currentIndex}`}
-                        className="flex-shrink-0 rounded-2xl overflow-hidden"
+                        className="flex-shrink-0 overflow-hidden"
                         style={{
                           width: 'calc(33.333% - 1rem)',
                           backfaceVisibility: 'hidden',
                           WebkitBackfaceVisibility: 'hidden',
+                          clipPath: 'inset(0 round 1rem)',
                         }}
                         onMouseEnter={() => setHoveredRoomId(room.id)}
                         onMouseLeave={() => setHoveredRoomId(null)}
