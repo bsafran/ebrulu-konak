@@ -54,18 +54,18 @@ const Navbar = ({ transparent = false }) => {
       {/* Backdrop Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 transition-all backdrop-blur-sm"
+          className="fixed inset-0 z-40 transition-all"
           onClick={() => setIsOpen(false)}
           style={{
-            top: transparent ? '80px' : '0',
-            backgroundColor: 'rgba(0, 0, 0, 0.6)'
+            backgroundColor: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(4px)'
           }}
         />
       )}
 
       {/* Side Menu Drawer */}
       <div
-        className={`fixed right-0 top-0 h-screen w-72 bg-primary-dark text-white shadow-2xl z-40 transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed right-0 top-0 h-screen w-72 bg-primary-dark text-white shadow-2xl z-50 transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ paddingTop: transparent ? '80px' : '0' }}
@@ -77,17 +77,11 @@ const Navbar = ({ transparent = false }) => {
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-white/80 transition-all py-4 px-4 rounded-lg font-light text-lg"
+                className="py-4 px-4 rounded-lg font-light text-lg transition-colors"
                 style={{
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#9c714b';
-                  e.currentTarget.style.color = 'white';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
+                  backgroundColor: '#9c714b',
+                  color: 'white',
+                  cursor: 'pointer'
                 }}
                 onClick={() => setIsOpen(false)}
               >
@@ -106,11 +100,9 @@ const Navbar = ({ transparent = false }) => {
         <div className="p-6">
           <Link
             to="/reservation"
-            className="block w-full px-6 py-4 rounded-lg font-light text-center transition-all duration-200 text-white"
+            className="block w-full px-6 py-4 rounded-lg font-light text-center text-white"
             style={{ backgroundColor: '#9c714b' }}
             onClick={() => setIsOpen(false)}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
             Rezervasyon Yap
           </Link>
