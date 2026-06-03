@@ -71,14 +71,19 @@ const BookingStrip = () => {
     position: 'relative',
     height: '40px',
     marginBottom: '20px',
+    display: 'flex',
+    flexDirection: 'column',
   };
 
   const errorStyle = {
+    position: 'absolute',
+    top: 'calc(100% + 4px)',
+    left: 0,
     fontSize: '11px',
     color: '#ffb3ba',
-    marginTop: '4px',
     fontWeight: '500',
     minHeight: '16px',
+    whiteSpace: 'nowrap',
   };
 
   return (
