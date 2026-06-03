@@ -16,7 +16,7 @@ const Gallery = () => {
         <div className="text-center mb-16">
           <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Galeri</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Ebrulu Konak'ın muhteşem ve etkileyici görselleri
+            Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin.
           </p>
         </div>
 
