@@ -377,6 +377,8 @@ const ContactPage = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '16px',
+                    minHeight: '240px',
+                    justifyContent: 'flex-start',
                     transition: 'all 200ms linear',
                     transform: info.link ? 'scale(1)' : 'scale(1)',
                     boxShadow: info.link ? '0 4px 12px rgba(0, 0, 0, 0.08)' : 'none',
