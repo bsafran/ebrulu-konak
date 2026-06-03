@@ -1,5 +1,3 @@
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreRouter('api::gallery.gallery', {
-  type: 'single',
-});
+export default factories.createCoreRouter('api::gallery.gallery');
