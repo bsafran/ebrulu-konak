@@ -36,7 +36,7 @@ const GalleryPage = () => {
                 marginRight: 'auto',
               }}
             >
-              Ebrulu Konak\'ın muhteşem görselleri
+              Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin.
             </p>
             {/* Decorative Divider */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>

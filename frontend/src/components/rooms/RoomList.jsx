@@ -17,7 +17,7 @@ const RoomList = () => {
 
   const filteredRooms = rooms.filter((room) => {
     if (filterType === 'all') return true;
-    return room.title?.toLowerCase().includes(filterType);
+    return room.category === filterType;
   });
 
   const handleRoomClick = (room) => {
