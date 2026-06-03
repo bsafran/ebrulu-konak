@@ -65,69 +65,44 @@ const CorporatePage = () => {
           </div>
         </div>
 
-        {/* About Section */}
+        {/* About Section - Centered Text */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '64px',
-            alignItems: 'center',
-            marginBottom: '120px',
+            maxWidth: '900px',
+            margin: '0 auto 120px',
+            textAlign: 'center',
           }}
         >
-          {/* Left - Photo */}
           <div
             style={{
-              borderRadius: '24px',
-              overflow: 'hidden',
-              height: '500px',
-              backgroundColor: '#f3efea',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+              color: '#555',
+              lineHeight: '1.9',
             }}
           >
-            <img
-              src={hotelImage}
-              alt="Ebrulu Konak"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block',
-              }}
-            />
-          </div>
-
-          {/* Right - Text */}
-          <div>
-            <h2
-              style={{
-                fontSize: '32px',
-                fontWeight: 'bold',
-                color: '#9c714b',
-                margin: '0 0 24px 0',
-              }}
-            >
-              Hakkımızda
-            </h2>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-                color: '#555',
-                lineHeight: '1.8',
-              }}
-            >
-              <p style={{ margin: 0, fontSize: '16px' }}>
-                Ebrulu Konak, Safranbolu'nun tarihi dokusunu modern konfor ile birleştiren, özgün bir otel işletmesidir. 1980'lerde yapılan binada, geleneksel mimarinin zarif tasarımı ve günümüz lüks hizmetleri bir araya gelir.
-              </p>
-              <p style={{ margin: 0, fontSize: '16px' }}>
-                Misafirlerimize sadece bir otel değil, Safranbolu'nun ve Karabük bölgesinin engin tarihine bir köprü olmayı amaçlıyoruz. Her oda, her restoran, her hizmet ayrıntısı, unutulmaz bir deneyim yaratmak üzere tasarlanmıştır.
-              </p>
-              <p style={{ margin: 0, fontSize: '16px' }}>
-                Deneyimli ekibimiz, siz misafirlerimizin her ihtiyacını önceden tahmin etmek ve karşılamak için tutkuyla çalışmaktadır. Ebrulu Konak'ı seçtiğiniz için teşekkür ederiz.
-              </p>
-            </div>
+            <p style={{ margin: 0, fontSize: '16px' }}>
+              Ebrulu Konak, Safranbolu'nun tarihi dokusunu ve Osmanlı mimarisinin zarafetini günümüz konfor anlayışıyla buluşturan özel bir konaklama tesisidir. Karabük'ün dünyaca ünlü tarihî ilçesi Safranbolu'da hizmet veren tesisimiz, misafirlerine yalnızca bir konaklama değil, kültürel mirasın içinde eşsiz bir yaşam deneyimi sunmaktadır.
+            </p>
+            <p style={{ margin: 0, fontSize: '16px' }}>
+              Toplam beş ayrı konaktan oluşan Ebrulu Konak, 38 odasıyla tarihî atmosferi koruyarak modern konfor standartlarını misafirleriyle buluşturmaktadır. Geleneksel Osmanlı mimarisinin özgün detaylarıyla özenle korunan konaklarımız, geçmişin estetik anlayışını günümüzün ihtiyaçlarıyla harmanlayarak huzurlu ve samimi bir ortam oluşturmaktadır.
+            </p>
+            <p style={{ margin: 0, fontSize: '16px' }}>
+              Safranbolu'nun UNESCO Dünya Mirası niteliğindeki tarihî dokusunun merkezinde yer alan tesisimiz, misafirlerine taş sokaklar, tarihî çarşılar ve kültürel değerlerle çevrili benzersiz bir konaklama imkânı sunmaktadır. Her biri kendine özgü karaktere sahip odalarımız, geleneksel mimariyi yaşatırken konforlu bir konaklama deneyimi sağlamaktadır.
+            </p>
+            <p style={{ margin: 0, fontSize: '16px' }}>
+              Ebrulu Konak, konaklama hizmetlerinin yanı sıra bölgenin öne çıkan gastronomi duraklarından biri olarak da misafirlerini ağırlamaktadır. Geleneksel Türk mutfağının seçkin lezzetlerini yaşatan ev yemekleri, yöresel tatlar ve özenle hazırlanan açık büfe menülerimiz; yerli ve yabancı misafirlerimiz tarafından büyük beğeni görmektedir.
+            </p>
+            <p style={{ margin: 0, fontSize: '16px' }}>
+              İki ayrı restoran alanımızda aynı anda toplam 100 kişiye yemek hizmeti sunabilmekte; tur grupları, özel organizasyonlar ve toplu yemek etkinlikleri için profesyonel çözümler üretmekteyiz. Kaliteli hizmet anlayışımız, zengin menü seçeneklerimiz ve geleneksel misafirperverliğimiz sayesinde yemek organizasyonlarında Safranbolu'nun tercih edilen işletmeleri arasında yer almaktayız.
+            </p>
+            <p style={{ margin: 0, fontSize: '16px' }}>
+              Misafir memnuniyetini ön planda tutan hizmet anlayışımız, güler yüzlü ekibimiz ve Safranbolu'nun eşsiz atmosferiyle Ebrulu Konak, yerli ve yabancı ziyaretçiler için bölgenin seçkin konaklama ve gastronomi merkezlerinden biri olmayı sürdürmektedir.
+            </p>
+            <p style={{ margin: 0, fontSize: '16px' }}>
+              Tarih, kültür, lezzet ve huzurun bir arada yaşandığı Ebrulu Konak'ta, geçmişin zarafetini hissederken unutulmaz anılar biriktirmeye davet ediyoruz.
+            </p>
           </div>
         </div>
 
