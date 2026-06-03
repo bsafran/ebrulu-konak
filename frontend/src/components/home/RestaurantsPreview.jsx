@@ -83,7 +83,7 @@ const RestaurantsPreview = () => {
                       </p>
 
                       {/* Explore Button */}
-                      <Link to={`/restaurants/${restaurant.id}`} className="inline-block">
+                      <Link to="/restaurants" className="inline-block">
                         <button
                           style={{
                             backgroundColor: '#f3efea',
