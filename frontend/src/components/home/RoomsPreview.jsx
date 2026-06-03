@@ -218,10 +218,30 @@ const RoomsPreview = () => {
 
             {/* View All Button */}
             <div className="text-center">
-              <Link to="/rooms">
-                <Button variant="secondary" size="lg">
+              <Link to="/rooms" className="inline-block">
+                <button
+                  style={{
+                    backgroundColor: '#f3efea',
+                    color: '#9c714b',
+                    padding: '12px 32px',
+                    borderRadius: '8px',
+                    border: '2px solid #9c714b',
+                    fontWeight: '600',
+                    fontSize: '16px',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#9c714b';
+                    e.currentTarget.style.color = '#f3efea';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#f3efea';
+                    e.currentTarget.style.color = '#9c714b';
+                  }}
+                >
                   Tüm Odaları Görüntüle
-                </Button>
+                </button>
               </Link>
             </div>
           </>
