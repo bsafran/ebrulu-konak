@@ -123,7 +123,6 @@ const RoomList = () => {
             <RoomCard
               key={room.id}
               room={room}
-              onClick={() => handleRoomClick(room)}
             />
           ))}
         </div>

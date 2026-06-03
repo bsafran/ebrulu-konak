@@ -1,183 +1,155 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowUpRight } from 'react-icons/fi';
 
-const RoomCard = ({ room, onClick }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const RoomCard = ({ room }) => {
   const firstImage = room.images?.[0];
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
   const imageUrl = firstImage?.url || fallbackImage;
 
   return (
-    <div
-      style={{
-        cursor: 'pointer',
-        borderRadius: '16px',
-        overflow: 'hidden',
-        backgroundColor: 'white',
-        border: '1px solid #f0f0f0',
-        transition: 'all 200ms linear',
-        transform: isHovered ? 'scale(1.02)' : 'scale(1)',
-        boxShadow: isHovered ? '0 12px 32px rgba(0, 0, 0, 0.08)' : '0 2px 8px rgba(0, 0, 0, 0.04)',
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={onClick}
-    >
-      {/* Image Container */}
-      <div
-        style={{
-          position: 'relative',
-          paddingBottom: '75%',
-          overflow: 'hidden',
-          backgroundColor: '#f3efea',
-        }}
-      >
-        {/* Image */}
-        <img
-          src={imageUrl}
-          alt={room.title}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-            transition: 'transform 200ms linear',
-          }}
-        />
+    <Link to={`/rooms/${room.slug}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+      <style>{`
+        .room-card .card-inner {
+          position: relative;
+          width: 100%;
+          height: 300px;
+          background: #fff;
+          border-radius: 20px;
+          border-bottom-right-radius: 0;
+          overflow: hidden;
+        }
+        .room-card .box {
+          width: 100%;
+          height: 100%;
+          background: #fff;
+          border-radius: 20px;
+          overflow: hidden;
+        }
+        .room-card .imgBox {
+          position: absolute;
+          inset: 0;
+        }
+        .room-card .imgBox img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+        .room-card:hover .imgBox img {
+          transform: scale(1.06);
+        }
+        .room-card .room-icon {
+          position: absolute;
+          bottom: -6px;
+          right: -6px;
+          width: 96px;
+          height: 96px;
+          background: #fff;
+          border-top-left-radius: 50%;
+          z-index: 1;
+        }
+        .room-card .room-icon::before {
+          position: absolute;
+          content: "";
+          bottom: 6px;
+          left: -20px;
+          background: transparent;
+          width: 20px;
+          height: 20px;
+          border-bottom-right-radius: 20px;
+          box-shadow: 5px 5px 0 5px #fff;
+        }
+        .room-card .room-icon::after {
+          position: absolute;
+          content: "";
+          top: -20px;
+          right: 6px;
+          background: transparent;
+          width: 20px;
+          height: 20px;
+          border-bottom-right-radius: 20px;
+          box-shadow: 5px 5px 0 5px #fff;
+        }
+        .room-card .iconBox {
+          position: absolute;
+          inset: 10px;
+          background: #9c714b;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: transform 0.3s ease, background 0.2s ease;
+        }
+        .room-card:hover .iconBox {
+          transform: scale(1.1);
+          background: #8a6140;
+        }
+        .room-card .content {
+          padding: 16px 4px 8px;
+        }
+        .room-card .content h3 {
+          font-size: 22px;
+          font-weight: 700;
+          color: #1a1a1a;
+          margin: 0 0 8px 0;
+        }
+        .room-card .content p {
+          color: #565656;
+          font-size: 14px;
+          line-height: 1.5;
+          margin: 0 0 14px 0;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .room-card ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .room-card ul li {
+          background: #f3efea;
+          color: #a67c52;
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+          padding: 5px 10px;
+          border-radius: 4px;
+          letter-spacing: 0.5px;
+        }
+      `}</style>
 
-        {/* Overlay Backdrop */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.2)',
-            opacity: isHovered ? 1 : 0,
-            transition: 'opacity 200ms linear',
-            pointerEvents: 'none',
-          }}
-        />
-
-        {/* Explore Button - Show on hover */}
-        <Link
-          to={`/rooms/${room.slug}`}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            opacity: isHovered ? 1 : 0,
-            transition: 'opacity 200ms linear',
-            pointerEvents: isHovered ? 'auto' : 'none',
-            textDecoration: 'none',
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '12px',
-              backgroundColor: 'rgba(255, 255, 255, 0.95)',
-              backdropFilter: 'blur(12px)',
-              padding: '12px 28px',
-              borderRadius: '9999px',
-              boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
-            }}
-          >
-            <span
-              style={{
-                color: '#9c714b',
-                fontWeight: '600',
-                fontSize: '14px',
-              }}
-            >
-              Detayları Gör
-            </span>
-            <FiArrowRight style={{ color: '#9c714b', width: '18px', height: '18px' }} />
-          </div>
-        </Link>
-      </div>
-
-      {/* Content */}
-      <div style={{ padding: '24px' }}>
-        <h3
-          style={{
-            fontSize: '20px',
-            fontWeight: 'bold',
-            color: '#9c714b',
-            marginBottom: '12px',
-            margin: 0,
-          }}
-        >
-          {room.title}
-        </h3>
-
-        <p
-          style={{
-            color: '#666',
-            fontSize: '13px',
-            lineHeight: '1.5',
-            marginBottom: '16px',
-            margin: '0 0 16px 0',
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            minHeight: '26px',
-          }}
-        >
-          {room.description || 'Konforlu ve modern tasarımlı oda'}
-        </p>
-
-        {/* Features */}
-        {room.features && (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
-            {room.features.slice(0, 3).map((feature, idx) => (
-              <span
-                key={idx}
-                style={{
-                  fontSize: '12px',
-                  backgroundColor: '#f3efea',
-                  color: '#a67c52',
-                  padding: '6px 12px',
-                  borderRadius: '20px',
-                }}
-              >
-                {feature}
+      <div className="room-card">
+        <div className="card-inner">
+          <div className="box">
+            <div className="imgBox">
+              <img src={imageUrl} alt={room.title} />
+            </div>
+            <div className="room-icon">
+              <span className="iconBox">
+                <FiArrowUpRight style={{ color: '#fff', width: '22px', height: '22px' }} />
               </span>
-            ))}
-          </div>
-        )}
-
-        {/* Footer */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingTop: '16px',
-            borderTop: '1px solid #f0f0f0',
-            marginTop: '16px',
-          }}
-        >
-          <div style={{ color: '#a67c52', fontSize: '24px', fontWeight: 'bold' }}>
-            ₺{room.price}
-          </div>
-          <div style={{ textAlign: 'right', fontSize: '12px' }}>
-            <p style={{ color: '#999', margin: '0 0 4px 0' }}>Kapasite</p>
-            <p style={{ color: '#9c714b', fontWeight: '600', margin: 0 }}>
-              {room.maxGuests} Kişi
-            </p>
+            </div>
           </div>
         </div>
+
+        <div className="content">
+          <h3>{room.title}</h3>
+          <p>{room.description || 'Konforlu ve modern tasarımlı oda'}</p>
+          {room.features && room.features.length > 0 && (
+            <ul>
+              {room.features.slice(0, 3).map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
