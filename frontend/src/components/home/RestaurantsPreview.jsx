@@ -106,14 +106,6 @@ const RestaurantsPreview = () => {
               })}
             </div>
 
-            {/* View All Button */}
-            <div className="text-center">
-              <Link to="/restaurants">
-                <Button variant="secondary" size="lg">
-                  Tüm Restoranları Görüntüle
-                </Button>
-              </Link>
-            </div>
           </>
         )}
       </div>
