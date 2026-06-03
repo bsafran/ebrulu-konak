@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Card from '../common/Card';
+import { FiArrowRight } from 'react-icons/fi';
 import Loading from '../common/Loading';
 import Button from '../common/Button';
 import useApi from '../../hooks/useApi';
@@ -8,6 +8,8 @@ import { getRestaurants, getMediaUrl, formatRestaurantData } from '../../service
 
 const RestaurantsPreview = () => {
   const { data, loading, error } = useApi(() => getRestaurants());
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const fallbackImage = 'https://images.unsplash.com/photo-1504674900769-570d79d20a1f?w=800&h=600&fit=crop';
 
   const restaurants = data?.data?.slice(0, 2) || [];
 
@@ -30,46 +32,53 @@ const RestaurantsPreview = () => {
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {restaurants.map((restaurant) => {
+              {restaurants.map((restaurant, index) => {
                 const formattedRes = formatRestaurantData(restaurant);
                 const firstImage = formattedRes.images?.[0];
+                const isHovered = hoveredIndex === index;
 
                 return (
-                  <Link key={restaurant.id} to={`/restaurants/${restaurant.id}`}>
-                    <Card hover glassmorphism className="h-full">
-                      <div className="grid grid-cols-3 gap-4 h-48 mb-4">
-                        {[...Array(3)].map((_, i) => (
-                          <div key={i} className="rounded-lg overflow-hidden">
-                            {formattedRes.images?.[i] ? (
-                              <img
-                                src={formattedRes.images[i].url}
-                                alt={`${formattedRes.name} ${i + 1}`}
-                                className="w-full h-full object-cover"
-                              />
-                            ) : (
-                              <div className="w-full h-full bg-primary-light flex items-center justify-center">
-                                <span className="text-white text-2xl">🍽️</span>
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
+                  <div
+                    key={restaurant.id}
+                    className="relative overflow-hidden rounded-2xl transition-all duration-300"
+                    style={{
+                      paddingBottom: '100%',
+                      transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                      transformOrigin: 'center',
+                      willChange: 'transform',
+                    }}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
+                    {/* Background Image */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-all duration-300"
+                      style={{
+                        backgroundImage: `url(${firstImage?.url || fallbackImage})`,
+                        filter:
+                          hoveredIndex !== null && !isHovered
+                            ? 'brightness(0.5) saturate(0.5) contrast(1.2) blur(20px)'
+                            : 'brightness(0.75) saturate(1.2) contrast(0.85)',
+                      }}
+                    />
 
-                      <h3 className="text-2xl font-bold text-primary-dark mb-2">
-                        {formattedRes.name}
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-4">
-                        <span className="font-semibold text-primary-accent">{formattedRes.cuisine}</span> Mutfağı
-                      </p>
-                      <p className="text-gray-600 text-sm line-clamp-2 mb-4">
-                        {formattedRes.description || 'Özel şef hizmetleriyle sunulan lezzetli yemekler'}
-                      </p>
-
-                      <div className="text-sm text-gray-700">
-                        <p>📍 {formattedRes.openingHours || '10:00 - 23:00'}</p>
-                      </div>
-                    </Card>
-                  </Link>
+                    {/* Explore Button - Show on hover */}
+                    <div
+                      className="absolute inset-0 flex items-center justify-center z-20 transition-all duration-300"
+                      style={{
+                        opacity: isHovered ? 1 : 0,
+                      }}
+                    >
+                      <Link to={`/restaurants/${restaurant.id}`} className="no-underline">
+                        <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full hover:bg-white transition-colors">
+                          <span className="text-primary-dark font-semibold text-lg">
+                            {formattedRes.name}'ı İncele
+                          </span>
+                          <FiArrowRight className="w-5 h-5 text-primary-dark" />
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
                 );
               })}
             </div>
