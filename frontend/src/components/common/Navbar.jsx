@@ -62,29 +62,46 @@ const Navbar = ({ transparent = false }) => {
 
       {/* Side Menu Drawer */}
       <div
-        className={`fixed right-0 top-0 h-screen w-64 bg-primary-dark text-white shadow-2xl z-40 transition-transform duration-300 ease-in-out ${
+        className={`fixed right-0 top-0 h-screen w-72 bg-primary-dark text-white shadow-2xl z-40 transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ paddingTop: transparent ? '80px' : '0' }}
       >
-        <div className="flex flex-col gap-2 p-6 pt-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className="text-white hover:text-primary-accent hover:bg-white/10 transition-all py-3 px-4 rounded-lg font-medium border-l-2 border-transparent hover:border-primary-accent"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
+        {/* Menu Header */}
+        <div className="px-6 py-8 border-b border-white/10">
+          <h2 className="text-2xl font-light tracking-wide">Menu</h2>
+        </div>
 
-          <div className="my-4 border-t border-white/20" />
+        {/* Menu Items */}
+        <div className="flex-1 overflow-y-auto px-4 py-6">
+          <div className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-white/90 hover:text-primary-accent transition-colors py-4 px-4 rounded-lg font-light text-lg hover:bg-white/5"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
 
+        {/* Divider */}
+        <div className="px-6">
+          <div className="h-px bg-white/10" />
+        </div>
+
+        {/* Reservation Button */}
+        <div className="p-6">
           <Link
             to="/reservation"
-            className="bg-primary-accent text-primary-dark px-4 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all text-center"
+            className="block w-full px-6 py-4 rounded-lg font-light text-center transition-all duration-200 text-primary-dark"
+            style={{ backgroundColor: '#f5f1ed' }}
             onClick={() => setIsOpen(false)}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
             Rezervasyon Yap
           </Link>
