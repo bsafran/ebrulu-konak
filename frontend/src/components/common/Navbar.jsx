@@ -10,6 +10,7 @@ const Navbar = ({ transparent = false }) => {
     { name: 'Ana Sayfa', path: '/' },
     { name: 'Odalar', path: '/rooms' },
     { name: 'Restoranlar', path: '/restaurants' },
+    { name: 'Kurumsal', path: '/corporate' },
     { name: 'Galeri', path: '/gallery' },
     { name: 'İletişim', path: '/contact' },
   ];
