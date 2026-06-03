@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../common/Loading';
-import Button from '../common/Button';
 import useApi from '../../hooks/useApi';
 import { getRestaurants, formatRestaurantData } from '../../services/strapiService';
 
 const RestaurantsPreview = () => {
+  const navigate = useNavigate();
   const { data, loading, error } = useApi(() => getRestaurants());
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const fallbackImage = 'https://images.unsplash.com/photo-1504674900769-570d79d20a1f?w=800&h=600&fit=crop';
 
   const restaurants = data?.data?.slice(0, 2) || [];
+
+  const handleRestaurantClick = (index) => {
+    navigate('/restaurants');
+    setTimeout(() => {
+      if (index === 0) {
+        window.scrollTo(0, 0);
+      } else if (index === 1) {
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    }, 100);
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -83,30 +94,29 @@ const RestaurantsPreview = () => {
                       </p>
 
                       {/* Explore Button */}
-                      <Link to="/restaurants" className="inline-block">
-                        <button
-                          style={{
-                            backgroundColor: '#f3efea',
-                            color: '#9c714b',
-                            padding: '10px 24px',
-                            borderRadius: '8px',
-                            border: '2px solid #9c714b',
-                            fontWeight: '600',
-                            cursor: 'pointer',
-                            transition: 'all 0.3s ease',
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.backgroundColor = '#9c714b';
-                            e.currentTarget.style.color = '#f3efea';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = '#f3efea';
-                            e.currentTarget.style.color = '#9c714b';
-                          }}
-                        >
-                          {formattedRes.name}'ı İncele
-                        </button>
-                      </Link>
+                      <button
+                        onClick={() => handleRestaurantClick(index)}
+                        style={{
+                          backgroundColor: '#f3efea',
+                          color: '#9c714b',
+                          padding: '10px 24px',
+                          borderRadius: '8px',
+                          border: '2px solid #9c714b',
+                          fontWeight: '600',
+                          cursor: 'pointer',
+                          transition: 'all 0.3s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = '#9c714b';
+                          e.currentTarget.style.color = '#f3efea';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = '#f3efea';
+                          e.currentTarget.style.color = '#9c714b';
+                        }}
+                      >
+                        {formattedRes.name}'ı İncele
+                      </button>
                     </div>
                   </div>
                 );
