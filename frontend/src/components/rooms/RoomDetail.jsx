@@ -219,7 +219,28 @@ const RoomDetail = ({ room, loading }) => {
             variant="primary"
             size="lg"
             onClick={handleBookNow}
-            style={{ width: '100%' }}
+            style={{
+              width: '100%',
+              backgroundColor: '#9c714b',
+              color: '#f3efea',
+              padding: '14px 24px',
+              fontSize: '16px',
+              fontWeight: '700',
+              textTransform: 'uppercase',
+              letterSpacing: '2px',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              transition: 'all 200ms linear',
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#8a6140';
+              e.target.style.transform = 'scale(0.98)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#9c714b';
+              e.target.style.transform = 'scale(1)';
+            }}
           >
             Şimdi Rezervasyon Yap
           </Button>
