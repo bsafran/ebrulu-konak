@@ -8,7 +8,7 @@ import { getGallery, getMediaUrl } from '../../services/strapiService';
 const Gallery = () => {
   const { data, loading, error } = useApi(() => getGallery());
 
-  const galleryItems = data?.data?.slice(0, 8) || [];
+  const photos = (data?.data?.photos || []).slice(0, 8);
 
   return (
     <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
@@ -36,35 +36,18 @@ const Gallery = () => {
         ) : (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
-              {galleryItems.map((item) => {
-                const imageUrl = item.attributes?.image?.data
-                  ? getMediaUrl(item.attributes.image.data?.attributes)
-                  : null;
-
+              {photos.map((photo) => {
+                const imageUrl = getMediaUrl(photo);
                 return (
                   <div
-                    key={item.id}
+                    key={photo.id}
                     className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
                   >
-                    {imageUrl ? (
-                      <img
-                        src={imageUrl}
-                        alt={item.attributes?.title || 'Galeri Resmi'}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                    ) : (
-                      <div className="w-full h-48 bg-primary-light flex items-center justify-center">
-                        <span className="text-white text-4xl">📷</span>
-                      </div>
-                    )}
-
-                    {item.attributes?.title && (
-                      <div className="p-3 bg-primary-dark text-primary-light">
-                        <p className="text-sm font-semibold line-clamp-1">
-                          {item.attributes.title}
-                        </p>
-                      </div>
-                    )}
+                    <img
+                      src={imageUrl}
+                      alt="Galeri"
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
                 );
               })}
