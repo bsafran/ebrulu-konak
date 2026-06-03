@@ -117,7 +117,11 @@ const RoomsPreview = () => {
                       <div
                         key={`${room.id}-${currentIndex}`}
                         className="flex-shrink-0 rounded-2xl overflow-hidden"
-                        style={{ width: 'calc(33.333% - 1rem)' }}
+                        style={{
+                          width: 'calc(33.333% - 1rem)',
+                          backfaceVisibility: 'hidden',
+                          WebkitBackfaceVisibility: 'hidden',
+                        }}
                         onMouseEnter={() => setHoveredRoomId(room.id)}
                         onMouseLeave={() => setHoveredRoomId(null)}
                       >
@@ -128,6 +132,8 @@ const RoomsPreview = () => {
                               transform: isHovered ? 'scale(1.08)' : 'scale(1)',
                               transformOrigin: 'center',
                               willChange: 'transform',
+                              backfaceVisibility: 'hidden',
+                              WebkitBackfaceVisibility: 'hidden',
                             }}
                           >
                             {/* Background Image */}
