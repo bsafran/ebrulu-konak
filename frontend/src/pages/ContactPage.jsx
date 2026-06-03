@@ -377,7 +377,7 @@ const ContactPage = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '16px',
-                    minHeight: '240px',
+                    minHeight: '280px',
                     justifyContent: 'flex-start',
                     transition: 'all 200ms linear',
                     transform: info.link ? 'scale(1)' : 'scale(1)',
@@ -455,7 +455,7 @@ const ContactPage = () => {
                         fontSize: '14px',
                         fontWeight: '600',
                         transition: 'all 200ms linear',
-                        marginTop: '12px',
+                        alignSelf: 'flex-start',
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = '#8a6140';
