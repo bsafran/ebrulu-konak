@@ -14,7 +14,7 @@ const Navbar = ({ transparent = false }) => {
   ];
 
   const navClasses = transparent
-    ? 'fixed top-0 z-40 w-full'
+    ? 'fixed top-0 z-40 w-full bg-transparent'
     : 'sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm';
 
   const textClasses = transparent ? 'text-white' : 'text-primary-dark';
@@ -33,34 +33,9 @@ const Navbar = ({ transparent = false }) => {
             <span className={`text-xl font-bold hidden sm:inline ${logoTextClasses}`}>Ebrulu Konak</span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`${textClasses} ${hoverClasses} transition-colors duration-200 font-medium`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* CTA Button - Desktop */}
-          <Link
-            to="/reservation"
-            className={`hidden md:block px-6 py-2 rounded-lg font-semibold transition-all duration-200 ${
-              transparent
-                ? 'bg-white/20 text-white hover:bg-white/30 border border-white/30'
-                : 'bg-primary-gold text-primary-dark hover:bg-opacity-90'
-            }`}
-          >
-            Rezervasyon
-          </Link>
-
-          {/* Mobile Menu Button */}
+          {/* Menu Button */}
           <button
-            className={`md:hidden p-2 rounded-lg transition-colors ${
+            className={`p-2 rounded-lg transition-colors ${
               transparent ? 'hover:bg-white/20' : 'hover:bg-gray-100'
             }`}
             onClick={() => setIsOpen(!isOpen)}
@@ -73,12 +48,12 @@ const Navbar = ({ transparent = false }) => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Menu Dropdown */}
         {isOpen && (
-          <div className={`md:hidden pb-4 ${
+          <div className={`pb-4 ${
             transparent
-              ? 'bg-black/80 border-t border-white/20'
-              : 'border-t border-gray-100'
+              ? 'bg-black/90 border-t border-white/20'
+              : 'bg-white/95 border-t border-gray-100'
           }`}>
             <div className="flex flex-col gap-4 pt-4 px-4">
               {navLinks.map((link) => (
