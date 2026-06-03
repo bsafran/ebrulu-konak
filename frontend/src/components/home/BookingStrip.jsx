@@ -63,19 +63,11 @@ const BookingStrip = () => {
   const inputContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
-    gap: '8px',
   };
 
   const inputWrapperStyle = {
     position: 'relative',
     height: '40px',
-  };
-
-  const errorStyle = {
-    fontSize: '11px',
-    color: '#ffb3ba',
-    fontWeight: '500',
-    minHeight: '16px',
   };
 
   return (
@@ -117,11 +109,9 @@ const BookingStrip = () => {
                   style={{
                     ...inputStyle,
                     borderColor: errors.checkIn ? '#ef4444' : '#e5e5e5',
+                    borderWidth: errors.checkIn ? '2px' : '1px',
                   }}
                 />
-              </div>
-              <div style={errorStyle}>
-                {errors.checkIn && 'Giriş tarihi seçiniz'}
               </div>
             </div>
 
@@ -144,11 +134,9 @@ const BookingStrip = () => {
                   style={{
                     ...inputStyle,
                     borderColor: errors.checkOut ? '#ef4444' : '#e5e5e5',
+                    borderWidth: errors.checkOut ? '2px' : '1px',
                   }}
                 />
-              </div>
-              <div style={errorStyle}>
-                {errors.checkOut && 'Çıkış tarihi seçiniz'}
               </div>
             </div>
 
@@ -176,14 +164,10 @@ const BookingStrip = () => {
                   ))}
                 </select>
               </div>
-              <div style={errorStyle} />
             </div>
 
             {/* Search Button */}
             <div style={inputContainerStyle}>
-              <div style={{ visibility: 'hidden', fontSize: '12px', fontWeight: '600', height: '16px' }}>
-                .
-              </div>
               <div style={inputWrapperStyle}>
                 <button
                   onClick={handleSearch}
@@ -219,7 +203,6 @@ const BookingStrip = () => {
                   Oda Ara
                 </button>
               </div>
-              <div style={errorStyle} />
             </div>
           </div>
         </div>
