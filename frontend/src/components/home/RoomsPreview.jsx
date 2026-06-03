@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import Loading from '../common/Loading';
 import Button from '../common/Button';
@@ -14,7 +14,6 @@ const RoomsPreview = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const [slideDirection, setSlideDirection] = useState(null);
 
   const allRooms = data?.data || [];
   const itemsPerPage = 3;
@@ -32,13 +31,11 @@ const RoomsPreview = () => {
 
   const handlePrev = () => {
     if (maxIndex === 0) return;
-    setSlideDirection('right');
     setCurrentIndex(prev => prev === 0 ? maxIndex : prev - 1);
   };
 
   const handleNext = () => {
     if (maxIndex === 0) return;
-    setSlideDirection('left');
     setCurrentIndex(prev => prev === maxIndex ? 0 : prev + 1);
   };
 
@@ -113,7 +110,7 @@ const RoomsPreview = () => {
                   layout
                   className="grid grid-cols-1 md:grid-cols-3 gap-6"
                 >
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence>
                     {visibleRooms.map((room, index) => {
                       const formattedRoom = formatRoomData(room);
                       const firstImage = formattedRoom.images?.[0];
@@ -122,30 +119,20 @@ const RoomsPreview = () => {
                       return (
                         <motion.div
                           key={`${room.id}-carousel`}
-                          initial={{
-                            opacity: 0,
-                            x: slideDirection === 'left' ? 100 : -100,
-                          }}
-                          animate={{
-                            opacity: 1,
-                            x: 0,
-                          }}
-                          exit={{
-                            opacity: 0,
-                            x: slideDirection === 'left' ? -100 : 100,
-                          }}
-                          transition={{ duration: 0.5, ease: 'easeOut' }}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3, ease: 'easeInOut' }}
                         >
-                          <Link
-                            to={`/rooms/${room.id}`}
-                            className="block relative h-0 overflow-hidden rounded-2xl"
+                          <div
+                            className="relative overflow-hidden rounded-2xl"
                             style={{ paddingBottom: '150%' }}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                           >
                             {/* Background Image */}
                             <div
-                              className="absolute inset-0 bg-cover bg-center rounded-2xl transition-all duration-200"
+                              className="absolute inset-0 bg-cover bg-center transition-all duration-300"
                               style={{
                                 backgroundImage: `url(${firstImage?.url || fallbackImage})`,
                                 filter: isHovered
@@ -153,36 +140,46 @@ const RoomsPreview = () => {
                                   : hoveredIndex !== null
                                   ? 'brightness(0.5) saturate(0.5) contrast(1.2) blur(20px)'
                                   : 'brightness(0.75) saturate(1.2) contrast(0.85)',
-                                transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                                transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+                                transformOrigin: 'center',
+                                willChange: 'transform',
                               }}
                             />
 
                             {/* Content Overlay */}
-                            <div className="absolute top-0 left-0 p-6 z-10">
-                              <p
-                                className="text-sm font-semibold uppercase mb-4 transition-colors duration-200"
-                                style={{
-                                  color: 'rgba(255,255,255,0.75)',
-                                  fontSize: '0.875rem',
-                                  letterSpacing: '0.05em',
-                                }}
-                              >
-                                Oda
-                              </p>
+                            <Link
+                              to={`/rooms/${room.id}`}
+                              className="absolute inset-0 flex flex-col items-start justify-end p-6 z-10 no-underline"
+                            >
                               <h3
-                                className="font-bold transition-colors duration-200"
+                                className="font-bold transition-colors duration-200 w-full"
                                 style={{
                                   color: 'rgba(255,255,255,0.9)',
                                   fontSize: '1.75rem',
                                   lineHeight: '1.2',
                                   wordSpacing: '100vw',
-                                  textShadow: '2px 2px 20px rgba(0,0,0,0.2)',
+                                  textShadow: '2px 2px 20px rgba(0,0,0,0.3)',
                                 }}
                               >
                                 {formattedRoom.title}
                               </h3>
+                            </Link>
+
+                            {/* Explore Button - Show on hover */}
+                            <div
+                              className="absolute inset-0 flex items-center justify-center z-20 transition-all duration-300"
+                              style={{
+                                opacity: isHovered ? 1 : 0,
+                              }}
+                            >
+                              <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full">
+                                <span className="text-primary-dark font-semibold text-lg">
+                                  Odayı İncele
+                                </span>
+                                <FiArrowRight className="w-5 h-5 text-primary-dark" />
+                              </div>
                             </div>
-                          </Link>
+                          </div>
                         </motion.div>
                       );
                     })}
