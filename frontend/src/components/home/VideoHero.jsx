@@ -32,20 +32,6 @@ const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle
           <p className="text-xl sm:text-2xl drop-shadow-md">
             {subtitle}
           </p>
-          <div className="pt-8 space-x-4">
-            <Link
-              to="/rooms"
-              className="inline-block bg-primary-accent text-primary-dark px-8 py-4 rounded-lg font-semibold hover:bg-opacity-80 transition-all duration-200"
-            >
-              Odaları Keşfet
-            </Link>
-            <Link
-              to="/reservation"
-              className="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-primary-dark transition-all duration-200"
-            >
-              Şimdi Rezervasyon Yap
-            </Link>
-          </div>
         </div>
 
         {/* Scroll Indicator */}

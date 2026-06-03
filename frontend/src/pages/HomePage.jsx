@@ -23,7 +23,7 @@ const HomePage = () => {
   const aboutText = siteSettings?.data?.aboutText || '';
 
   return (
-    <Layout transparentNav>
+    <Layout>
       <VideoHero
         videoUrl={heroVideo}
         title={siteSettings?.data?.heroTitle}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
+import logo from '../../assets/logo.png';
 
 const Navbar = ({ transparent = false }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +16,9 @@ const Navbar = ({ transparent = false }) => {
 
   const navClasses = transparent
     ? 'fixed top-0 z-50 w-full bg-transparent'
-    : 'sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm';
+    : 'fixed top-0 z-50 w-full bg-primary-dark/90';
 
-  const textClasses = transparent ? 'text-white' : 'text-primary-dark';
-  const logoTextClasses = transparent ? 'text-white' : 'text-primary-dark';
+  const textClasses = transparent ? 'text-white' : 'text-white';
 
   return (
     <>
@@ -26,11 +26,8 @@ const Navbar = ({ transparent = false }) => {
         <div className={transparent ? 'px-4 sm:px-8' : 'container-custom'}>
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center">
-                <span className="text-white font-bold text-lg">E</span>
-              </div>
-              <span className={`text-xl font-bold hidden sm:inline ${logoTextClasses}`}>Ebrulu Konak</span>
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="Ebrulu Konak" className="h-16 w-auto" />
             </Link>
 
             {/* Menu Button */}
@@ -42,9 +39,9 @@ const Navbar = ({ transparent = false }) => {
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <FiX className="w-6 h-6" style={{ color: '#9c714b' }} />
+                <FiX className="w-6 h-6 text-white" />
               ) : (
-                <FiMenu className={`w-6 h-6 ${textClasses}`} />
+                <FiMenu className="w-6 h-6 text-white" />
               )}
             </button>
           </div>
