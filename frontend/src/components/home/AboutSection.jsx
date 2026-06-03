@@ -29,13 +29,6 @@ Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak
             </p>
           </div>
 
-          {/* Decorative Divider - Below Subtitle */}
-          <div className="flex items-center justify-center gap-3">
-            <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
-            <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
-            <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
-          </div>
-
           {/* Text Content */}
           <div className="space-y-8">
             <p className="max-w-4xl text-xl text-gray-700 leading-relaxed preserve-whitespace">
