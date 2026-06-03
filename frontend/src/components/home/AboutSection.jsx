@@ -15,39 +15,35 @@ Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
-        <div className="space-y-12">
-          {/* Header Section */}
-          <div className="space-y-4 max-w-3xl">
-            <h2 className="text-5xl md:text-6xl font-bold text-primary-dark">
-              Hakkımızda
-            </h2>
-            <p className="text-xl text-primary-dark font-display">
-              Safranbolu'da Tarihi Yeniden Yaşayın
+        <div className="space-y-8">
+          {/* Header */}
+          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark">
+            Hakkımızda
+          </h2>
+
+          {/* Subtitle with arrow */}
+          <p className="text-lg text-gray-700 flex items-center gap-3">
+            <span className="text-2xl">→</span>
+            <span className="font-display text-primary-dark">Safranbolu'da Tarihi Yeniden Yaşayın</span>
+          </p>
+
+          {/* Text Content */}
+          <div className="space-y-8">
+            <p className="max-w-4xl text-base text-gray-700 leading-relaxed preserve-whitespace">
+              {content}
+            </p>
+            <p className="max-w-4xl text-base font-display text-primary-dark">
+              <span className="font-bold">Ebrulu Konak</span> - Reliving History in Safranbolu
             </p>
           </div>
 
-          {/* Content and Image Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Text Content */}
-            <div className="space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed preserve-whitespace">
-                {content}
-              </p>
-              <div className="pt-4">
-                <p className="text-lg font-display text-primary-dark">
-                  <span className="font-bold">Ebrulu Konak</span> - Reliving History in Safranbolu
-                </p>
-              </div>
-            </div>
-
-            {/* Image */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={safranImage}
-                alt="Safranbolu - Ebrulu Konak"
-                className="w-full h-auto object-cover"
-              />
-            </div>
+          {/* Image - direct, no card wrapper */}
+          <div className="mt-12 w-full">
+            <img
+              src={safranImage}
+              alt="Safranbolu - Ebrulu Konak"
+              className="w-full h-auto object-contain"
+            />
           </div>
         </div>
       </div>
