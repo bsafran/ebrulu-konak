@@ -63,12 +63,14 @@ const RestaurantsPreview = () => {
 
                     {/* Content */}
                     <div className="p-6 space-y-4">
-                      <h3 className="text-3xl font-bold text-primary-dark">
-                        {formattedRes.name}
-                      </h3>
-                      <p className="text-gray-600 text-sm italic">
-                        <span className="font-semibold text-primary-accent">{formattedRes.cuisine}</span> Mutfağı
-                      </p>
+                      <div className="space-y-1">
+                        <h3 className="text-3xl font-bold text-primary-dark">
+                          {formattedRes.name}
+                        </h3>
+                        <p className="text-gray-600 text-sm italic">
+                          <span className="font-semibold text-primary-accent">{formattedRes.cuisine}</span> Mutfağı
+                        </p>
+                      </div>
                       <p className="text-gray-600 text-sm line-clamp-2">
                         {formattedRes.description || 'Özel şef hizmetleriyle sunulan lezzetli yemekler'}
                       </p>
