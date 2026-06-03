@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Layout from '../components/common/Layout';
 import Loading from '../components/common/Loading';
+import Lightbox from '../components/common/Lightbox';
 import useApi from '../hooks/useApi';
 import { getGallery, getMediaUrl } from '../services/strapiService';
-import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const GalleryPage = () => {
   const { data, loading, error } = useApi(() => getGallery());
@@ -80,55 +80,13 @@ const GalleryPage = () => {
       </div>
 
       {/* Lightbox */}
-      {selectedIndex !== null && photos[selectedIndex] && (
-        <div
-          style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50, padding: '24px' }}
-          onClick={handleClose}
-        >
-          <div style={{ position: 'relative', maxWidth: '1200px', width: '100%' }} onClick={(e) => e.stopPropagation()}>
-            {/* Close */}
-            <button
-              onClick={handleClose}
-              style={{ position: 'absolute', top: '12px', right: '12px', zIndex: 10, backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.65)'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.4)'}
-            >
-              <FiX style={{ color: 'white', width: '20px', height: '20px' }} />
-            </button>
-
-            {/* Prev */}
-            <button
-              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-              style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 10, backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.65)'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.4)'}
-            >
-              <FiChevronLeft style={{ color: 'white', width: '24px', height: '24px' }} />
-            </button>
-
-            {/* Next */}
-            <button
-              onClick={(e) => { e.stopPropagation(); handleNext(); }}
-              style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 10, backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.65)'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.4)'}
-            >
-              <FiChevronRight style={{ color: 'white', width: '24px', height: '24px' }} />
-            </button>
-
-            <img
-              src={getMediaUrl(photos[selectedIndex])}
-              alt="Galeri"
-              style={{ width: '100%', maxHeight: '90vh', objectFit: 'contain', borderRadius: '12px', display: 'block' }}
-            />
-
-            {/* Counter */}
-            <div style={{ textAlign: 'center', marginTop: '12px', color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}>
-              {selectedIndex + 1} / {photos.length}
-            </div>
-          </div>
-        </div>
-      )}
+      <Lightbox
+        images={photos.map(photo => ({ ...photo, url: getMediaUrl(photo) }))}
+        selectedIndex={selectedIndex}
+        onClose={handleClose}
+        onPrev={handlePrev}
+        onNext={handleNext}
+      />
     </Layout>
   );
 };

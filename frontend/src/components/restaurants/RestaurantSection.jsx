@@ -1,12 +1,20 @@
 import { useState, useEffect, useCallback } from 'react';
-import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import Lightbox from '../common/Lightbox';
 
 const RestaurantSection = ({ restaurant, reversed = false }) => {
   const [hoveredImageIndex, setHoveredImageIndex] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
-  const handlePrev = useCallback((len) => setSelectedImageIndex((i) => (i > 0 ? i - 1 : len - 1)), []);
-  const handleNext = useCallback((len) => setSelectedImageIndex((i) => (i < len - 1 ? i + 1 : 0)), []);
+  const handlePrev = useCallback(() => setSelectedImageIndex((i) => {
+    const len = restaurant.images?.length || 1;
+    return i > 0 ? i - 1 : len - 1;
+  }), [restaurant.images?.length]);
+
+  const handleNext = useCallback(() => setSelectedImageIndex((i) => {
+    const len = restaurant.images?.length || 1;
+    return i < len - 1 ? i + 1 : 0;
+  }), [restaurant.images?.length]);
+
   const handleClose = useCallback(() => setSelectedImageIndex(null), []);
 
   useEffect(() => {
@@ -247,55 +255,14 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
       </div>
 
       {/* Lightbox */}
-      {selectedImageIndex !== null && (
-        <div
-          style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50, padding: '24px' }}
-          onClick={handleClose}
-        >
-          <div style={{ position: 'relative', maxWidth: '1200px', width: '100%' }} onClick={(e) => e.stopPropagation()}>
-            {/* Close */}
-            <button
-              onClick={handleClose}
-              style={{ position: 'absolute', top: '12px', right: '12px', zIndex: 10, backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.65)'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.4)'}
-            >
-              <FiX style={{ color: 'white', width: '20px', height: '20px' }} />
-            </button>
-
-            {/* Prev */}
-            <button
-              onClick={(e) => { e.stopPropagation(); handlePrev(images.length); }}
-              style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 10, backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.65)'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.4)'}
-            >
-              <FiChevronLeft style={{ color: 'white', width: '24px', height: '24px' }} />
-            </button>
-
-            {/* Next */}
-            <button
-              onClick={(e) => { e.stopPropagation(); handleNext(images.length); }}
-              style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 10, backgroundColor: 'rgba(0,0,0,0.4)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.65)'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.4)'}
-            >
-              <FiChevronRight style={{ color: 'white', width: '24px', height: '24px' }} />
-            </button>
-
-            <img
-              src={images[selectedImageIndex]?.url || fallbackImage}
-              alt="Restaurant"
-              style={{ width: '100%', maxHeight: '90vh', objectFit: 'contain', borderRadius: '12px', display: 'block' }}
-            />
-
-            {/* Counter */}
-            <div style={{ textAlign: 'center', marginTop: '12px', color: 'rgba(255,255,255,0.7)', fontSize: '14px' }}>
-              {selectedImageIndex + 1} / {images.length}
-            </div>
-          </div>
-        </div>
-      )}
+      <Lightbox
+        images={images}
+        selectedIndex={selectedImageIndex}
+        onClose={handleClose}
+        onPrev={handlePrev}
+        onNext={handleNext}
+        fallbackImage={fallbackImage}
+      />
     </div>
   );
 };
