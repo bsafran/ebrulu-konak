@@ -22,6 +22,13 @@ const IntroSection = ({ title = 'Hoş Geldiniz', text = '' }) => {
           <p className="text-lg text-gray-600 leading-relaxed preserve-whitespace">
             {displayText}
           </p>
+
+          {/* Decorative Divider - Below Text */}
+          <div className="flex items-center justify-center gap-3 mt-8">
+            <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
+            <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
+            <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
+          </div>
         </div>
       </div>
     </section>
