@@ -298,12 +298,12 @@ const ContactPage = () => {
 
         {/* Google Maps Card */}
         <a
-          href="https://www.google.com/maps/search/Babasultan+Mah+H%C4%B1d%C4%B1rl%C4%B1k+Yoku%C5%9Eu+Sok+No+13+78600+Safranbolu+KARAB%C3%9CK+T%C3%9CRK%C4%B0YE"
+          href="https://www.google.com/maps/dir//Ebrulu+Konak,+%C3%87e%C5%9Fme,+H%C4%B1d%C4%B1rl%C4%B1k+Yk%C5%9F.+Sk.+No:13,+78600+Safranbolu%2FKarab%C3%BCk/@41.2134334,32.6291968,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x408355293d8b664d:0x1c7613d21d775ae8!2m2!1d32.6945624!2d41.2439486!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDUzMS4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           style={{
             textDecoration: 'none',
-            marginBottom: '80px',
+            marginBottom: '24px',
             display: 'block',
           }}
         >
