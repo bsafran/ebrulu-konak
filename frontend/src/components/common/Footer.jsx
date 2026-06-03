@@ -32,8 +32,8 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: FaInstagram, url: 'https://instagram.com', label: 'Instagram' },
-    { icon: FaFacebook, url: 'https://facebook.com', label: 'Facebook' },
+    { icon: FaInstagram, url: 'https://www.instagram.com/ebrulukonak/', label: 'Instagram' },
+    { icon: FaFacebook, url: 'https://www.facebook.com/ebrulukonaklar', label: 'Facebook' },
     { icon: FaWhatsapp, url: 'https://wa.me/905057656178', label: 'WhatsApp' },
   ];
 
