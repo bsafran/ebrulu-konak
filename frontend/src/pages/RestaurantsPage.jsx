@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import Layout from '../components/common/Layout';
+import PageHeader from '../components/common/PageHeader';
 import RestaurantSection from '../components/restaurants/RestaurantSection';
 import Loading from '../components/common/Loading';
 import useApi from '../hooks/useApi';
@@ -24,40 +25,11 @@ const RestaurantsPage = () => {
         }}
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
-          {/* Page Header */}
-          <div style={{ marginBottom: '80px' }}>
-            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <h1
-                style={{
-                  fontSize: '48px',
-                  fontWeight: 'bold',
-                  color: '#9c714b',
-                  margin: '0 0 16px 0',
-                }}
-              >
-                Restoranlar
-              </h1>
-              <p
-                style={{
-                  fontSize: '18px',
-                  color: '#666',
-                  lineHeight: '1.6',
-                  margin: '0 0 24px 0',
-                  maxWidth: '600px',
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}
-              >
-                Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın.
-              </p>
-              {/* Decorative Divider */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-                <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
-                <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
-                <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
-              </div>
-            </div>
-          </div>
+          <PageHeader
+            title="Restoranlar"
+            description="Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın."
+            marginBottom="120px"
+          />
 
           {/* Loading State */}
           {loading && (

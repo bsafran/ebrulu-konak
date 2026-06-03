@@ -43,18 +43,16 @@ const BookingStrip = () => {
     <div className="py-8 -mt-12 relative z-10 bg-primary-light">
       <div className="container-custom">
         <div className="p-8 md:p-6 rounded-lg" style={{ backgroundColor: '#9c714b' }}>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-end mx-auto" style={{ maxWidth: '1000px' }}>
             {/* Check-in Date */}
             <div className="flex flex-col" style={{ minHeight: '98px' }}>
-              <label className="text-sm font-semibold text-white mb-2">
-                Giriş Tarihi
-              </label>
               <DatePicker
                 selected={checkIn}
                 onChange={handleCheckIn}
                 dateFormat="dd/MM/yyyy"
                 minDate={new Date()}
                 placeholderText="Giriş Tarihi"
+                aria-label="Giriş Tarihi"
                 className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
                 style={{ borderColor: errors.checkIn ? '#ef4444' : '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
               />
@@ -67,15 +65,13 @@ const BookingStrip = () => {
 
             {/* Check-out Date */}
             <div className="flex flex-col" style={{ minHeight: '98px' }}>
-              <label className="text-sm font-semibold text-white mb-2">
-                Çıkış Tarihi
-              </label>
               <DatePicker
                 selected={checkOut}
                 onChange={handleCheckOut}
                 dateFormat="dd/MM/yyyy"
                 minDate={checkIn || new Date()}
                 placeholderText="Çıkış Tarihi"
+                aria-label="Çıkış Tarihi"
                 className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
                 style={{ borderColor: errors.checkOut ? '#ef4444' : '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
               />
@@ -88,12 +84,10 @@ const BookingStrip = () => {
 
             {/* Guests */}
             <div className="flex flex-col" style={{ minHeight: '98px' }}>
-              <label className="text-sm font-semibold text-white mb-2">
-                Misafir Sayısı
-              </label>
               <select
                 value={guests}
                 onChange={handleGuestsChange}
+                aria-label="Misafir Sayısı"
                 className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
                 style={{ borderColor: '#f5f1ed', '--tw-ring-color': '#f5f1ed' }}
               >

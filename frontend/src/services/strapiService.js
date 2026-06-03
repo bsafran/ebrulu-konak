@@ -53,7 +53,7 @@ export const getRestaurantById = async (id) => {
     return response.data;
   } catch (error) {
     console.error(`Error fetching restaurant ${id}:`, error);
-    throw error;
+    throw new Error('Restoran bilgileri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
   }
 };
 

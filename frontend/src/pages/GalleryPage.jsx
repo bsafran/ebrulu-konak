@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Layout from '../components/common/Layout';
+import PageHeader from '../components/common/PageHeader';
 import Loading from '../components/common/Loading';
 import Lightbox from '../components/common/Lightbox';
 import useApi from '../hooks/useApi';
@@ -35,21 +36,11 @@ const GalleryPage = () => {
   return (
     <Layout>
       <div className="container-custom py-16">
-        <div style={{ marginBottom: '80px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <h1 style={{ fontSize: '48px', fontWeight: 'bold', color: '#9c714b', margin: '0 0 16px 0' }}>
-              Galeri
-            </h1>
-            <p style={{ fontSize: '18px', color: '#666', lineHeight: '1.6', margin: '0 0 24px 0', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>
-              Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
-              <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
-              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
-            </div>
-          </div>
-        </div>
+        <PageHeader
+          title="Galeri"
+          description="Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin."
+          marginBottom="120px"
+        />
 
         {loading ? (
           <Loading />

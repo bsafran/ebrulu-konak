@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import DatePicker from 'react-datepicker';
 import Layout from '../components/common/Layout';
+import PageHeader from '../components/common/PageHeader';
 import Button from '../components/common/Button';
 import Loading from '../components/common/Loading';
 import { useBooking } from '../context/BookingContext';
@@ -122,39 +123,11 @@ const ReservationPage = () => {
   return (
     <Layout>
       <div className="container-custom py-16">
-        {/* Page Header */}
-        <div style={{ marginBottom: '48px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <h1
-              style={{
-                fontSize: '48px',
-                fontWeight: 'bold',
-                color: '#9c714b',
-                margin: '0 0 16px 0',
-              }}
-            >
-              Otel Rezervasyonu
-            </h1>
-            <p
-              style={{
-                fontSize: '18px',
-                color: '#666',
-                lineHeight: '1.6',
-                margin: '0 0 24px 0',
-                maxWidth: '600px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-              }}
-            >
-              Tarihlerinizi ve misafir sayısını seçin, ardından tercih ettiğiniz odayı seçerek rezervasyon yapın.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
-              <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
-              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
-            </div>
-          </div>
-        </div>
+        <PageHeader
+          title="Otel Rezervasyonu"
+          description="Tarihlerinizi ve misafir sayısını seçin, ardından tercih ettiğiniz odayı seçerek rezervasyon yapın."
+          marginBottom="80px"
+        />
 
         {/* Search Bar Section */}
         <div style={{ marginBottom: '48px' }} className="bg-primary-light">
