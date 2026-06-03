@@ -4,9 +4,11 @@ import Layout from '../components/common/Layout';
 import RestaurantDetail from '../components/restaurants/RestaurantDetail';
 import Loading from '../components/common/Loading';
 import useApi from '../hooks/useApi';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 import { getRestaurantById, formatRestaurantData } from '../services/strapiService';
 
 const RestaurantDetailPage = () => {
+  useScrollRestoration();
   const { id } = useParams();
   const { data, loading, error } = useApi(() => getRestaurantById(id), [id]);
 

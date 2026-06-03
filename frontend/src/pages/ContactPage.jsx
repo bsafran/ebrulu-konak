@@ -4,8 +4,10 @@ import PageHeader from '../components/common/PageHeader';
 import Button from '../components/common/Button';
 import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const ContactPage = () => {
+  useScrollRestoration();
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const hotelImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
 

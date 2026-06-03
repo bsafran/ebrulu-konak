@@ -4,9 +4,11 @@ import Layout from '../components/common/Layout';
 import RoomDetail from '../components/rooms/RoomDetail';
 import Loading from '../components/common/Loading';
 import useApi from '../hooks/useApi';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
 import { getRoomById, formatRoomData } from '../services/strapiService';
 
 const RoomDetailPage = () => {
+  useScrollRestoration();
   const { id } = useParams();
   const { data, loading, error } = useApi(() => getRoomById(id), [id]);
 
