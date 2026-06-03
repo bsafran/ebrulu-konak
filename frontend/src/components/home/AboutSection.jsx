@@ -1,48 +1,52 @@
 import React from 'react';
+import safranImage from '../../assets/safranbolupng.png';
 
-const AboutSection = ({ title = 'Hakkımızda', description = '' }) => {
+const AboutSection = () => {
+  const content = `2004 yılında Safranbolu'nun tarihsel dokusunu koruyan, 5 adet tarihi konaktan oluşan ve 38 odasını barındıran Ebrulu Konak, her köşesinde geçmişin izlerini taşıyarak misafirlerine unutulmaz bir deneyim sunmaktadır.
+
+İçerisinde barındırdığı tarihi mimarisi, zarif tasarımı ve ender bulunan hizmet standartları ile misafirlerimize unutulmaz bir deneyim yaşatmayı amaçlıyoruz.
+
+Restoran hizmetlerimizde, geleneksel Safranbolu lezzetlerini modern sunuş şekli ile birleştirerek, misafirlerimizin damak zevkine hitap eden bir menü sunmaktayız.
+
+Kalite ve misafir memnuniyeti ilkelerine bağlı kalmak, hizmet anlayışımızın temel taşıdır. Her detayda mükemmelliği arayarak, misafirlerimizin beklentilerini aşmayı hedefliyoruz.
+
+Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak, bu mirası gelecek kuşaklara aktarmak misyonumuz.`;
+
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="rounded-2xl overflow-hidden shadow-xl">
-            <img
-              src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&h=400&fit=crop"
-              alt="Ebrulu Konak"
-              className="w-full h-96 object-cover"
-            />
+        <div className="space-y-12">
+          {/* Header Section */}
+          <div className="space-y-4 max-w-3xl">
+            <h2 className="text-5xl md:text-6xl font-bold text-primary-dark">
+              Hakkımızda
+            </h2>
+            <p className="text-xl text-primary-dark font-display">
+              Safranbolu'da Tarihi Yeniden Yaşayın
+            </p>
           </div>
 
-          {/* Content */}
-          <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-primary-dark">{title}</h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              {description ||
-                `Ebrulu Konak, Yunak bölgesinin tarihi ve doğal güzellikleri içinde yer alan,
-                modern amenities ile klasik mimarisini harmanlayan benzersiz bir otel işletmesidir.
-                Her oda, el sanatları ile dekore edilmiş ve misafirlerimizin konforunu en üst
-                düzeyde tutacak şekilde tasarlanmıştır.`}
-            </p>
+          {/* Content and Image Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Text Content */}
+            <div className="space-y-6">
+              <p className="text-lg text-gray-700 leading-relaxed preserve-whitespace">
+                {content}
+              </p>
+              <div className="pt-4">
+                <p className="text-lg font-display text-primary-dark">
+                  <span className="font-bold">Ebrulu Konak</span> - Reliving History in Safranbolu
+                </p>
+              </div>
+            </div>
 
-            {/* Features */}
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              {[
-                '🏨 Lüks Odalar',
-                '🍽️ Fine Dining',
-                '🧖 Spa Hizmetleri',
-                '📍 Eşsiz Lokasyon',
-                '👨‍💼 24/7 Hizmet',
-                '🎵 Uydu TV & WiFi',
-              ].map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 text-gray-700 font-medium"
-                >
-                  <div className="w-3 h-3 rounded-full bg-primary-accent"></div>
-                  {feature}
-                </div>
-              ))}
+            {/* Image */}
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src={safranImage}
+                alt="Safranbolu - Ebrulu Konak"
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
         </div>
