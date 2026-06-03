@@ -104,7 +104,7 @@ const RoomsPreview = () => {
                 <div
                   className="flex gap-6"
                   style={{
-                    transform: `translateX(calc(-${currentIndex * 33.333}% - ${currentIndex * 1.5}rem))`,
+                    transform: `translateX(calc(-${currentIndex * 33.333}% - ${currentIndex * 0.5}rem))`,
                     transition: 'transform 0.4s ease-out'
                   }}
                 >
@@ -116,28 +116,29 @@ const RoomsPreview = () => {
                     return (
                       <div
                         key={`${room.id}-${currentIndex}`}
-                        className="flex-shrink-0"
+                        className="flex-shrink-0 rounded-2xl overflow-hidden"
                         style={{ width: 'calc(33.333% - 1rem)' }}
+                        onMouseEnter={() => setHoveredRoomId(room.id)}
+                        onMouseLeave={() => setHoveredRoomId(null)}
                       >
                           <div
-                            className="relative overflow-hidden rounded-2xl transition-all duration-300"
+                            className="relative transition-all duration-300"
                             style={{
                               paddingBottom: '150%',
                               transform: isHovered ? 'scale(1.08)' : 'scale(1)',
                               transformOrigin: 'center',
                               willChange: 'transform',
                             }}
-                            onMouseEnter={() => setHoveredRoomId(room.id)}
-                            onMouseLeave={() => setHoveredRoomId(null)}
                           >
                             {/* Background Image */}
                             <div
                               className="absolute inset-0 bg-cover bg-center transition-all duration-300"
                               style={{
                                 backgroundImage: `url(${firstImage?.url || fallbackImage})`,
-                                filter:
-                                  hoveredRoomId !== null && !isHovered
-                                    ? 'brightness(0.5) saturate(0.5) contrast(1.2) blur(20px)'
+                                filter: isHovered
+                                    ? 'brightness(1) saturate(1.3) contrast(1)'
+                                    : hoveredRoomId !== null
+                                    ? 'brightness(0.4) saturate(0.4) contrast(1.1) blur(15px)'
                                     : 'brightness(0.75) saturate(1.2) contrast(0.85)',
                               }}
                             />

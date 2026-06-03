@@ -25,35 +25,38 @@ const RestaurantsPage = () => {
       >
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
           {/* Page Header */}
-          <div
-            style={{
-              marginBottom: '80px',
-              paddingBottom: '32px',
-              borderBottom: '2px solid #a67c52',
-            }}
-          >
-            <h1
-              style={{
-                fontSize: '48px',
-                fontWeight: 'bold',
-                color: '#9c714b',
-                margin: '0 0 16px 0',
-                wordSpacing: '100vw',
-              }}
-            >
-              Restoranlarımız
-            </h1>
-            <p
-              style={{
-                fontSize: '18px',
-                color: '#666',
-                lineHeight: '1.6',
-                margin: 0,
-                maxWidth: '600px',
-              }}
-            >
-              Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın.
-            </p>
+          <div style={{ marginBottom: '80px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <h1
+                style={{
+                  fontSize: '48px',
+                  fontWeight: 'bold',
+                  color: '#9c714b',
+                  margin: '0 0 16px 0',
+                }}
+              >
+                Restoranlarımız
+              </h1>
+              <p
+                style={{
+                  fontSize: '18px',
+                  color: '#666',
+                  lineHeight: '1.6',
+                  margin: '0 0 24px 0',
+                  maxWidth: '600px',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+              >
+                Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın.
+              </p>
+              {/* Decorative Divider */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+                <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
+                <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
+                <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
+              </div>
+            </div>
           </div>
 
           {/* Loading State */}

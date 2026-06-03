@@ -47,20 +47,38 @@ const ContactPage = () => {
     <Layout showFooter={false}>
       <div className="container-custom py-16">
         {/* Page Header */}
-        <div style={{ marginBottom: '80px', paddingBottom: '32px', borderBottom: '2px solid #a67c52' }}>
-          <h1
-            style={{
-              fontSize: '48px',
-              fontWeight: 'bold',
-              color: '#9c714b',
-              margin: '0 0 16px 0',
-            }}
-          >
-            Bize Ulaşın
-          </h1>
-          <p style={{ fontSize: '18px', color: '#666', lineHeight: '1.6', margin: 0, maxWidth: '600px' }}>
-            Sorularınız, önerileriniz veya rezervasyon hakkında bilgi almak için lütfen bizimle iletişime geçin.
-          </p>
+        <div style={{ marginBottom: '80px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <h1
+              style={{
+                fontSize: '48px',
+                fontWeight: 'bold',
+                color: '#9c714b',
+                margin: '0 0 16px 0',
+              }}
+            >
+              Bize Ulaşın
+            </h1>
+            <p
+              style={{
+                fontSize: '18px',
+                color: '#666',
+                lineHeight: '1.6',
+                margin: '0 0 24px 0',
+                maxWidth: '600px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              Sorularınız, önerileriniz veya rezervasyon hakkında bilgi almak için lütfen bizimle iletişime geçin.
+            </p>
+            {/* Decorative Divider */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
+              <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
+              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
+            </div>
+          </div>
         </div>
 
         {/* Main Content - Photo + Form */}
