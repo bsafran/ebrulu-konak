@@ -120,14 +120,14 @@ export default {
               },
             });
           } catch (error) {
-            console.log(`Permission ${perm.action} setup skipped.`);
+            console.log(`Permission ${perm.action} setup skipped:`, error.message);
           }
         }
 
         console.log('✓ API permissions configured for Public role');
       }
     } catch (error) {
-      console.log('Permissions setup will be configured manually or in a future run.');
+      console.log('⚠️  Permissions setup error:', error.message);
     }
 
     // Seed demo data

@@ -4,7 +4,7 @@ import { FiChevronDown } from 'react-icons/fi';
 
 const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle = 'Lüksün ve Konforun Buluştuğu Yer' }) => {
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden" style={{ height: '100vh', marginTop: '-80px', paddingTop: '80px' }}>
       {/* Video Background */}
       {videoUrl ? (
         <video

@@ -13,21 +13,21 @@ import { getSiteSettings, getMediaUrl } from '../services/strapiService';
 const HomePage = () => {
   const { data: siteSettings } = useApi(() => getSiteSettings());
 
-  const heroVideo = siteSettings?.data?.attributes?.heroVideo?.data?.attributes
-    ? getMediaUrl(siteSettings.data.attributes.heroVideo.data.attributes)
+  const heroVideo = siteSettings?.data?.heroVideo?.url
+    ? `http://localhost:1337${siteSettings.data.heroVideo.url}`
     : null;
 
-  const welcomeTitle = siteSettings?.data?.attributes?.welcomeTitle || 'Hoş Geldiniz';
-  const welcomeText = siteSettings?.data?.attributes?.welcomeText || '';
-  const aboutTitle = siteSettings?.data?.attributes?.aboutTitle || 'Hakkımızda';
-  const aboutText = siteSettings?.data?.attributes?.aboutText || '';
+  const welcomeTitle = siteSettings?.data?.welcomeTitle || 'Hoş Geldiniz';
+  const welcomeText = siteSettings?.data?.welcomeText || '';
+  const aboutTitle = siteSettings?.data?.aboutTitle || 'Hakkımızda';
+  const aboutText = siteSettings?.data?.aboutText || '';
 
   return (
-    <Layout>
+    <Layout transparentNav>
       <VideoHero
         videoUrl={heroVideo}
-        title={siteSettings?.data?.attributes?.heroTitle}
-        subtitle={siteSettings?.data?.attributes?.heroSubtitle}
+        title={siteSettings?.data?.heroTitle}
+        subtitle={siteSettings?.data?.heroSubtitle}
       />
       <BookingStrip />
       <IntroSection title={welcomeTitle} text={welcomeText} />
