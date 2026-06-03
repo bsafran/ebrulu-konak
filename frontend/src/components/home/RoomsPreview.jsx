@@ -85,19 +85,12 @@ const RoomsPreview = () => {
                     const firstImage = formattedRoom.images?.[0];
                     const isHovered = hoveredIndex === index;
 
-                    // Debug log
-                    console.log('Room Data:', {
-                      id: room.id,
-                      title: formattedRoom.title,
-                      attributes: room.attributes
-                    });
-
                     return (
                       <Link key={`${room.id}-${Math.random()}`} to={`/rooms/${room.id}`}>
                         <div
-                          className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-4"
+                          className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl"
                           style={{
-                            borderColor: isHovered ? '#9c714b' : 'transparent',
+                            border: isHovered ? '4px solid #9c714b' : '4px solid transparent',
                           }}
                           onMouseEnter={() => setHoveredIndex(index)}
                           onMouseLeave={() => setHoveredIndex(null)}

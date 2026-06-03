@@ -111,10 +111,17 @@ export const getMediaUrl = (mediaData) => {
 
 // Helper function to format room data
 export const formatRoomData = (room) => {
+  // Handle both old format (with attributes) and new Strapi v5 format (direct properties)
+  const data = room.attributes || room;
+
   return {
     id: room.id,
-    ...room.attributes,
-    images: room.attributes?.images?.data?.map(img => ({
+    title: data.title,
+    description: data.description,
+    price: data.price,
+    maxGuests: data.maxGuests,
+    features: data.features,
+    images: data.images?.data?.map(img => ({
       id: img.id,
       url: getMediaUrl(img.attributes),
       alt: img.attributes?.alternativeText || 'Room image',
@@ -124,16 +131,22 @@ export const formatRoomData = (room) => {
 
 // Helper function to format restaurant data
 export const formatRestaurantData = (restaurant) => {
+  // Handle both old format (with attributes) and new Strapi v5 format (direct properties)
+  const data = restaurant.attributes || restaurant;
+
   return {
     id: restaurant.id,
-    ...restaurant.attributes,
-    images: restaurant.attributes?.images?.data?.map(img => ({
+    name: data.name,
+    description: data.description,
+    cuisine: data.cuisine,
+    openingHours: data.openingHours,
+    images: data.images?.data?.map(img => ({
       id: img.id,
       url: getMediaUrl(img.attributes),
       alt: img.attributes?.alternativeText || 'Restaurant image',
     })) || [],
-    menu: restaurant.attributes?.menu?.data
-      ? getMediaUrl(restaurant.attributes.menu.data)
+    menu: data.menu?.data
+      ? getMediaUrl(data.menu.data)
       : null,
   };
 };
