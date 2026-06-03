@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Layout from '../components/common/Layout';
 import Button from '../components/common/Button';
 import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const ContactPage = () => {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -40,6 +41,12 @@ const ContactPage = () => {
       label: 'Email',
       value: ['ebrulukonak@hotmail.com', 'ebrulukonaklar@gmail.com'],
       link: 'mailto:ebrulukonak@hotmail.com',
+    },
+    {
+      icon: FaWhatsapp,
+      label: 'WhatsApp',
+      value: '+90 (505) 765 61 78',
+      link: 'https://wa.me/905057656178',
     },
   ];
 
