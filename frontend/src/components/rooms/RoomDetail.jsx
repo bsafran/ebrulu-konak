@@ -13,8 +13,6 @@ const RoomDetail = ({ room, loading }) => {
 
   const images = room?.images && room.images.length > 0 ? room.images : [
     { url: fallbackImage, alt: 'Room' },
-    { url: fallbackImage, alt: 'Room' },
-    { url: fallbackImage, alt: 'Room' },
   ];
 
   const handlePrev = useCallback(() => setSelectedIndex((i) => (i > 0 ? i - 1 : images.length - 1)), [images.length]);
