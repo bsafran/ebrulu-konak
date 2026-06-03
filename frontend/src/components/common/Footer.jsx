@@ -9,26 +9,32 @@ const Footer = () => {
     {
       icon: FiMapPin,
       title: 'Adres',
-      content: 'Yunak, Afyonkarahisar, Türkiye',
+      content: 'Babasultan Mah. Hıdırlık Yokuşu Sok. No: 13 78600 Safranbolu/KARABÜK/TÜRKİYE',
     },
     {
       icon: FiPhone,
       title: 'Telefon',
-      content: '+90 (555) 123-4567',
-      link: 'tel:+905551234567',
+      content: [
+        { text: '+90 (370) 712 07 14', link: 'tel:+903707120714' },
+        { text: '+90 (505) 765 61 78', link: 'tel:+905057656178' },
+      ],
+      isMultiple: true,
     },
     {
       icon: FiMail,
       title: 'Email',
-      content: 'info@ebrulukonak.com',
-      link: 'mailto:info@ebrulukonak.com',
+      content: [
+        { text: 'ebrulukonak@hotmail.com', link: 'mailto:ebrulukonak@hotmail.com' },
+        { text: 'ebrulukonaklar@gmail.com', link: 'mailto:ebrulukonaklar@gmail.com' },
+      ],
+      isMultiple: true,
     },
   ];
 
   const socialLinks = [
     { icon: FaInstagram, url: 'https://instagram.com', label: 'Instagram' },
     { icon: FaFacebook, url: 'https://facebook.com', label: 'Facebook' },
-    { icon: FaWhatsapp, url: 'https://wa.me/905551234567', label: 'WhatsApp' },
+    { icon: FaWhatsapp, url: 'https://wa.me/905057656178', label: 'WhatsApp' },
   ];
 
   return (
@@ -43,7 +49,19 @@ const Footer = () => {
                 <Icon className="w-6 h-6 text-primary-accent flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold text-primary-accent mb-2">{item.title}</h3>
-                  {item.link ? (
+                  {item.isMultiple ? (
+                    <div className="space-y-1">
+                      {item.content.map((contact, idx) => (
+                        <a
+                          key={idx}
+                          href={contact.link}
+                          className="block hover:text-primary-accent transition-colors"
+                        >
+                          {contact.text}
+                        </a>
+                      ))}
+                    </div>
+                  ) : item.link ? (
                     <a href={item.link} className="hover:text-primary-accent transition-colors">
                       {item.content}
                     </a>
