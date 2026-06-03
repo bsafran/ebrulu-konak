@@ -76,7 +76,10 @@ const RoomsPreview = () => {
 
               {/* Rooms Grid */}
               <div className="flex-1">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                  key={`carousel-${currentIndex}`}
+                  className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fadeIn"
+                >
                   {visibleRooms.map((room, index) => {
                     const formattedRoom = formatRoomData(room);
                     const firstImage = formattedRoom.images?.[0];
@@ -101,8 +104,8 @@ const RoomsPreview = () => {
 
                             {/* Overlay Gradient */}
                             <div
-                              className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent transition-all duration-500 ${
-                                isHovered ? 'opacity-100' : 'opacity-60'
+                              className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-all duration-500 z-10 ${
+                                isHovered ? 'opacity-100' : 'opacity-70'
                               }`}
                             />
 
@@ -123,8 +126,8 @@ const RoomsPreview = () => {
 
                           {/* Room Title - Bottom */}
                           <div
-                            className={`absolute bottom-0 left-0 right-0 px-6 py-6 transition-all duration-500 ${
-                              isHovered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-90'
+                            className={`absolute bottom-0 left-0 right-0 px-6 py-6 transition-all duration-500 z-20 ${
+                              isHovered ? 'translate-y-0' : 'translate-y-0'
                             }`}
                           >
                             <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
