@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { useBooking } from '../../context/BookingContext';
-import Button from '../common/Button';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const BookingStrip = () => {
@@ -35,13 +34,13 @@ const BookingStrip = () => {
   };
 
   return (
-    <div className="bg-primary-dark py-8 -mt-12 relative z-10">
+    <div className="py-8 -mt-12 relative z-10" style={{ backgroundColor: '#6a3613' }}>
       <div className="container-custom">
-        <div className="bg-white/95 p-8 md:p-6 rounded-lg">
+        <div className="bg-[#f5f1ed] p-8 md:p-6 rounded-lg">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
             {/* Check-in Date */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold text-primary-accent mb-2">
+              <label className="text-sm font-semibold mb-2" style={{ color: '#a67c52' }}>
                 Giriş Tarihi
               </label>
               <DatePicker
@@ -50,13 +49,14 @@ const BookingStrip = () => {
                 dateFormat="dd/MM/yyyy"
                 minDate={new Date()}
                 placeholderText="Giriş Tarihi"
-                className="w-full px-4 py-2 border border-primary-accent/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-accent"
+                className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
+                style={{ borderColor: '#a67c52', '--tw-ring-color': '#a67c52' }}
               />
             </div>
 
             {/* Check-out Date */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold text-primary-accent mb-2">
+              <label className="text-sm font-semibold mb-2" style={{ color: '#a67c52' }}>
                 Çıkış Tarihi
               </label>
               <DatePicker
@@ -65,19 +65,21 @@ const BookingStrip = () => {
                 dateFormat="dd/MM/yyyy"
                 minDate={checkIn || new Date()}
                 placeholderText="Çıkış Tarihi"
-                className="w-full px-4 py-2 border border-primary-accent/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-accent"
+                className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
+                style={{ borderColor: '#a67c52', '--tw-ring-color': '#a67c52' }}
               />
             </div>
 
             {/* Guests */}
             <div className="flex flex-col">
-              <label className="text-sm font-semibold text-primary-accent mb-2">
+              <label className="text-sm font-semibold mb-2" style={{ color: '#a67c52' }}>
                 Misafir Sayısı
               </label>
               <select
                 value={guests}
                 onChange={handleGuestsChange}
-                className="w-full px-4 py-2 border border-primary-accent/30 rounded-lg bg-white/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-accent"
+                className="w-full px-4 py-2 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 border"
+                style={{ borderColor: '#a67c52', '--tw-ring-color': '#a67c52' }}
               >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                   <option key={num} value={num}>
@@ -89,14 +91,15 @@ const BookingStrip = () => {
 
             {/* Search Button */}
             <div className="md:col-span-2">
-              <Button
-                variant="primary"
-                size="lg"
-                className="w-full"
+              <button
+                className="w-full px-8 py-3 rounded-lg text-white font-semibold transition-all duration-200"
+                style={{ backgroundColor: '#a67c52' }}
+                onMouseEnter={(e) => e.target.style.opacity = '0.8'}
+                onMouseLeave={(e) => e.target.style.opacity = '1'}
                 onClick={handleSearch}
               >
                 Oda Ara
-              </Button>
+              </button>
             </div>
           </div>
         </div>
