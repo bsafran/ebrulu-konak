@@ -42,7 +42,7 @@ const Navbar = ({ transparent = false }) => {
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <FiX className={`w-6 h-6 ${textClasses}`} />
+                <FiX className="w-6 h-6" style={{ color: '#9c714b' }} />
               ) : (
                 <FiMenu className={`w-6 h-6 ${textClasses}`} />
               )}
@@ -69,7 +69,7 @@ const Navbar = ({ transparent = false }) => {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{
-          backgroundColor: '#5a4535',
+          backgroundColor: '#f3efea',
           paddingTop: transparent ? '80px' : '0'
         }}
       >

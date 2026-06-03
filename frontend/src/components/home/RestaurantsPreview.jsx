@@ -12,7 +12,7 @@ const RestaurantsPreview = () => {
   const restaurants = data?.data?.slice(0, 2) || [];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary-dark mb-4">Restoranlarımız</h2>

@@ -11,7 +11,7 @@ const Gallery = () => {
   const galleryItems = data?.data?.slice(0, 8) || [];
 
   return (
-    <section className="py-20 bg-primary-light">
+    <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary-dark mb-4">Galeri</h2>

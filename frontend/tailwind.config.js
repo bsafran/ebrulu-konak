@@ -26,7 +26,7 @@ export default {
       },
       primary: {
         dark: '#9c714b',
-        light: '#f5f1ed',
+        light: '#f3efea',
         accent: '#a67c52',
       },
     },

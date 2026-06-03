@@ -2,7 +2,7 @@ import React from 'react';
 
 const IntroSection = ({ title = 'Hoş Geldiniz', text = '' }) => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
       <div className="container-custom">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-primary-dark">
