@@ -47,6 +47,7 @@ const ContactPage = () => {
       label: 'WhatsApp',
       value: '+90 (505) 765 61 78',
       link: 'https://wa.me/905057656178',
+      buttonLabel: 'Mesaj Gönder',
     },
   ];
 
@@ -435,6 +436,36 @@ const ContactPage = () => {
                     >
                       {info.value}
                     </p>
+                  )}
+                  {info.buttonLabel && (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.open(info.link, '_blank');
+                      }}
+                      style={{
+                        backgroundColor: '#9c714b',
+                        color: '#f3efea',
+                        padding: '10px 20px',
+                        borderRadius: '8px',
+                        border: 'none',
+                        cursor: 'pointer',
+                        fontSize: '14px',
+                        fontWeight: '600',
+                        transition: 'all 200ms linear',
+                        marginTop: '12px',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#8a6140';
+                        e.currentTarget.style.transform = 'scale(0.98)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = '#9c714b';
+                        e.currentTarget.style.transform = 'scale(1)';
+                      }}
+                    >
+                      {info.buttonLabel}
+                    </button>
                   )}
                 </div>
               </a>
