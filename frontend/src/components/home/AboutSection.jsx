@@ -16,17 +16,19 @@ Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak
     <section className="py-20 bg-white">
       <div className="container-custom">
         <div className="space-y-8">
-          {/* Decorative Divider */}
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="flex-1 h-px bg-gray-300"></div>
-            <span className="text-primary-dark text-lg">→</span>
-            <div className="flex-1 h-px bg-gray-300"></div>
-          </div>
-
           {/* Header */}
           <h2 className="text-6xl md:text-7xl font-bold text-primary-dark">
             Ebrulu Konak
           </h2>
+
+          {/* Decorative Divider - Below Heading */}
+          <div className="flex items-center justify-center gap-2">
+            <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
+            <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
+            <span style={{ color: '#9c714b', fontSize: '24px' }}>◆</span>
+            <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
+            <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
+          </div>
 
           {/* Subtitle with arrow */}
           <p className="text-lg text-gray-700 flex items-center gap-3">
