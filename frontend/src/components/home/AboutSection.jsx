@@ -29,7 +29,7 @@ Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak
 
           {/* Text Content */}
           <div className="space-y-8">
-            <p className="max-w-4xl text-lg text-gray-700 leading-relaxed preserve-whitespace">
+            <p className="max-w-4xl text-xl text-gray-700 leading-relaxed preserve-whitespace">
               {content}
             </p>
             <p className="max-w-4xl text-lg font-display text-primary-dark">
