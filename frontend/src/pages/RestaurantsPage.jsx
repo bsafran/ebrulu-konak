@@ -35,7 +35,7 @@ const RestaurantsPage = () => {
                   margin: '0 0 16px 0',
                 }}
               >
-                Restoranlarımız
+                Restoranlar
               </h1>
               <p
                 style={{

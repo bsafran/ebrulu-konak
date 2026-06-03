@@ -16,7 +16,7 @@ const RoomsPage = () => {
                 margin: '0 0 16px 0',
               }}
             >
-              Odalarımız
+              Odalar
             </h1>
             <p
               style={{
