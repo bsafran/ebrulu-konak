@@ -25,7 +25,7 @@ export default {
         700: '#b91c1c',
       },
       primary: {
-        dark: '#6a3613',
+        dark: '#9c714b',
         light: '#f5f1ed',
         accent: '#a67c52',
       },

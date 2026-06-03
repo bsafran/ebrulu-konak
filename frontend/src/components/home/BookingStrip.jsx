@@ -36,7 +36,7 @@ const BookingStrip = () => {
   return (
     <div className="py-8 -mt-12 relative z-10 bg-primary-light">
       <div className="container-custom">
-        <div className="p-8 md:p-6 rounded-lg" style={{ backgroundColor: '#6a3613' }}>
+        <div className="p-8 md:p-6 rounded-lg" style={{ backgroundColor: '#9c714b' }}>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
             {/* Check-in Date */}
             <div className="flex flex-col">
