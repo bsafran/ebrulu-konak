@@ -11,6 +11,9 @@ const RoomsPreview = () => {
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [slideDirection, setSlideDirection] = useState(null);
 
   const allRooms = data?.data || [];
   const itemsPerPage = 3;
@@ -28,12 +31,41 @@ const RoomsPreview = () => {
 
   const handlePrev = () => {
     if (maxIndex === 0) return;
+    setSlideDirection('right');
+    setTimeout(() => setSlideDirection(null), 500);
     setCurrentIndex(prev => prev === 0 ? maxIndex : prev - 1);
   };
 
   const handleNext = () => {
     if (maxIndex === 0) return;
+    setSlideDirection('left');
+    setTimeout(() => setSlideDirection(null), 500);
     setCurrentIndex(prev => prev === maxIndex ? 0 : prev + 1);
+  };
+
+  // Touch/Swipe handlers
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+
+    if (touchStart !== null && touchEnd !== null) {
+      const distance = touchStart - touchEnd;
+      const minSwipeDistance = 50;
+
+      if (distance > minSwipeDistance) {
+        // Swiped left -> show next
+        handleNext();
+      } else if (distance < -minSwipeDistance) {
+        // Swiped right -> show previous
+        handlePrev();
+      }
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
   };
 
   const visibleRooms = displayRooms.slice(currentIndex, currentIndex + itemsPerPage);
@@ -75,10 +107,20 @@ const RoomsPreview = () => {
               </button>
 
               {/* Rooms Grid */}
-              <div className="flex-1">
+              <div
+                className="flex-1"
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
                 <div
                   key={`carousel-${currentIndex}`}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-8 animate-fadeIn"
+                  className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${
+                    slideDirection === 'left'
+                      ? 'animate-slideInLeft'
+                      : slideDirection === 'right'
+                      ? 'animate-slideInRight'
+                      : 'animate-fadeIn'
+                  }`}
                 >
                   {visibleRooms.map((room, index) => {
                     const formattedRoom = formatRoomData(room);
