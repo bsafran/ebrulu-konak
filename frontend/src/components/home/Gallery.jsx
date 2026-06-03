@@ -14,17 +14,17 @@ const Gallery = () => {
     <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
       <div className="container-custom">
         <div className="text-center mb-16">
-          {/* Decorative Divider */}
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Galeri</h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-4">
+            Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin.
+          </p>
+
+          {/* Decorative Divider - Below Subtitle */}
+          <div className="flex items-center justify-center gap-3">
             <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
             <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
             <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
           </div>
-
-          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Galeri</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin.
-          </p>
         </div>
 
         {loading ? (
