@@ -63,10 +63,10 @@ const RestaurantsPreview = () => {
 
                     {/* Content */}
                     <div className="p-6 space-y-4">
-                      <h3 className="text-2xl font-bold text-primary-dark">
+                      <h3 className="text-3xl font-bold text-primary-dark">
                         {formattedRes.name}
                       </h3>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-gray-600 text-sm italic">
                         <span className="font-semibold text-primary-accent">{formattedRes.cuisine}</span> Mutfağı
                       </p>
                       <p className="text-gray-600 text-sm line-clamp-2">
