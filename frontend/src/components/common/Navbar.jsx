@@ -65,10 +65,13 @@ const Navbar = ({ transparent = false }) => {
 
       {/* Side Menu Drawer */}
       <div
-        className={`fixed right-0 top-0 h-screen w-72 bg-primary-dark text-white shadow-2xl z-40 transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed right-0 top-0 h-screen w-72 text-white shadow-2xl z-40 transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        style={{ paddingTop: transparent ? '80px' : '0' }}
+        style={{
+          backgroundColor: '#5a4535',
+          paddingTop: transparent ? '80px' : '0'
+        }}
       >
         {/* Menu Items */}
         <div className="flex-1 overflow-y-auto px-4 py-8">
@@ -93,7 +96,7 @@ const Navbar = ({ transparent = false }) => {
 
         {/* Divider */}
         <div className="px-6">
-          <div className="h-px bg-white/30" />
+          <div className="h-px bg-white/60" />
         </div>
 
         {/* Reservation Button */}
