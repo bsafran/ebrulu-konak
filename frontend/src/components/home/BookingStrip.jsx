@@ -82,13 +82,13 @@ const BookingStrip = () => {
           }}
         >
           <div
+            className="booking-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+              gridTemplateColumns: 'repeat(4, 1fr)',
               gap: '20px',
               alignItems: 'flex-end',
             }}
-            className="sm:grid-cols-2 md:grid-cols-4"
           >
             {/* Check-in Date */}
             <div style={inputContainerStyle}>
@@ -209,6 +209,22 @@ const BookingStrip = () => {
       </div>
 
       <style>{`
+        .booking-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (max-width: 1024px) {
+          .booking-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .booking-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
         .booking-datepicker-input {
           width: 100% !important;
           height: 40px !important;
