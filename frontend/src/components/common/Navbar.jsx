@@ -54,11 +54,11 @@ const Navbar = ({ transparent = false }) => {
       {/* Backdrop Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 transition-opacity"
+          className="fixed inset-0 z-30 transition-all backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
           style={{
             top: transparent ? '80px' : '0',
-            backgroundColor: 'rgba(0, 0, 0, 0.85)'
+            backgroundColor: 'rgba(0, 0, 0, 0.6)'
           }}
         />
       )}
