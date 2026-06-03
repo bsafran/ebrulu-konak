@@ -17,7 +17,7 @@ const RoomsPreview = () => {
   const [touchEnd, setTouchEnd] = useState(null);
 
   const allRooms = data?.data || [];
-  const itemsPerPage = 1;
+  const itemsPerPage = 3;
 
   // Create display rooms by duplicating to ensure at least 6 items
   let displayRooms = allRooms;
@@ -109,11 +109,15 @@ const RoomsPreview = () => {
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
               >
-                <div className="flex items-center justify-center">
+                <motion.div
+                  layout
+                  className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                >
                   <AnimatePresence mode="wait">
-                    {visibleRooms.map((room) => {
+                    {visibleRooms.map((room, index) => {
                       const formattedRoom = formatRoomData(room);
                       const firstImage = formattedRoom.images?.[0];
+                      const isHovered = hoveredIndex === index;
 
                       return (
                         <motion.div
@@ -122,12 +126,16 @@ const RoomsPreview = () => {
                           animate={{ x: 0 }}
                           exit={{ x: slideDirection > 0 ? 300 : -300 }}
                           transition={{ duration: 0.4, ease: 'easeInOut' }}
-                          className="w-full"
                         >
                           <div
-                            className="relative overflow-hidden rounded-2xl mx-auto max-w-md"
-                            style={{ paddingBottom: '150%' }}
-                            onMouseEnter={() => setHoveredIndex(0)}
+                            className="relative overflow-hidden rounded-2xl transition-all duration-300"
+                            style={{
+                              paddingBottom: '150%',
+                              transform: isHovered ? 'scale(1.08)' : 'scale(1)',
+                              transformOrigin: 'center',
+                              willChange: 'transform',
+                            }}
+                            onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
                           >
                             {/* Background Image */}
@@ -135,12 +143,10 @@ const RoomsPreview = () => {
                               className="absolute inset-0 bg-cover bg-center transition-all duration-300"
                               style={{
                                 backgroundImage: `url(${firstImage?.url || fallbackImage})`,
-                                filter: hoveredIndex === 0
-                                  ? 'brightness(0.75) saturate(1.2) contrast(0.85)'
-                                  : 'brightness(0.75) saturate(1.2) contrast(0.85)',
-                                transform: hoveredIndex === 0 ? 'scale(1.08)' : 'scale(1)',
-                                transformOrigin: 'center',
-                                willChange: 'transform',
+                                filter:
+                                  hoveredIndex !== null && !isHovered
+                                    ? 'brightness(0.5) saturate(0.5) contrast(1.2) blur(20px)'
+                                    : 'brightness(0.75) saturate(1.2) contrast(0.85)',
                               }}
                             />
 
@@ -167,7 +173,7 @@ const RoomsPreview = () => {
                             <div
                               className="absolute inset-0 flex items-center justify-center z-20 transition-all duration-300"
                               style={{
-                                opacity: hoveredIndex === 0 ? 1 : 0,
+                                opacity: isHovered ? 1 : 0,
                               }}
                             >
                               <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full">
@@ -182,7 +188,7 @@ const RoomsPreview = () => {
                       );
                     })}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               </div>
 
               {/* Right Arrow */}
