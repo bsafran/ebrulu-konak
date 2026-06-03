@@ -96,7 +96,7 @@ const BookingStrip = () => {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-              gap: 'clamp(16px, 3vw, 24px)',
+              gap: '20px',
               alignItems: 'flex-end',
             }}
             className="sm:grid-cols-2 md:grid-cols-4"
@@ -166,7 +166,11 @@ const BookingStrip = () => {
                   value={guests}
                   onChange={handleGuestsChange}
                   aria-label="Misafir Sayısı"
-                  style={inputStyle}
+                  style={{
+                    ...inputStyle,
+                    height: '40px',
+                    lineHeight: '20px',
+                  }}
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                     <option key={num} value={num}>
@@ -188,8 +192,8 @@ const BookingStrip = () => {
                   onClick={handleSearch}
                   style={{
                     width: '100%',
-                    height: '100%',
-                    padding: '12px 24px',
+                    height: '40px',
+                    padding: '10px 24px',
                     backgroundColor: '#f5f1ed',
                     color: '#9c714b',
                     border: 'none',
@@ -201,6 +205,10 @@ const BookingStrip = () => {
                     cursor: 'pointer',
                     transition: 'all 200ms linear',
                     boxSizing: 'border-box',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    lineHeight: '20px',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = '#ede9e0';
@@ -223,6 +231,7 @@ const BookingStrip = () => {
       <style>{`
         .booking-datepicker-input {
           width: 100% !important;
+          height: 40px !important;
           background-color: #ffffff !important;
           color: #333 !important;
           padding: 10px 14px !important;
@@ -231,6 +240,7 @@ const BookingStrip = () => {
           border: 1px solid #e5e5e5 !important;
           font-family: inherit !important;
           box-sizing: border-box !important;
+          line-height: 20px !important;
         }
 
         .booking-datepicker-input:focus {
