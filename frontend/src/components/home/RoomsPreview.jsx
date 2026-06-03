@@ -161,7 +161,8 @@ const RoomsPreview = () => {
                                   color: 'rgba(255,255,255,0.9)',
                                   fontSize: '1.75rem',
                                   lineHeight: '1.2',
-                                  wordSpacing: '100vw',
+                                  maxWidth: '200px',
+                                  wordWrap: 'break-word',
                                   textShadow: '2px 2px 20px rgba(0,0,0,0.3)',
                                 }}
                               >
