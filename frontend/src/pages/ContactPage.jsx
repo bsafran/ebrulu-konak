@@ -296,13 +296,58 @@ const ContactPage = () => {
           </div>
         </div>
 
+        {/* Google Maps Card */}
+        <a
+          href="https://www.google.com/maps/search/Babasultan+Mah+H%C4%B1d%C4%B1rl%C4%B1k+Yoku%C5%9Eu+Sok+No+13+78600+Safranbolu+KARAB%C3%9CK+T%C3%9CRK%C4%B0YE"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            textDecoration: 'none',
+            marginBottom: '80px',
+            display: 'block',
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: '#9c714b',
+              borderRadius: '24px',
+              padding: '40px 32px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'all 300ms ease',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.02)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            }}
+          >
+            <p
+              style={{
+                fontSize: '20px',
+                fontWeight: '600',
+                color: '#f3efea',
+                margin: 0,
+              }}
+            >
+              🗺️ Google Maps'de Bul
+            </p>
+          </div>
+        </a>
+
         {/* Contact Info Cards */}
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '32px',
-            marginTop: '80px',
+            marginTop: '0',
           }}
         >
           {contactInfo.map((info, idx) => {
