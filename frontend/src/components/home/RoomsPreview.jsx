@@ -73,9 +73,9 @@ const RoomsPreview = () => {
         <div className="text-center mb-16">
           {/* Decorative Divider */}
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="flex-1 h-px bg-gray-300"></div>
-            <span className="text-primary-dark text-lg">→</span>
-            <div className="flex-1 h-px bg-gray-300"></div>
+            <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
+            <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
+            <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
           </div>
 
           <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Odalarımız</h2>
