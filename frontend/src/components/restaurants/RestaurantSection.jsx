@@ -1,8 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 const RestaurantSection = ({ restaurant, reversed = false }) => {
   const [hoveredImageIndex, setHoveredImageIndex] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  const handlePrev = useCallback((len) => setSelectedImageIndex((i) => (i > 0 ? i - 1 : len - 1)), []);
+  const handleNext = useCallback((len) => setSelectedImageIndex((i) => (i < len - 1 ? i + 1 : 0)), []);
+  const handleClose = useCallback(() => setSelectedImageIndex(null), []);
+
+  useEffect(() => {
+    if (selectedImageIndex === null) return;
+    const len = restaurant.images?.length || 3;
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') handlePrev(len);
+      if (e.key === 'ArrowRight') handleNext(len);
+      if (e.key === 'Escape') handleClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [selectedImageIndex, restaurant.images, handlePrev, handleNext, handleClose]);
   const fallbackImage = 'https://images.unsplash.com/photo-1504674900769-e71fada305e0?w=800&h=600&fit=crop';
 
   const images = restaurant.images && restaurant.images.length > 0
@@ -229,131 +246,54 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
         {imagePanel}
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox */}
       {selectedImageIndex !== null && (
         <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 50,
-            padding: '16px',
-          }}
-          onClick={() => setSelectedImageIndex(null)}
+          style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.92)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 50, padding: '16px' }}
+          onClick={handleClose}
         >
-          <div
-            style={{
-              position: 'relative',
-              maxWidth: '900px',
-              width: '100%',
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
+          {/* Image */}
+          <div style={{ position: 'relative', maxWidth: '900px', width: '100%' }} onClick={(e) => e.stopPropagation()}>
             <img
               src={images[selectedImageIndex]?.url || fallbackImage}
-              alt={images[selectedImageIndex]?.alt || 'Restaurant'}
-              style={{
-                width: '100%',
-                borderRadius: '8px',
-              }}
+              alt="Restaurant"
+              style={{ width: '100%', maxHeight: '80vh', objectFit: 'contain', borderRadius: '12px', display: 'block' }}
             />
-
-            {/* Previous Button */}
-            {selectedImageIndex > 0 && (
-              <button
-                onClick={() => setSelectedImageIndex(selectedImageIndex - 1)}
-                style={{
-                  position: 'absolute',
-                  left: '-60px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                  borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: 'bold',
-                  fontSize: '24px',
-                  border: 'none',
-                  cursor: 'pointer',
-                }}
-              >
-                ‹
-              </button>
-            )}
-
-            {/* Next Button */}
-            {selectedImageIndex < images.length - 1 && (
-              <button
-                onClick={() => setSelectedImageIndex(selectedImageIndex + 1)}
-                style={{
-                  position: 'absolute',
-                  right: '-60px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                  borderRadius: '50%',
-                  width: '40px',
-                  height: '40px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontWeight: 'bold',
-                  fontSize: '24px',
-                  border: 'none',
-                  cursor: 'pointer',
-                }}
-              >
-                ›
-              </button>
-            )}
-
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedImageIndex(null)}
-              style={{
-                position: 'absolute',
-                top: '16px',
-                right: '16px',
-                backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                borderRadius: '50%',
-                width: '40px',
-                height: '40px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 'bold',
-                fontSize: '20px',
-                border: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              ×
-            </button>
-
-            {/* Image Counter */}
-            <p
-              style={{
-                position: 'absolute',
-                bottom: '16px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                color: 'rgba(255, 255, 255, 0.9)',
-                margin: 0,
-                fontSize: '14px',
-                backgroundColor: 'rgba(0, 0, 0, 0.4)',
-                padding: '8px 16px',
-                borderRadius: '20px',
-              }}
-            >
+            {/* Counter */}
+            <div style={{ position: 'absolute', bottom: '-36px', left: '50%', transform: 'translateX(-50%)', color: 'rgba(255,255,255,0.6)', fontSize: '14px' }}>
               {selectedImageIndex + 1} / {images.length}
-            </p>
+            </div>
           </div>
+
+          {/* Prev */}
+          <button
+            onClick={(e) => { e.stopPropagation(); handlePrev(images.length); }}
+            style={{ position: 'fixed', left: '24px', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '52px', height: '52px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.3)'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
+          >
+            <FiChevronLeft style={{ color: 'white', width: '28px', height: '28px' }} />
+          </button>
+
+          {/* Next */}
+          <button
+            onClick={(e) => { e.stopPropagation(); handleNext(images.length); }}
+            style={{ position: 'fixed', right: '24px', top: '50%', transform: 'translateY(-50%)', backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '52px', height: '52px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.3)'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
+          >
+            <FiChevronRight style={{ color: 'white', width: '28px', height: '28px' }} />
+          </button>
+
+          {/* Close */}
+          <button
+            onClick={handleClose}
+            style={{ position: 'fixed', top: '24px', right: '24px', backgroundColor: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: 'none', borderRadius: '50%', width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: 'background 200ms linear' }}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.3)'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.15)'}
+          >
+            <FiX style={{ color: 'white', width: '22px', height: '22px' }} />
+          </button>
         </div>
       )}
     </div>
