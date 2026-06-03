@@ -58,16 +58,20 @@ const BookingStrip = () => {
     textTransform: 'uppercase',
     letterSpacing: '0.5px',
     display: 'block',
+    width: '100%',
+    marginBottom: '8px',
   };
 
   const inputContainerStyle = {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
   };
 
   const inputWrapperStyle = {
     position: 'relative',
     height: '40px',
+    width: '100%',
   };
 
   return (
@@ -223,6 +227,10 @@ const BookingStrip = () => {
           .booking-grid {
             grid-template-columns: 1fr;
           }
+        }
+
+        .booking-datepicker {
+          width: 100%;
         }
 
         .booking-datepicker-input {
