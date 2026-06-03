@@ -61,15 +61,21 @@ const RoomDetail = ({ room, loading }) => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '2fr 1fr',
-            gridTemplateRows: '1fr 1fr',
+            gridTemplateColumns: images.length === 1 ? '1fr' : '2fr 1fr',
+            gridTemplateRows: images.length === 1 ? '1fr' : '1fr 1fr',
             gap: '24px',
             minHeight: '500px',
           }}
         >
           {/* Left - Big Image */}
           <div
-            style={{ gridRow: '1 / 3', borderRadius: '16px', overflow: 'hidden', backgroundColor: '#f3efea', cursor: 'pointer' }}
+            style={{
+              gridRow: images.length === 1 ? '1' : '1 / 3',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              backgroundColor: '#f3efea',
+              cursor: 'pointer'
+            }}
             onClick={() => setSelectedIndex(0)}
             onMouseEnter={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1.04)'}
             onMouseLeave={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1)'}
