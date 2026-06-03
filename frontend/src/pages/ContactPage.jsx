@@ -309,34 +309,34 @@ const ContactPage = () => {
         >
           <div
             style={{
-              backgroundColor: '#9c714b',
+              backgroundColor: '#f3efea',
               borderRadius: '24px',
-              padding: '40px 32px',
+              padding: '20px 32px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               transition: 'all 300ms ease',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
               cursor: 'pointer',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'scale(1.02)';
-              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.08)';
             }}
           >
             <p
               style={{
-                fontSize: '20px',
+                fontSize: '18px',
                 fontWeight: '600',
-                color: '#f3efea',
+                color: '#9c714b',
                 margin: 0,
               }}
             >
-              🗺️ Google Maps'de Bul
+              Google Maps'de Bul
             </p>
           </div>
         </a>
@@ -347,7 +347,7 @@ const ContactPage = () => {
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '32px',
-            marginTop: '0',
+            marginTop: '32px',
           }}
         >
           {contactInfo.map((info, idx) => {
