@@ -92,7 +92,7 @@ const RoomsPreview = () => {
                           />
 
                           {/* Content */}
-                          <h3 className="text-xl font-bold text-primary-dark mb-2">
+                          <h3 className="text-2xl font-bold text-primary-dark mb-3">
                             {formattedRoom.title}
                           </h3>
                           <p className="text-gray-600 text-sm line-clamp-2 mb-4">
