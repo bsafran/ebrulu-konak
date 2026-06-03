@@ -36,8 +36,8 @@ export default {
       },
       fontFamily: {
         sans: ['Avenir', 'system-ui', 'sans-serif'],
-        serif: ['Canela', 'serif'],
-        display: ['Canela', 'serif'],
+        serif: ['Cormorant Garamond', 'serif'],
+        display: ['Cormorant Garamond', 'serif'],
       },
       keyframes: {
         fadeIn: {

@@ -1,13 +1,9 @@
 @import "tailwindcss";
 
-/* Custom Fonts */
-@font-face {
-  font-family: 'Canela';
-  src: url('/src/assets/fonts/CanelaBold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
+/* Google Fonts - Cormorant Garamond */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
 
+/* Local Custom Fonts */
 @font-face {
   font-family: 'Avenir';
   src: url('/src/assets/fonts/AvenirRegular.ttf') format('truetype');
@@ -22,7 +18,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Canela', serif;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
   }
 
   h1 {

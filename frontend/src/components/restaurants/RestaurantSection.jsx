@@ -15,13 +15,13 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
   const textPanel = (
     <div
       style={{
-        padding: '48px',
+        padding: '64px',
         backgroundColor: '#f3efea',
         borderRadius: '24px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        gap: '24px',
+        gap: '32px',
         height: '100%',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
       }}
@@ -30,13 +30,13 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
       <div>
         <p
           style={{
-            fontSize: '13px',
-            fontWeight: '600',
+            fontSize: '16px',
+            fontWeight: '700',
             color: '#a67c52',
-            letterSpacing: '2px',
+            letterSpacing: '3px',
             textTransform: 'uppercase',
             margin: 0,
-            marginBottom: '12px',
+            marginBottom: '16px',
           }}
         >
           {restaurant.name}
@@ -46,7 +46,7 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
       {/* Description */}
       <p
         style={{
-          fontSize: '18px',
+          fontSize: '20px',
           lineHeight: '1.8',
           color: '#555',
           margin: 0,
@@ -57,7 +57,7 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
       </p>
 
       {/* Tags/Pills */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '8px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginTop: '16px' }}>
         {restaurant.cuisine && (
           <span
             style={{
@@ -98,7 +98,7 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
       style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
-        gap: '16px',
+        gap: '24px',
         height: '100%',
       }}
     >
@@ -183,15 +183,12 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
   return (
     <div
       style={{
-        display: 'grid',
-        gridTemplateColumns: reversed ? '1fr 1fr' : '1fr 1fr',
-        gap: '48px',
+        display: 'flex',
+        flexDirection: reversed ? 'row-reverse' : 'row',
+        gap: '64px',
         alignItems: 'center',
-        marginBottom: '80px',
+        marginBottom: '120px',
         // Responsive: stack on mobile
-        '@media (max-width: 768px)': {
-          gridTemplateColumns: '1fr',
-        },
       }}
     >
       {/* For smaller screens, use flexbox with media query */}
@@ -216,31 +213,25 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
         }
       `}</style>
 
-      {reversed ? (
-        <>
-          <div
-            className="restaurant-images"
-            style={{
-              minHeight: '500px',
-            }}
-          >
-            {imagePanel}
-          </div>
-          <div className="restaurant-text">{textPanel}</div>
-        </>
-      ) : (
-        <>
-          <div className="restaurant-text">{textPanel}</div>
-          <div
-            className="restaurant-images"
-            style={{
-              minHeight: '500px',
-            }}
-          >
-            {imagePanel}
-          </div>
-        </>
-      )}
+      <div
+        className="restaurant-text"
+        style={{
+          flex: 1,
+          minWidth: 0,
+        }}
+      >
+        {textPanel}
+      </div>
+      <div
+        className="restaurant-images"
+        style={{
+          flex: 1,
+          minHeight: '700px',
+          minWidth: 0,
+        }}
+      >
+        {imagePanel}
+      </div>
     </div>
   );
 };
