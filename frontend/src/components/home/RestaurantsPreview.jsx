@@ -116,6 +116,14 @@ const RestaurantsPreview = () => {
               })}
             </div>
 
+            {/* Decorative Divider - End of Section */}
+            <div className="flex items-center justify-center gap-2 mt-12">
+              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
+              <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
+              <span style={{ color: '#9c714b', fontSize: '24px' }}>◆</span>
+              <span style={{ color: '#9c714b', fontSize: '18px' }}>·</span>
+              <div style={{ flex: 1, height: '1px', backgroundColor: '#9c714b' }}></div>
+            </div>
           </>
         )}
       </div>
