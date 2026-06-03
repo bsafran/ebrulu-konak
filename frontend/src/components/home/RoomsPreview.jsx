@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import Loading from '../common/Loading';
 import Button from '../common/Button';
@@ -55,10 +55,8 @@ const RoomsPreview = () => {
       const minSwipeDistance = 50;
 
       if (distance > minSwipeDistance) {
-        // Swiped left -> show next
         handleNext();
       } else if (distance < -minSwipeDistance) {
-        // Swiped right -> show previous
         handlePrev();
       }
     }
@@ -93,7 +91,7 @@ const RoomsPreview = () => {
               <button
                 onClick={handlePrev}
                 disabled={maxIndex === 0}
-                className="p-3 rounded-full transition-all hover:scale-110"
+                className="p-3 rounded-full transition-all hover:scale-110 flex-shrink-0"
                 style={{
                   backgroundColor: '#9c714b',
                   color: 'white',
@@ -113,7 +111,7 @@ const RoomsPreview = () => {
               >
                 <motion.div
                   layout
-                  className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                  className="grid grid-cols-1 md:grid-cols-3 gap-6"
                 >
                   <AnimatePresence mode="wait">
                     {visibleRooms.map((room, index) => {
@@ -138,63 +136,51 @@ const RoomsPreview = () => {
                           }}
                           transition={{ duration: 0.5, ease: 'easeOut' }}
                         >
-                          <Link to={`/rooms/${room.id}`}>
+                          <Link
+                            to={`/rooms/${room.id}`}
+                            className="block relative h-0 overflow-hidden rounded-2xl"
+                            style={{ paddingBottom: '150%' }}
+                            onMouseEnter={() => setHoveredIndex(index)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                          >
+                            {/* Background Image */}
                             <div
-                              className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl"
+                              className="absolute inset-0 bg-cover bg-center rounded-2xl transition-all duration-200"
                               style={{
-                                border: isHovered ? '4px solid #9c714b' : '4px solid transparent',
+                                backgroundImage: `url(${firstImage?.url || fallbackImage})`,
+                                filter: isHovered
+                                  ? 'brightness(0.75) saturate(1.2) contrast(0.85)'
+                                  : hoveredIndex !== null
+                                  ? 'brightness(0.5) saturate(0.5) contrast(1.2) blur(20px)'
+                                  : 'brightness(0.75) saturate(1.2) contrast(0.85)',
+                                transform: isHovered ? 'scale(1.05)' : 'scale(1)',
                               }}
-                              onMouseEnter={() => setHoveredIndex(index)}
-                              onMouseLeave={() => setHoveredIndex(null)}
-                            >
-                              {/* Image Container */}
-                              <div className="relative w-full h-full overflow-hidden bg-gray-200">
-                                <img
-                                  src={firstImage?.url || fallbackImage}
-                                  alt={formattedRoom.title}
-                                  className={`w-full h-full object-cover transition-all duration-500 ${
-                                    isHovered ? 'blur-sm scale-105' : 'blur-0 scale-100'
-                                  }`}
-                                />
+                            />
 
-                                {/* Overlay Gradient */}
-                                <div
-                                  className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-all duration-500 z-10 ${
-                                    isHovered ? 'opacity-100' : 'opacity-50'
-                                  }`}
-                                />
-
-                                {/* Explore Button */}
-                                <div
-                                  className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
-                                    isHovered ? 'opacity-100' : 'opacity-0'
-                                  }`}
-                                >
-                                  <div className="text-center">
-                                    <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full hover:bg-white transition-all duration-300">
-                                      <span className="text-primary-dark font-semibold text-lg">Odayı İncele</span>
-                                      <FiArrowRight className="w-5 h-5 text-primary-dark" />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Room Title - Bottom */}
-                              <div
-                                className={`absolute bottom-0 left-0 right-0 px-6 py-6 transition-all duration-500 z-20 ${
-                                  isHovered ? 'translate-y-0' : 'translate-y-0'
-                                }`}
+                            {/* Content Overlay */}
+                            <div className="absolute top-0 left-0 p-6 z-10">
+                              <p
+                                className="text-sm font-semibold uppercase mb-4 transition-colors duration-200"
+                                style={{
+                                  color: 'rgba(255,255,255,0.75)',
+                                  fontSize: '0.875rem',
+                                  letterSpacing: '0.05em',
+                                }}
                               >
-                                <h3
-                                  className="text-2xl md:text-3xl font-bold text-white"
-                                  style={{
-                                    textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6)',
-                                    letterSpacing: '-0.5px',
-                                  }}
-                                >
-                                  {formattedRoom.title}
-                                </h3>
-                              </div>
+                                Oda
+                              </p>
+                              <h3
+                                className="font-bold transition-colors duration-200"
+                                style={{
+                                  color: 'rgba(255,255,255,0.9)',
+                                  fontSize: '1.75rem',
+                                  lineHeight: '1.2',
+                                  wordSpacing: '100vw',
+                                  textShadow: '2px 2px 20px rgba(0,0,0,0.2)',
+                                }}
+                              >
+                                {formattedRoom.title}
+                              </h3>
                             </div>
                           </Link>
                         </motion.div>
@@ -208,7 +194,7 @@ const RoomsPreview = () => {
               <button
                 onClick={handleNext}
                 disabled={maxIndex === 0}
-                className="p-3 rounded-full transition-all hover:scale-110"
+                className="p-3 rounded-full transition-all hover:scale-110 flex-shrink-0"
                 style={{
                   backgroundColor: '#9c714b',
                   color: 'white',
