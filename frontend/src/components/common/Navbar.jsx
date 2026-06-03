@@ -14,8 +14,8 @@ const Navbar = ({ transparent = false }) => {
   ];
 
   const navClasses = transparent
-    ? 'fixed top-0 z-40 w-full bg-transparent'
-    : 'sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm';
+    ? 'fixed top-0 z-50 w-full bg-transparent'
+    : 'sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm';
 
   const textClasses = transparent ? 'text-white' : 'text-primary-dark';
   const logoTextClasses = transparent ? 'text-white' : 'text-primary-dark';
@@ -54,7 +54,7 @@ const Navbar = ({ transparent = false }) => {
       {/* Backdrop Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 transition-all"
+          className="fixed inset-0 z-30 transition-all"
           onClick={() => setIsOpen(false)}
           style={{
             backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -65,7 +65,7 @@ const Navbar = ({ transparent = false }) => {
 
       {/* Side Menu Drawer */}
       <div
-        className={`fixed right-0 top-0 h-screen w-72 bg-primary-dark text-white shadow-2xl z-50 transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed right-0 top-0 h-screen w-72 bg-primary-dark text-white shadow-2xl z-40 transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ paddingTop: transparent ? '80px' : '0' }}
