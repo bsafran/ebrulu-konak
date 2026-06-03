@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
 import Loading from '../common/Loading';
 import Button from '../common/Button';
 import useApi from '../../hooks/useApi';
@@ -11,35 +10,23 @@ const RoomsPreview = () => {
   const { data, loading, error } = useApi(() => getRooms());
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [slideDirection, setSlideDirection] = useState(0);
+  const [hoveredRoomId, setHoveredRoomId] = useState(null);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
   const allRooms = data?.data || [];
   const itemsPerPage = 3;
+  const displayRooms = allRooms;
 
-  // Create display rooms by duplicating to ensure at least 6 items
-  let displayRooms = allRooms;
-  if (allRooms.length > 0) {
-    while (displayRooms.length < 6) {
-      displayRooms = [...displayRooms, ...allRooms];
-    }
-    displayRooms = displayRooms.slice(0, 6);
-  }
-
+  // Max index to prevent scrolling past the last set of items
   const maxIndex = Math.max(0, displayRooms.length - itemsPerPage);
 
   const handlePrev = () => {
-    if (maxIndex === 0) return;
-    setSlideDirection(-1); // Soldan sağa
-    setCurrentIndex(prev => prev === 0 ? maxIndex : prev - 1);
+    setCurrentIndex(prev => Math.max(0, prev - 1));
   };
 
   const handleNext = () => {
-    if (maxIndex === 0) return;
-    setSlideDirection(1); // Sağdan sola
-    setCurrentIndex(prev => prev === maxIndex ? 0 : prev + 1);
+    setCurrentIndex(prev => Math.min(maxIndex, prev + 1));
   };
 
   // Touch/Swipe handlers
@@ -64,8 +51,6 @@ const RoomsPreview = () => {
     setTouchStart(null);
     setTouchEnd(null);
   };
-
-  const visibleRooms = displayRooms.slice(currentIndex, currentIndex + itemsPerPage);
 
   return (
     <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
@@ -97,13 +82,13 @@ const RoomsPreview = () => {
               {/* Left Arrow */}
               <button
                 onClick={handlePrev}
-                disabled={maxIndex === 0}
+                disabled={currentIndex === 0}
                 className="p-3 rounded-full transition-all hover:scale-110 flex-shrink-0"
                 style={{
                   backgroundColor: '#9c714b',
                   color: 'white',
-                  opacity: maxIndex === 0 ? 0.5 : 1,
-                  cursor: maxIndex === 0 ? 'not-allowed' : 'pointer',
+                  opacity: currentIndex === 0 ? 0.5 : 1,
+                  cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
                 }}
                 aria-label="Önceki"
               >
@@ -112,28 +97,28 @@ const RoomsPreview = () => {
 
               {/* Rooms Grid */}
               <div
-                className="flex-1"
+                className="flex-1 overflow-hidden"
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
               >
-                <motion.div
-                  layout
-                  className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                <div
+                  className="flex gap-6"
+                  style={{
+                    transform: `translateX(calc(-${currentIndex * 33.333}% - ${currentIndex * 1.5}rem))`,
+                    transition: 'transform 0.4s ease-out'
+                  }}
                 >
-                  <AnimatePresence mode="wait">
-                    {visibleRooms.map((room, index) => {
-                      const formattedRoom = formatRoomData(room);
-                      const firstImage = formattedRoom.images?.[0];
-                      const isHovered = hoveredIndex === index;
+                  {displayRooms.map((room) => {
+                    const formattedRoom = formatRoomData(room);
+                    const firstImage = formattedRoom.images?.[0];
+                    const isHovered = hoveredRoomId === room.id;
 
-                      return (
-                        <motion.div
-                          key={`${room.id}-carousel`}
-                          initial={{ x: slideDirection > 0 ? -300 : 300 }}
-                          animate={{ x: 0 }}
-                          exit={{ x: slideDirection > 0 ? 300 : -300 }}
-                          transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        >
+                    return (
+                      <div
+                        key={`${room.id}-${currentIndex}`}
+                        className="flex-shrink-0"
+                        style={{ width: 'calc(33.333% - 1rem)' }}
+                      >
                           <div
                             className="relative overflow-hidden rounded-2xl transition-all duration-300"
                             style={{
@@ -142,8 +127,8 @@ const RoomsPreview = () => {
                               transformOrigin: 'center',
                               willChange: 'transform',
                             }}
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
+                            onMouseEnter={() => setHoveredRoomId(room.id)}
+                            onMouseLeave={() => setHoveredRoomId(null)}
                           >
                             {/* Background Image */}
                             <div
@@ -151,7 +136,7 @@ const RoomsPreview = () => {
                               style={{
                                 backgroundImage: `url(${firstImage?.url || fallbackImage})`,
                                 filter:
-                                  hoveredIndex !== null && !isHovered
+                                  hoveredRoomId !== null && !isHovered
                                     ? 'brightness(0.5) saturate(0.5) contrast(1.2) blur(20px)'
                                     : 'brightness(0.75) saturate(1.2) contrast(0.85)',
                               }}
@@ -159,7 +144,7 @@ const RoomsPreview = () => {
 
                             {/* Content Overlay */}
                             <Link
-                              to={`/rooms/${room.id}`}
+                              to={`/rooms/${formattedRoom.slug}`}
                               className="absolute inset-0 flex flex-col items-start justify-end p-6 z-10 no-underline"
                             >
                               <h3
@@ -184,31 +169,32 @@ const RoomsPreview = () => {
                                 opacity: isHovered ? 1 : 0,
                               }}
                             >
-                              <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full">
-                                <span className="text-primary-dark font-semibold text-lg">
-                                  Odayı İncele
-                                </span>
-                                <FiArrowRight className="w-5 h-5 text-primary-dark" />
-                              </div>
+                              <Link to={`/rooms/${formattedRoom.slug}`} className="no-underline">
+                                <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full cursor-pointer hover:bg-white transition-colors">
+                                  <span className="text-primary-dark font-semibold text-lg">
+                                    Odayı İncele
+                                  </span>
+                                  <FiArrowRight className="w-5 h-5 text-primary-dark" />
+                                </div>
+                              </Link>
                             </div>
                           </div>
-                        </motion.div>
-                      );
-                    })}
-                  </AnimatePresence>
-                </motion.div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Right Arrow */}
               <button
                 onClick={handleNext}
-                disabled={maxIndex === 0}
+                disabled={currentIndex === maxIndex}
                 className="p-3 rounded-full transition-all hover:scale-110 flex-shrink-0"
                 style={{
                   backgroundColor: '#9c714b',
                   color: 'white',
-                  opacity: maxIndex === 0 ? 0.5 : 1,
-                  cursor: maxIndex === 0 ? 'not-allowed' : 'pointer',
+                  opacity: currentIndex === maxIndex ? 0.5 : 1,
+                  cursor: currentIndex === maxIndex ? 'not-allowed' : 'pointer',
                 }}
                 aria-label="Sonraki"
               >

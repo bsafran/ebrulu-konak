@@ -91,9 +91,32 @@ const ReservationPage = () => {
     <Layout>
       <div className="container-custom py-16">
         <div className="max-w-3xl mx-auto">
-          <div className="mb-12">
-            <h1 className="text-5xl font-bold text-primary-dark mb-4">Rezervasyon Formu</h1>
-            <p className="text-gray-600 text-lg">
+          <div
+            style={{
+              marginBottom: '80px',
+              paddingBottom: '32px',
+              borderBottom: '2px solid #a67c52',
+            }}
+          >
+            <h1
+              style={{
+                fontSize: '48px',
+                fontWeight: 'bold',
+                color: '#9c714b',
+                margin: '0 0 16px 0',
+              }}
+            >
+              Rezervasyon Formu
+            </h1>
+            <p
+              style={{
+                fontSize: '18px',
+                color: '#666',
+                lineHeight: '1.6',
+                margin: 0,
+                maxWidth: '600px',
+              }}
+            >
               Aşağıdaki bilgileri doldurarak rezervasyonunuzu tamamlayın
             </p>
           </div>

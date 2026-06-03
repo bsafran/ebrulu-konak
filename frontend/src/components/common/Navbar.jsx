@@ -11,7 +11,7 @@ const Navbar = ({ transparent = false }) => {
     { name: 'Odalar', path: '/rooms' },
     { name: 'Restoranlar', path: '/restaurants' },
     { name: 'Galeri', path: '/gallery' },
-    { name: 'İletişim', path: '#contact' },
+    { name: 'İletişim', path: '/contact' },
   ];
 
   const navClasses = transparent
