@@ -78,24 +78,28 @@ const RoomDetail = ({ room, loading }) => {
           </div>
 
           {/* Right Top */}
-          <div
-            style={{ borderRadius: '16px', overflow: 'hidden', backgroundColor: '#f3efea', cursor: 'pointer' }}
-            onClick={() => setSelectedIndex(1)}
-            onMouseEnter={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1.04)'}
-            onMouseLeave={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1)'}
-          >
-            <img src={images[1]?.url || fallbackImage} alt="Room" style={imgStyle} />
-          </div>
+          {images.length > 1 && (
+            <div
+              style={{ borderRadius: '16px', overflow: 'hidden', backgroundColor: '#f3efea', cursor: 'pointer' }}
+              onClick={() => setSelectedIndex(1)}
+              onMouseEnter={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1.04)'}
+              onMouseLeave={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1)'}
+            >
+              <img src={images[1]?.url} alt="Room" style={imgStyle} />
+            </div>
+          )}
 
           {/* Right Bottom */}
-          <div
-            style={{ borderRadius: '16px', overflow: 'hidden', backgroundColor: '#f3efea', cursor: 'pointer' }}
-            onClick={() => setSelectedIndex(2)}
-            onMouseEnter={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1.04)'}
-            onMouseLeave={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1)'}
-          >
-            <img src={images[2]?.url || fallbackImage} alt="Room" style={imgStyle} />
-          </div>
+          {images.length > 2 && (
+            <div
+              style={{ borderRadius: '16px', overflow: 'hidden', backgroundColor: '#f3efea', cursor: 'pointer' }}
+              onClick={() => setSelectedIndex(2)}
+              onMouseEnter={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1.04)'}
+              onMouseLeave={(e) => e.currentTarget.querySelector('img').style.transform = 'scale(1)'}
+            >
+              <img src={images[2]?.url} alt="Room" style={imgStyle} />
+            </div>
+          )}
         </div>
 
         {/* Additional Images */}
