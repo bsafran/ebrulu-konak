@@ -32,9 +32,6 @@ Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak
             <p className="max-w-4xl text-xl text-gray-700 leading-relaxed preserve-whitespace">
               {content}
             </p>
-            <p className="max-w-4xl text-lg font-display text-primary-dark">
-              <span className="font-bold">Ebrulu Konak</span> - Reliving History in Safranbolu
-            </p>
           </div>
 
           {/* Image - direct, no card wrapper */}
