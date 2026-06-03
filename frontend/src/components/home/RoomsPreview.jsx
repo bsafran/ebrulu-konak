@@ -85,10 +85,20 @@ const RoomsPreview = () => {
                     const firstImage = formattedRoom.images?.[0];
                     const isHovered = hoveredIndex === index;
 
+                    // Debug log
+                    console.log('Room Data:', {
+                      id: room.id,
+                      title: formattedRoom.title,
+                      attributes: room.attributes
+                    });
+
                     return (
                       <Link key={`${room.id}-${Math.random()}`} to={`/rooms/${room.id}`}>
                         <div
-                          className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg transition-all duration-300 hover:shadow-2xl"
+                          className="relative h-80 rounded-2xl overflow-hidden group cursor-pointer shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-4"
+                          style={{
+                            borderColor: isHovered ? '#9c714b' : 'transparent',
+                          }}
                           onMouseEnter={() => setHoveredIndex(index)}
                           onMouseLeave={() => setHoveredIndex(null)}
                         >
@@ -104,8 +114,8 @@ const RoomsPreview = () => {
 
                             {/* Overlay Gradient */}
                             <div
-                              className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-all duration-500 z-10 ${
-                                isHovered ? 'opacity-100' : 'opacity-70'
+                              className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-all duration-500 z-10 ${
+                                isHovered ? 'opacity-100' : 'opacity-50'
                               }`}
                             />
 
@@ -130,7 +140,13 @@ const RoomsPreview = () => {
                               isHovered ? 'translate-y-0' : 'translate-y-0'
                             }`}
                           >
-                            <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
+                            <h3
+                              className="text-2xl md:text-3xl font-bold text-white"
+                              style={{
+                                textShadow: '0 4px 12px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6)',
+                                letterSpacing: '-0.5px',
+                              }}
+                            >
                               {formattedRoom.title}
                             </h3>
                           </div>
