@@ -93,7 +93,7 @@ const Navbar = ({ transparent = false }) => {
 
         {/* Divider */}
         <div className="px-6">
-          <div className="h-px bg-white/10" />
+          <div className="h-px bg-white/30" />
         </div>
 
         {/* Reservation Button */}
