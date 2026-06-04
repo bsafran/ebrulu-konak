@@ -563,7 +563,7 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText;
-    features: Schema.Attribute.JSON;
+    features: Schema.Attribute.Text;
     images: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
     isAile: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isComfort: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;

@@ -16,8 +16,8 @@ const HomePage = () => {
   useScrollRestoration();
   const { data: siteSettings } = useApi(() => getSiteSettings());
 
-  const heroVideo = siteSettings?.data?.heroVideo?.url
-    ? `http://localhost:1337${siteSettings.data.heroVideo.url}`
+  const heroVideo = siteSettings?.data?.heroVideo
+    ? getMediaUrl(siteSettings.data.heroVideo)
     : null;
 
   const welcomeTitle = siteSettings?.data?.welcomeTitle || '';

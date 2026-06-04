@@ -183,9 +183,9 @@ const RoomModal = ({ room, isOpen, onClose, onBook }) => {
             {room.title}
           </h2>
 
-          <p style={{ fontSize: '16px', color: '#666', lineHeight: '1.6', marginBottom: '32px' }}>
+          <div style={{ fontSize: '16px', color: '#666', lineHeight: '1.8', marginBottom: '32px', whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
             {room.description}
-          </p>
+          </div>
 
           {/* Features */}
           {room.features && room.features.length > 0 && (

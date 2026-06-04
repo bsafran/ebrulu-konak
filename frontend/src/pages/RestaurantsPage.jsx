@@ -13,65 +13,51 @@ const RestaurantsPage = () => {
   const { data, loading, error } = useApi(() => getRestaurants());
 
   const restaurants = useMemo(() => {
-    const allRestaurants = data?.data?.map(formatRestaurantData) || [];
-    return allRestaurants.slice(0, 2);
+    return data?.data?.map(formatRestaurantData) || [];
   }, [data]);
 
   return (
     <Layout>
-      <div
-        style={{
-          backgroundColor: 'white',
-          minHeight: '100vh',
-          paddingTop: '64px',
-          paddingBottom: '64px',
-        }}
-      >
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
-          <PageHeader
-            title="Restoranlar"
-            description="Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın."
-            marginBottom="120px"
-          />
+      <div className="container-custom py-16">
+        <PageHeader
+          title="Restoranlar"
+          description="Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın."
+          marginBottom="120px"
+        />
 
-          {/* Loading State */}
-          {loading && (
-            <div style={{ display: 'flex', justifyContent: 'center', padding: '80px 0' }}>
-              <Loading />
-            </div>
-          )}
+        {loading && (
+          <div className="flex justify-center py-20">
+            <Loading />
+          </div>
+        )}
 
-          {/* Error State */}
-          {error && (
-            <div style={{ textAlign: 'center', padding: '80px 0' }}>
-              <p style={{ color: '#d32f2f', fontWeight: '600', fontSize: '16px' }}>
-                Restoranlar yüklenemedi
-              </p>
-            </div>
-          )}
+        {error && (
+          <div className="text-center py-20">
+            <p className="text-red-600 font-semibold text-base">
+              Restoranlar yüklenemedi
+            </p>
+          </div>
+        )}
 
-          {/* Restaurants Grid */}
-          {!loading && !error && restaurants.length > 0 && (
-            <div>
-              {restaurants.map((restaurant, index) => (
-                <RestaurantSection
-                  key={restaurant.id}
-                  restaurant={restaurant}
-                  reversed={index % 2 === 1}
-                />
-              ))}
-            </div>
-          )}
+        {!loading && !error && restaurants.length > 0 && (
+          <div>
+            {restaurants.map((restaurant, index) => (
+              <RestaurantSection
+                key={restaurant.id}
+                restaurant={restaurant}
+                reversed={index % 2 === 1}
+              />
+            ))}
+          </div>
+        )}
 
-          {/* Empty State */}
-          {!loading && !error && restaurants.length === 0 && (
-            <div style={{ textAlign: 'center', padding: '80px 0' }}>
-              <p style={{ color: '#666', fontSize: '16px' }}>
-                Henüz restoran eklenmemiş
-              </p>
-            </div>
-          )}
-        </div>
+        {!loading && !error && restaurants.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-gray-600 text-base">
+              Henüz restoran eklenmemiş
+            </p>
+          </div>
+        )}
       </div>
     </Layout>
   );

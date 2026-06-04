@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_rooms_feature",
+  "displayName": "Feature",
+  "description": "Room feature",
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

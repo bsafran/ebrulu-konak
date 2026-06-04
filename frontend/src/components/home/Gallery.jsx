@@ -55,30 +55,11 @@ const Gallery = () => {
 
             {/* View All Gallery */}
             <div className="text-center">
-              <Link to="/gallery" className="inline-block">
-                <button
-                  style={{
-                    backgroundColor: '#f3efea',
-                    color: '#9c714b',
-                    padding: '12px 32px',
-                    borderRadius: '8px',
-                    border: '2px solid #9c714b',
-                    fontWeight: '600',
-                    fontSize: '16px',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#9c714b';
-                    e.currentTarget.style.color = '#f3efea';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#f3efea';
-                    e.currentTarget.style.color = '#9c714b';
-                  }}
-                >
-                  Tam Galeriyi Görüntüle
-                </button>
+              <Link
+                to="/gallery"
+                className="inline-block px-8 py-3 border-2 border-primary-dark text-primary-dark font-semibold rounded-button hover:bg-primary-dark hover:text-primary-light transition-all duration-300"
+              >
+                Tam Galeriyi Görüntüle
               </Link>
             </div>
           </>

@@ -4,7 +4,7 @@ import api from './api';
 const POPULATE = '*';
 
 // Site Settings
-export const getSiteSettings = async () => {
+export const getSiteSettings = async (locale = 'tr') => {
   try {
     const response = await api.get(`/site-setting?populate=${POPULATE}`);
     return response.data;
@@ -15,7 +15,7 @@ export const getSiteSettings = async () => {
 };
 
 // Rooms
-export const getRooms = async () => {
+export const getRooms = async (locale = 'tr') => {
   try {
     const response = await api.get(`/rooms?populate=${POPULATE}`);
     return response.data;
@@ -25,7 +25,7 @@ export const getRooms = async () => {
   }
 };
 
-export const getRoomById = async (slugOrId) => {
+export const getRoomById = async (slugOrId, locale = 'tr') => {
   try {
     // Support both slug and documentId/id for backwards compatibility
     const response = await api.get(`/rooms?filters[slug][$eq]=${slugOrId}&populate=${POPULATE}`);
@@ -37,7 +37,7 @@ export const getRoomById = async (slugOrId) => {
 };
 
 // Restaurants
-export const getRestaurants = async () => {
+export const getRestaurants = async (locale = 'tr') => {
   try {
     const response = await api.get(`/restaurants?populate=${POPULATE}`);
     return response.data;
@@ -47,7 +47,7 @@ export const getRestaurants = async () => {
   }
 };
 
-export const getRestaurantById = async (id) => {
+export const getRestaurantById = async (id, locale = 'tr') => {
   try {
     const response = await api.get(`/restaurants/${id}?populate=${POPULATE}`);
     return response.data;
@@ -58,7 +58,7 @@ export const getRestaurantById = async (id) => {
 };
 
 // Gallery (single type)
-export const getGallery = async () => {
+export const getGallery = async (locale = 'tr') => {
   try {
     const response = await api.get(`/gallery?populate=${POPULATE}`);
     return response.data;
@@ -144,7 +144,9 @@ export const formatRoomData = (room) => {
     description: data.description,
     price: data.price,
     maxGuests: data.maxGuests,
-    features: data.features,
+    features: data.features
+      ? data.features.split(',').map(f => f.trim()).filter(f => f)
+      : [],
     isStandart: data.isStandart || false,
     isComfort: data.isComfort || false,
     isAile: data.isAile || false,
