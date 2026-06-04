@@ -8,7 +8,8 @@
     "openingHours": "10:00 - 23:00",
     "createdAt": "2026-06-04T12:19:49.245Z",
     "updatedAt": "2026-06-04T12:37:13.517Z",
-    "publishedAt": "2026-06-04T12:37:13.523Z"
+    "publishedAt": "2026-06-04T12:37:13.523Z",
+    "images": []
   },
   {
     "id": 34,
@@ -19,6 +20,7 @@
     "openingHours": "10:00 - 23:00",
     "createdAt": "2026-06-04T12:13:51.212Z",
     "updatedAt": "2026-06-04T12:37:45.399Z",
-    "publishedAt": "2026-06-04T12:37:45.404Z"
+    "publishedAt": "2026-06-04T12:37:45.404Z",
+    "images": []
   }
 ]
