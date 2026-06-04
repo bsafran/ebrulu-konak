@@ -4,10 +4,12 @@ import { FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi';
 import Loading from '../common/Loading';
 import Button from '../common/Button';
 import useApi from '../../hooks/useApi';
+import useWindowSize from '../../hooks/useWindowSize';
 import { getRooms, formatRoomData } from '../../services/strapiService';
 
 const RoomsPreview = () => {
   const { data, loading, error } = useApi(() => getRooms());
+  const windowWidth = useWindowSize();
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredRoomId, setHoveredRoomId] = useState(null);
@@ -15,11 +17,19 @@ const RoomsPreview = () => {
   const [touchEnd, setTouchEnd] = useState(null);
 
   const allRooms = data?.data || [];
-  const itemsPerPage = 3;
+  const itemsPerPage = windowWidth < 640 ? 1 : windowWidth < 1024 ? 2 : 3;
   const displayRooms = allRooms;
 
   // Max index to prevent scrolling past the last set of items
   const maxIndex = Math.max(0, displayRooms.length - itemsPerPage);
+
+  // Calculate card width and slide fraction based on window width
+  const cardWidth = windowWidth < 640
+    ? 'calc(90% - 0.5rem)'
+    : windowWidth < 1024
+      ? 'calc(50% - 0.75rem)'
+      : 'calc(33.333% - 1rem)';
+  const slideFraction = windowWidth < 640 ? 90 : windowWidth < 1024 ? 50 : 33.333;
 
   const handlePrev = () => {
     setCurrentIndex(prev => Math.max(0, prev - 1));
@@ -56,7 +66,7 @@ const RoomsPreview = () => {
     <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Odalarımız</h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-dark mb-4">Odalarımız</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-4">
             Ebrulu Konak'ın zarif ve konforlu odaları, siz misafirlerimizin rahatı için tasarlanmıştır.
           </p>
@@ -104,7 +114,7 @@ const RoomsPreview = () => {
                 <div
                   className="flex gap-6"
                   style={{
-                    transform: `translateX(calc(-${currentIndex * 33.333}% - ${currentIndex * 0.5}rem))`,
+                    transform: `translateX(calc(-${currentIndex * slideFraction}% - ${currentIndex * 0.5}rem))`,
                     transition: 'transform 0.4s ease-out'
                   }}
                 >
@@ -118,7 +128,7 @@ const RoomsPreview = () => {
                         key={`${room.id}-${currentIndex}`}
                         className="flex-shrink-0 overflow-hidden"
                         style={{
-                          width: 'calc(33.333% - 1rem)',
+                          width: cardWidth,
                           backfaceVisibility: 'hidden',
                           WebkitBackfaceVisibility: 'hidden',
                           clipPath: 'inset(0 round 1rem)',
@@ -172,7 +182,7 @@ const RoomsPreview = () => {
 
                             {/* Explore Button - Show on hover */}
                             <div
-                              className="absolute inset-0 flex items-center justify-center z-20 transition-all duration-300"
+                              className="rooms-explore-btn absolute inset-0 flex items-center justify-center z-20 transition-all duration-300"
                               style={{
                                 opacity: isHovered ? 1 : 0,
                               }}

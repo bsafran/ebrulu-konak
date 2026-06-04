@@ -59,6 +59,7 @@ const RoomDetail = ({ room, loading }) => {
       {/* Image Grid */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
         <div
+          className="room-image-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: images.length === 1 ? '1fr' : '2fr 1fr',
@@ -125,7 +126,7 @@ const RoomDetail = ({ room, loading }) => {
       </div>
 
       {/* Content Section */}
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '48px', alignItems: 'flex-start' }}>
+      <div className="room-layout" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '48px', alignItems: 'flex-start' }}>
         {/* Left */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           <div>
@@ -140,6 +141,7 @@ const RoomDetail = ({ room, loading }) => {
 
         {/* Right - Sticky Booking Card */}
         <div
+          className="booking-card"
           style={{
             position: 'sticky',
             top: '120px',
@@ -242,6 +244,8 @@ const RoomDetail = ({ room, loading }) => {
         @media (max-width: 768px) {
           .room-layout { grid-template-columns: 1fr !important; }
           .booking-card { position: static !important; }
+          .room-image-grid { grid-template-columns: 1fr !important; grid-template-rows: auto !important; min-height: 300px !important; }
+          .room-image-grid > div:first-child { grid-row: auto !important; }
         }
       `}</style>
     </div>

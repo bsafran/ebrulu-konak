@@ -34,7 +34,7 @@ const IntroSection = ({ title = 'Hoş Geldiniz', text = '' }) => {
             <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
           </div>
 
-          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-dark">
             {title}
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed preserve-whitespace">

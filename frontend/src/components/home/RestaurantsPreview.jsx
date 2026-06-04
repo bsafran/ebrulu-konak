@@ -27,7 +27,7 @@ const RestaurantsPreview = () => {
     <section className="py-20 bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Restoranlarımız</h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-dark mb-4">Restoranlarımız</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-4">
             Türk ve uluslararası mutfağından lezzetli yemekler, özel şef hizmetleriyle sunulmaktadır.
           </p>

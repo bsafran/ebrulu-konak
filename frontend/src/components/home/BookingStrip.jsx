@@ -89,7 +89,6 @@ const BookingStrip = () => {
             className="booking-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
               gap: '20px',
               alignItems: 'flex-end',
             }}

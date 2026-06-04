@@ -40,6 +40,7 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
 
   const textPanel = (
     <div
+      className="restaurant-text-panel"
       style={{
         padding: '64px',
         backgroundColor: '#f3efea',
@@ -121,6 +122,7 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
 
   const imagePanel = (
     <div
+      className="restaurant-image-grid"
       style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
@@ -229,7 +231,25 @@ const RestaurantSection = ({ restaurant, reversed = false }) => {
             margin-bottom: 48px !important;
           }
           .restaurant-images {
-            min-height: 400px !important;
+            min-height: 350px !important;
+          }
+          .restaurant-text-panel {
+            padding: 28px !important;
+          }
+          .restaurant-text-panel p[style] {
+            font-size: 16px !important;
+          }
+          .restaurant-image-grid {
+            grid-template-columns: 1fr !important;
+            grid-template-rows: auto auto auto !important;
+            gap: 12px !important;
+          }
+          .restaurant-image-grid > div:first-child {
+            grid-row: auto !important;
+            height: 220px !important;
+          }
+          .restaurant-image-grid > div:not(:first-child) {
+            height: 150px !important;
           }
         }
       `}</style>

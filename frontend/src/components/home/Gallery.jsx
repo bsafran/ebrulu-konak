@@ -14,7 +14,7 @@ const Gallery = () => {
     <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold text-primary-dark mb-4">Galeri</h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-dark mb-4">Galeri</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-4">
             Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin.
           </p>

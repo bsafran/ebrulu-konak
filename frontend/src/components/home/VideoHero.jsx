@@ -26,10 +26,10 @@ const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle
       {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-center text-center text-white px-4">
         <div className="max-w-3xl mx-auto space-y-6">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">
             {title}
           </h1>
-          <p className="text-xl sm:text-2xl drop-shadow-md">
+          <p className="text-lg sm:text-xl md:text-2xl drop-shadow-md">
             {subtitle}
           </p>
         </div>
