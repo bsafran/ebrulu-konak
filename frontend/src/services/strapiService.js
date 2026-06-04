@@ -1,89 +1,121 @@
-import api from './api';
 import roomsData from '../data/rooms.json';
 import restaurantsData from '../data/restaurants.json';
+import galleriesData from '../data/galleries.json';
 
 // Populate all nested relations and media
 const POPULATE = '*';
 
 // Site Settings
 export const getSiteSettings = async (locale = 'tr') => {
-  try {
-    const response = await api.get(`/site-setting?populate=${POPULATE}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching site settings:', error);
-    throw new Error('Site ayarları yüklenemedi. Lütfen daha sonra tekrar deneyin.');
-  }
+  return {
+    data: {
+      id: 1,
+      title: 'Ebrulu Konak',
+      description: 'Safranbolu\'da Osmanlı mimarisinin eşsiz bir örneği',
+      heroTitle: '',
+      heroSubtitle: '',
+      heroVideo: '/images/HomeVideo/ebrulu.mp4',
+      welcomeTitle: '',
+      welcomeText: 'Tarih sadece anlatılan bir hikâye değildir; hissedilen, yaşanan ve yeniden keşfedilen bir yolculuktur.\nEbrulu Konak\'ta, Osmanlı\'nın zarif mimarisi ve Safranbolu\'nun eşsiz kültürel mirası arasında geçmiş yeniden hayat buluyor. Her odada bir hatıra, her konakta yüzyılların izleri saklı.\nSafranbolu\'da tarihin içinde yürümeye, geleneksel misafirperverliğin sıcaklığını yaşamaya ve unutulmaz anılar biriktirmeye davetlisiniz.\n\n**Ebrulu Konak**\n**Reviling history in Safranbolu**',
+      aboutTitle: '',
+      aboutText: '',
+    }
+  };
 };
+
+// Helper - Format room for display
+const formatRoomDisplay = (room) => ({
+  id: room.id,
+  documentId: room.documentId,
+  slug: room.slug,
+  title: room.title,
+  description: room.description,
+  price: room.price,
+  maxGuests: room.maxGuests,
+  features: room.features ? (Array.isArray(room.features) ? room.features : room.features.split(',').map(f => f.trim()).filter(f => f)) : [],
+  isStandart: room.isStandart || false,
+  isComfort: room.isComfort || false,
+  isAile: room.isAile || false,
+  images: (room.images || []).map((url, idx) => ({
+    id: idx + 1,
+    url: url,
+    alt: `${room.title} - ${idx + 1}`,
+    alternativeText: `${room.title} - ${idx + 1}`
+  }))
+});
+
+// Helper - Format restaurant for display
+const formatRestaurantDisplay = (restaurant) => ({
+  id: restaurant.id,
+  documentId: restaurant.documentId,
+  name: restaurant.name,
+  description: restaurant.description,
+  cuisine: restaurant.cuisine,
+  openingHours: restaurant.openingHours,
+  images: (restaurant.images || []).map((url, idx) => ({
+    id: idx + 1,
+    url: url,
+    alt: `${restaurant.name} - ${idx + 1}`,
+    alternativeText: `${restaurant.name} - ${idx + 1}`
+  }))
+});
 
 // Rooms - Using local data
 export const getRooms = async (locale = 'tr') => {
-  return roomsData;
+  return { data: roomsData.map(formatRoomDisplay) };
 };
 
 export const getRoomById = async (slugOrId, locale = 'tr') => {
-  try {
-    // Search by slug or id in local data
-    const room = roomsData.find(r => r.slug === slugOrId || r.id.toString() === slugOrId);
-    return room ? { data: room } : { data: null };
-  } catch (error) {
-    console.error(`Error fetching room ${slugOrId}:`, error);
-    throw new Error('Oda bilgileri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
-  }
+  const room = roomsData.find(r => r.slug === slugOrId || r.id.toString() === slugOrId);
+  return room ? { data: room } : { data: null };
 };
 
 // Restaurants - Using local data
 export const getRestaurants = async (locale = 'tr') => {
-  return restaurantsData;
+  return { data: restaurantsData };
 };
 
-export const getRestaurantById = async (id, locale = 'tr') => {
-  const restaurant = restaurantsData.find(r => r.id.toString() === id.toString());
-  return restaurant ? { data: restaurant } : { data: null };
-};
-
-// Gallery - Using local data (fallback to empty array)
+// Gallery - Using local data
 export const getGallery = async (locale = 'tr') => {
-  return { images: [] };
+  const photos = galleriesData.map(img => ({
+    id: img.id,
+    url: img.url,
+    alt: img.alt,
+    alternativeText: img.alternativeText
+  }));
+  return { data: { photos } };
 };
 
 // Reservations
 export const createReservation = async (reservationData) => {
-  try {
-    const response = await api.post('/reservations', {
-      data: reservationData,
-    });
-    return response.data;
-  } catch (error) {
-    console.error('Error creating reservation:', error);
-    throw new Error('Rezervasyon oluşturulamadı. Lütfen daha sonra tekrar deneyin.');
-  }
+  console.log('Reservation created:', reservationData);
+  return { data: reservationData };
 };
 
 export const getReservations = async () => {
-  try {
-    const response = await api.get(`/reservations?populate=${POPULATE}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching reservations:', error);
-    throw new Error('Rezervasyonlar yüklenemedi. Lütfen daha sonra tekrar deneyin.');
-  }
+  return { data: [] };
 };
 
 // Helper function to get full media URL
 export const getMediaUrl = (mediaData) => {
   if (!mediaData) return null;
 
-  // Handle different Strapi response formats
+  // If it's a simple URL string (from our local data)
+  if (typeof mediaData === 'string') {
+    return mediaData;
+  }
+
+  // Handle direct url property
   if (mediaData.url) {
     return mediaData.url.startsWith('http')
       ? mediaData.url
-      : `http://localhost:1337${mediaData.url}`;
+      : `${mediaData.url}`;
   }
 
+  // Handle Strapi format
   if (mediaData.data?.attributes?.url) {
     const url = mediaData.data.attributes.url;
-    return url.startsWith('http') ? url : `http://localhost:1337${url}`;
+    return url.startsWith('http') ? url : url;
   }
 
   return null;
@@ -91,26 +123,30 @@ export const getMediaUrl = (mediaData) => {
 
 // Helper function to format room data
 export const formatRoomData = (room) => {
-  // Handle both old format (with attributes) and new Strapi v5 format (direct properties)
   const data = room.attributes || room;
-
-  // Handle images array - support both v4 and v5 Strapi formats
   let images = [];
+
   if (data.images) {
-    // Strapi v4 format: images.data[].attributes
-    if (Array.isArray(data.images.data)) {
-      images = data.images.data.map(img => ({
+    if (Array.isArray(data.images)) {
+      images = data.images.map((img, idx) => {
+        if (typeof img === 'string') {
+          return {
+            id: idx + 1,
+            url: img,
+            alt: `${data.title} - ${idx + 1}`,
+          };
+        }
+        return {
+          id: img.id || idx + 1,
+          url: getMediaUrl(img),
+          alt: img.alternativeText || img.alt || 'Room image',
+        };
+      });
+    } else if (data.images.data) {
+      images = (Array.isArray(data.images.data) ? data.images.data : [data.images.data]).map(img => ({
         id: img.id,
         url: getMediaUrl(img.attributes || img),
         alt: img.attributes?.alternativeText || img.alternativeText || 'Room image',
-      }));
-    }
-    // Strapi v5 format: images[] direct
-    else if (Array.isArray(data.images)) {
-      images = data.images.map(img => ({
-        id: img.id,
-        url: getMediaUrl(img),
-        alt: img.alternativeText || 'Room image',
       }));
     }
   }
@@ -124,7 +160,7 @@ export const formatRoomData = (room) => {
     price: data.price,
     maxGuests: data.maxGuests,
     features: data.features
-      ? data.features.split(',').map(f => f.trim()).filter(f => f)
+      ? (typeof data.features === 'string' ? data.features.split(',').map(f => f.trim()).filter(f => f) : data.features)
       : [],
     isStandart: data.isStandart || false,
     isComfort: data.isComfort || false,
@@ -135,26 +171,30 @@ export const formatRoomData = (room) => {
 
 // Helper function to format restaurant data
 export const formatRestaurantData = (restaurant) => {
-  // Handle both old format (with attributes) and new Strapi v5 format (direct properties)
   const data = restaurant.attributes || restaurant;
-
-  // Handle images array - support both v4 and v5 Strapi formats
   let images = [];
+
   if (data.images) {
-    // Strapi v4 format: images.data[].attributes
-    if (Array.isArray(data.images.data)) {
-      images = data.images.data.map(img => ({
+    if (Array.isArray(data.images)) {
+      images = data.images.map((img, idx) => {
+        if (typeof img === 'string') {
+          return {
+            id: idx + 1,
+            url: img,
+            alt: `${data.name} - ${idx + 1}`,
+          };
+        }
+        return {
+          id: img.id || idx + 1,
+          url: getMediaUrl(img),
+          alt: img.alternativeText || img.alt || 'Restaurant image',
+        };
+      });
+    } else if (data.images.data) {
+      images = (Array.isArray(data.images.data) ? data.images.data : [data.images.data]).map(img => ({
         id: img.id,
         url: getMediaUrl(img.attributes || img),
         alt: img.attributes?.alternativeText || img.alternativeText || 'Restaurant image',
-      }));
-    }
-    // Strapi v5 format: images[] direct
-    else if (Array.isArray(data.images)) {
-      images = data.images.map(img => ({
-        id: img.id,
-        url: getMediaUrl(img),
-        alt: img.alternativeText || 'Restaurant image',
       }));
     }
   }
@@ -167,8 +207,5 @@ export const formatRestaurantData = (restaurant) => {
     cuisine: data.cuisine,
     openingHours: data.openingHours,
     images: images,
-    menu: data.menu?.data
-      ? getMediaUrl(data.menu.data)
-      : null,
   };
 };

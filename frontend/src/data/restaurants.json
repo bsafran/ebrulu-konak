@@ -9,7 +9,11 @@
     "createdAt": "2026-06-04T12:19:49.245Z",
     "updatedAt": "2026-06-04T12:37:13.517Z",
     "publishedAt": "2026-06-04T12:37:13.523Z",
-    "images": []
+    "images": [
+      "/images/restaurants/restaurant-2/23.avif",
+      "/images/restaurants/restaurant-2/25.avif",
+      "/images/restaurants/restaurant-2/26.avif"
+    ]
   },
   {
     "id": 34,
@@ -21,6 +25,10 @@
     "createdAt": "2026-06-04T12:13:51.212Z",
     "updatedAt": "2026-06-04T12:37:45.399Z",
     "publishedAt": "2026-06-04T12:37:45.404Z",
-    "images": []
+    "images": [
+      "/images/restaurants/restaurant-1/23.avif",
+      "/images/restaurants/restaurant-1/25.avif",
+      "/images/restaurants/restaurant-1/26.avif"
+    ]
   }
 ]

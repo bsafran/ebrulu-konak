@@ -1,13 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Card from '../common/Card';
 
 const RestaurantCard = ({ restaurant }) => {
   const firstImage = restaurant.images?.[0];
 
   return (
-    <Link to={`/restaurants/${restaurant.id}`}>
-      <Card hover>
+    <Card hover>
         {/* Image Grid */}
         <div className="grid grid-cols-3 gap-2 mb-4 rounded-lg overflow-hidden h-32">
           {[...Array(3)].map((_, i) => (
@@ -39,7 +37,6 @@ const RestaurantCard = ({ restaurant }) => {
           </p>
         </div>
       </Card>
-    </Link>
   );
 };
 

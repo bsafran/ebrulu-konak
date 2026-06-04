@@ -18,7 +18,7 @@ Ebrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak
         <div className="space-y-8">
           {/* Header and Subtitle */}
           <div className="space-y-2">
-            <h2 className="text-6xl md:text-7xl font-bold text-primary-dark">
+            <h2 className="text-6xl md:text-7xl font-bold text-black">
               Ebrulu Konak
             </h2>
 

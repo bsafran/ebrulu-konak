@@ -88,7 +88,10 @@ const Navbar = ({ transparent = false }) => {
                   color: 'white',
                   cursor: 'pointer'
                 }}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  window.scrollTo(0, 0);
+                }}
               >
                 {link.name}
               </Link>

@@ -38,7 +38,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary-dark text-primary-light">
+    <footer className="bg-white border-t border-gray-200">
       <div className="container-custom py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
@@ -46,27 +46,27 @@ const Footer = () => {
             const Icon = item.icon;
             return (
               <div key={index} className="flex items-start gap-4">
-                <Icon className="w-6 h-6 text-primary-accent flex-shrink-0 mt-1" />
+                <Icon className="w-6 h-6 text-primary-dark flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-primary-accent mb-2">{item.title}</h3>
+                  <h3 className="font-semibold text-black mb-2">{item.title}</h3>
                   {item.isMultiple ? (
                     <div className="space-y-1">
                       {item.content.map((contact, idx) => (
                         <a
                           key={idx}
                           href={contact.link}
-                          className="block hover:text-primary-accent transition-colors"
+                          className="block text-gray-700 hover:text-primary-dark transition-colors"
                         >
                           {contact.text}
                         </a>
                       ))}
                     </div>
                   ) : item.link ? (
-                    <a href={item.link} className="hover:text-primary-accent transition-colors">
+                    <a href={item.link} className="text-gray-700 hover:text-primary-dark transition-colors">
                       {item.content}
                     </a>
                   ) : (
-                    <p>{item.content}</p>
+                    <p className="text-gray-700">{item.content}</p>
                   )}
                 </div>
               </div>
@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-primary-accent/30 my-8"></div>
+        <div className="h-px bg-gray-300 my-8"></div>
 
         {/* Social Media and Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -88,7 +88,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-light hover:text-primary-accent transition-colors duration-200"
+                  className="text-gray-700 hover:text-primary-dark transition-colors duration-200"
                   aria-label={social.label}
                 >
                   <Icon className="w-6 h-6" />
@@ -97,7 +97,7 @@ const Footer = () => {
             })}
           </div>
 
-          <p className="text-center text-sm text-primary-light/80">
+          <p className="text-center text-sm text-gray-600">
             © {currentYear} Ebrulu Konak. Tüm hakları saklıdır.
           </p>
         </div>

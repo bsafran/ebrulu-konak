@@ -5,6 +5,24 @@ const IntroSection = ({ title = 'Hoş Geldiniz', text = '' }) => {
               İçerisinde barındırdığı tarihi mimarisi, zarif tasarımı ve ender bulunan hizmet standartları
               ile misafirlerimize unutulmaz bir deneyim yaşatmayı amaçlıyoruz.`;
 
+  const renderText = () => {
+    const lines = displayText.split('\n');
+    return lines.map((line, idx) => {
+      if (line.startsWith('**') && line.endsWith('**')) {
+        return <strong key={idx}>{line.slice(2, -2)}</strong>;
+      }
+      if (line.trim() === '') {
+        return <br key={idx} />;
+      }
+      return <span key={idx}>{line}</span>;
+    }).reduce((acc, el, idx, arr) => {
+      if (idx < arr.length - 1) {
+        return [...acc, el, <br key={`br-${idx}`} />];
+      }
+      return [...acc, el];
+    }, []);
+  };
+
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
@@ -20,7 +38,7 @@ const IntroSection = ({ title = 'Hoş Geldiniz', text = '' }) => {
             {title}
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed preserve-whitespace">
-            {displayText}
+            {renderText()}
           </p>
 
           {/* Decorative Divider - Below Text */}
