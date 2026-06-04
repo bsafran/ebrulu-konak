@@ -1,0 +1,24 @@
+[
+  {
+    "id": 33,
+    "documentId": "wo4qqopruq6pju6wx2wwc2wh",
+    "name": "Taş Restaurant",
+    "description": "Ebrulu Konak bünyesinde hizmet veren ikinci restoranımız Taş Restaurant, Safranbolu'nun tarihi atmosferini geleneksel lezzetlerle buluşturan özel bir yemek alanıdır.\n\nOtel yerleşkesi içerisinde bulunan restoranımız, 30 kişilik kapasitesiyle grup yemekleri, tur organizasyonları ve özel davetler için ideal bir ortam sunmaktadır. Geleneksel Türk mutfağının sevilen ev yemekleri, yöresel tatlar ve özenle hazırlanan menülerimiz, misafirlerimize samimi ve unutulmaz bir gastronomi deneyimi yaşatmaktadır.\n\nTarihi konakların huzurlu atmosferinde, Safranbolu'nun kültürünü ve lezzetlerini aynı sofrada keşfetmeye davetlisiniz.\n",
+    "cuisine": "Türk & Uluslararası",
+    "openingHours": "10:00 - 23:00",
+    "createdAt": "2026-06-04T12:19:49.245Z",
+    "updatedAt": "2026-06-04T12:37:13.517Z",
+    "publishedAt": "2026-06-04T12:37:13.523Z"
+  },
+  {
+    "id": 34,
+    "documentId": "qb6pco0uhezw9pn2fks5ewj6",
+    "name": "Ebrulu Restaurant",
+    "description": "Ebrulu Konak'ın ana restoranı olan Ebrulu Restaurant, tarihi Safranbolu atmosferi içerisinde misafirlerine zengin lezzetler ve sıcak bir misafirperverlik sunmaktadır.\n\n60 kişilik kapasitesiyle hizmet veren restoranımızda, güne özenle hazırlanan açık büfe kahvaltı ile başlayabilir, akşam saatlerinde ise geleneksel Türk mutfağının seçkin tatlarından oluşan açık büfe yemeklerin keyfini çıkarabilirsiniz. Gün boyunca sunulan içecek servisleriyle misafirlerimize konforlu ve keyifli bir dinlenme alanı sağlamaktayız.\n\nGeleneksel lezzetlerin modern sunumlarla buluştuğu Ebrulu Restaurant, Safranbolu'nun tarihî dokusu içinde unutulmaz bir gastronomi deneyimi yaşatmaktadır.\n ",
+    "cuisine": "Türk & Uluslararası",
+    "openingHours": "10:00 - 23:00",
+    "createdAt": "2026-06-04T12:13:51.212Z",
+    "updatedAt": "2026-06-04T12:37:45.399Z",
+    "publishedAt": "2026-06-04T12:37:45.404Z"
+  }
+]

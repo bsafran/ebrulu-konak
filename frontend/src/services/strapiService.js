@@ -1,4 +1,6 @@
 import api from './api';
+import roomsData from '../data/rooms.json';
+import restaurantsData from '../data/restaurants.json';
 
 // Populate all nested relations and media
 const POPULATE = '*';
@@ -14,58 +16,35 @@ export const getSiteSettings = async (locale = 'tr') => {
   }
 };
 
-// Rooms
+// Rooms - Using local data
 export const getRooms = async (locale = 'tr') => {
-  try {
-    const response = await api.get(`/rooms?populate=${POPULATE}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching rooms:', error);
-    throw new Error('Odalar yüklenemedi. Lütfen daha sonra tekrar deneyin.');
-  }
+  return roomsData;
 };
 
 export const getRoomById = async (slugOrId, locale = 'tr') => {
   try {
-    // Support both slug and documentId/id for backwards compatibility
-    const response = await api.get(`/rooms?filters[slug][$eq]=${slugOrId}&populate=${POPULATE}`);
-    return response.data;
+    // Search by slug or id in local data
+    const room = roomsData.find(r => r.slug === slugOrId || r.id.toString() === slugOrId);
+    return room ? { data: room } : { data: null };
   } catch (error) {
     console.error(`Error fetching room ${slugOrId}:`, error);
     throw new Error('Oda bilgileri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
   }
 };
 
-// Restaurants
+// Restaurants - Using local data
 export const getRestaurants = async (locale = 'tr') => {
-  try {
-    const response = await api.get(`/restaurants?populate=${POPULATE}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching restaurants:', error);
-    throw new Error('Restoranlar yüklenemedi. Lütfen daha sonra tekrar deneyin.');
-  }
+  return restaurantsData;
 };
 
 export const getRestaurantById = async (id, locale = 'tr') => {
-  try {
-    const response = await api.get(`/restaurants/${id}?populate=${POPULATE}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching restaurant ${id}:`, error);
-    throw new Error('Restoran bilgileri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
-  }
+  const restaurant = restaurantsData.find(r => r.id.toString() === id.toString());
+  return restaurant ? { data: restaurant } : { data: null };
 };
 
-// Gallery (single type)
+// Gallery - Using local data (fallback to empty array)
 export const getGallery = async (locale = 'tr') => {
-  try {
-    const response = await api.get(`/gallery?populate=${POPULATE}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching gallery:', error);
-    throw new Error('Galeri yüklenemedi. Lütfen daha sonra tekrar deneyin.');
-  }
+  return { images: [] };
 };
 
 // Reservations
