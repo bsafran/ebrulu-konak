@@ -67,13 +67,8 @@ const ContactPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20 lg:mb-section items-start">
           {/* Left - Photo */}
           <div
-            style={{
-              borderRadius: '24px',
-              overflow: 'hidden',
-              height: 'clamp(300px, 50vh, 600px)',
-              backgroundColor: '#f3efea',
-              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-            }}
+            className="rounded-card overflow-hidden shadow-card bg-primary-light"
+            style={{ height: 'clamp(300px, 50vh, 600px)' }}
           >
             <img
               src={hotelImage}
@@ -89,19 +84,11 @@ const ContactPage = () => {
 
           {/* Right - Form */}
           <div>
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               {/* Name Field */}
               <div>
                 <label
-                  style={{
-                    fontSize: '13px',
-                    fontWeight: '600',
-                    color: '#a67c52',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
+                  className="text-xs font-semibold text-primary-accent uppercase tracking-wider block mb-2"
                 >
                   Ad Soyad
                 </label>
@@ -112,32 +99,15 @@ const ContactPage = () => {
                   onChange={handleChange}
                   required
                   placeholder="Adınız"
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    fontSize: '14px',
-                    border: '1px solid #e5d4c4',
-                    borderRadius: '8px',
-                    backgroundColor: '#ffffff',
-                    color: '#333',
-                    boxSizing: 'border-box',
-                    fontFamily: 'inherit',
-                  }}
+                  className="w-full px-4 py-3 text-sm rounded-button bg-white text-gray-700 border outline-none focus:border-primary-accent transition-colors"
+                  style={{ borderColor: '#e5d4c4', fontFamily: 'inherit' }}
                 />
               </div>
 
               {/* Email Field */}
               <div>
                 <label
-                  style={{
-                    fontSize: '13px',
-                    fontWeight: '600',
-                    color: '#a67c52',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
+                  className="text-xs font-semibold text-primary-accent uppercase tracking-wider block mb-2"
                 >
                   Email
                 </label>
@@ -148,32 +118,15 @@ const ContactPage = () => {
                   onChange={handleChange}
                   required
                   placeholder="Email adresiniz"
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    fontSize: '14px',
-                    border: '1px solid #e5d4c4',
-                    borderRadius: '8px',
-                    backgroundColor: '#ffffff',
-                    color: '#333',
-                    boxSizing: 'border-box',
-                    fontFamily: 'inherit',
-                  }}
+                  className="w-full px-4 py-3 text-sm rounded-button bg-white text-gray-700 border outline-none focus:border-primary-accent transition-colors"
+                  style={{ borderColor: '#e5d4c4', fontFamily: 'inherit' }}
                 />
               </div>
 
               {/* Subject Field */}
               <div>
                 <label
-                  style={{
-                    fontSize: '13px',
-                    fontWeight: '600',
-                    color: '#a67c52',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
+                  className="text-xs font-semibold text-primary-accent uppercase tracking-wider block mb-2"
                 >
                   Konu
                 </label>
@@ -184,32 +137,15 @@ const ContactPage = () => {
                   onChange={handleChange}
                   required
                   placeholder="İletişim konusu"
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    fontSize: '14px',
-                    border: '1px solid #e5d4c4',
-                    borderRadius: '8px',
-                    backgroundColor: '#ffffff',
-                    color: '#333',
-                    boxSizing: 'border-box',
-                    fontFamily: 'inherit',
-                  }}
+                  className="w-full px-4 py-3 text-sm rounded-button bg-white text-gray-700 border outline-none focus:border-primary-accent transition-colors"
+                  style={{ borderColor: '#e5d4c4', fontFamily: 'inherit' }}
                 />
               </div>
 
               {/* Message Field */}
               <div>
                 <label
-                  style={{
-                    fontSize: '13px',
-                    fontWeight: '600',
-                    color: '#a67c52',
-                    textTransform: 'uppercase',
-                    letterSpacing: '1px',
-                    display: 'block',
-                    marginBottom: '8px',
-                  }}
+                  className="text-xs font-semibold text-primary-accent uppercase tracking-wider block mb-2"
                 >
                   Mesaj
                 </label>
@@ -220,18 +156,8 @@ const ContactPage = () => {
                   required
                   placeholder="Mesajınız"
                   rows="6"
-                  style={{
-                    width: '100%',
-                    padding: '12px 16px',
-                    fontSize: '14px',
-                    border: '1px solid #e5d4c4',
-                    borderRadius: '8px',
-                    backgroundColor: '#ffffff',
-                    color: '#333',
-                    boxSizing: 'border-box',
-                    fontFamily: 'inherit',
-                    resize: 'vertical',
-                  }}
+                  className="w-full px-4 py-3 text-sm rounded-button bg-white text-gray-700 border outline-none focus:border-primary-accent transition-colors resize-y"
+                  style={{ borderColor: '#e5d4c4', fontFamily: 'inherit' }}
                 />
               </div>
 
