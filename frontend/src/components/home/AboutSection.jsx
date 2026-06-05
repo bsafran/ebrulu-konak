@@ -6,21 +6,34 @@ const AboutSection = () => {
   const { t } = useTranslation();
 
   const renderParagraphs = (text) => {
-    return text.split('\n\n').map((para, idx) => (
-      <p key={idx} className="text-base md:text-lg text-gray-700 leading-relaxed">
-        {para}
-      </p>
-    ));
+    return text.split('\n\n').map((para, idx) => {
+      // Handle **text** format to bold
+      const parts = para.split(/(\*\*.*?\*\*)/g);
+      return (
+        <p key={idx} className="text-base md:text-lg text-gray-700 leading-relaxed">
+          {parts.map((part, i) => {
+            if (part.startsWith('**') && part.endsWith('**')) {
+              return (
+                <strong key={i} style={{ color: '#9c714b', fontWeight: 'bold' }}>
+                  {part.slice(2, -2)}
+                </strong>
+              );
+            }
+            return <span key={i}>{part}</span>;
+          })}
+        </p>
+      );
+    });
   };
 
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
         <div className="space-y-12">
-          {/* Top Intro Section with Divider */}
+          {/* Top Intro Section with Dividers */}
           <div className="max-w-4xl mx-auto text-center space-y-8">
             {/* Top Divider */}
-            <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="flex items-center justify-center gap-3">
               <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
               <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
               <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
@@ -31,18 +44,18 @@ const AboutSection = () => {
               {renderParagraphs(t('about.intro'))}
             </div>
 
-            {/* Title and Subtitle */}
-            <div className="space-y-2">
-              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#9c714b', margin: 0 }}>
+            {/* Title and Subtitle (bold, centered) */}
+            <div className="space-y-1">
+              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#000', margin: 0 }}>
                 {t('about.title')}
               </h3>
-              <p style={{ fontSize: '16px', fontWeight: 'bold', color: '#666', margin: 0 }}>
+              <p style={{ fontSize: '16px', fontWeight: 'bold', color: '#000', margin: 0 }}>
                 {t('about.subtitle')}
               </p>
             </div>
 
             {/* Bottom Divider */}
-            <div className="flex items-center justify-center gap-3 mt-8">
+            <div className="flex items-center justify-center gap-3">
               <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
               <span style={{ color: '#9c714b', fontSize: '20px' }}>✧</span>
               <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
