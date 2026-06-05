@@ -31,7 +31,7 @@ const AboutSection = () => {
       <div className="container-custom">
         <div className="space-y-12">
           {/* Top Intro Section with Dividers */}
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
             {/* Top Divider */}
             <div className="flex items-center justify-center gap-3">
               <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
@@ -40,12 +40,12 @@ const AboutSection = () => {
             </div>
 
             {/* Intro Text */}
-            <div className="space-y-6">
+            <div className="space-y-3">
               {renderParagraphs(t('about.intro'), true)}
             </div>
 
             {/* Title and Subtitle (bold, centered) */}
-            <div className="space-y-0">
+            <div className="space-y-1">
               <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#000', margin: 0, letterSpacing: '0.5px' }}>
                 {t('about.title')}
               </h3>
@@ -63,7 +63,7 @@ const AboutSection = () => {
           </div>
 
           {/* Main Section - Ebrulu Konak */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div>
               <h2 style={{ fontSize: '56px', fontWeight: 'bold', color: '#000', margin: '0 0 8px 0', textAlign: 'left', lineHeight: '1.2' }}>
                 Ebrulu Konak
@@ -75,7 +75,7 @@ const AboutSection = () => {
             </div>
 
             {/* Long Description */}
-            <div className="space-y-6" style={{ maxWidth: '4xl' }}>
+            <div className="space-y-3" style={{ maxWidth: '4xl' }}>
               {renderParagraphs(t('about.description'))}
             </div>
           </div>
