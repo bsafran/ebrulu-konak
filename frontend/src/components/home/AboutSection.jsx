@@ -10,7 +10,7 @@ const AboutSection = () => {
       // Handle **text** format to bold
       const parts = para.split(/(\*\*.*?\*\*)/g);
       return (
-        <p key={idx} style={{ fontSize: '18px', lineHeight: '1.6', color: '#666', margin: 0, marginBottom: '1.6em' }}>
+        <p key={idx} style={{ fontSize: '18px', lineHeight: '1.6', color: '#666', margin: 0, marginBottom: isIntro ? 0 : '1.6em' }}>
           {parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
               return (
@@ -40,7 +40,7 @@ const AboutSection = () => {
             </div>
 
             {/* Intro Text with Bold Title/Subtitle at End */}
-            <div className="space-y-3">
+            <div className="space-y-6">
               {renderParagraphs(t('about.intro'), true)}
             </div>
 
