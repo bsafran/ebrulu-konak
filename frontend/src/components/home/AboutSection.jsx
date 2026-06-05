@@ -14,7 +14,7 @@ const AboutSection = () => {
           {parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
               return (
-                <strong key={i} style={{ color: '#000', fontWeight: 'bold' }}>
+                <strong key={i} style={{ color: '#000', fontWeight: 'bold', fontSize: '20px' }}>
                   {part.slice(2, -2)}
                 </strong>
               );
