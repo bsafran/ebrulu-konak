@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import Layout from '../components/common/Layout';
 import PageHeader from '../components/common/PageHeader';
 import Loading from '../components/common/Loading';
@@ -9,6 +10,7 @@ import { useScrollRestoration } from '../hooks/useScrollRestoration';
 import { getGallery, getMediaUrl } from '../services/strapiService';
 
 const GalleryPage = () => {
+  const { t } = useTranslation();
   useScrollRestoration();
   const { data, loading, error } = useApi(() => getGallery());
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -40,8 +42,8 @@ const GalleryPage = () => {
     <Layout>
       <div className="container-custom py-16">
         <PageHeader
-          title="Galeri"
-          description="Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin."
+          title={t('gallery.pageTitle')}
+          description={t('gallery.pageDesc')}
           marginBottom="120px"
         />
 
@@ -49,7 +51,7 @@ const GalleryPage = () => {
           <Loading />
         ) : error ? (
           <div className="text-center py-12">
-            <p className="text-red-600 font-semibold">Galeri yüklenemedi</p>
+            <p className="text-red-600 font-semibold">{t('gallery.loadError')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

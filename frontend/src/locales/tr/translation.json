@@ -33,17 +33,19 @@
     "notFound": "Oda bulunamadı",
     "loadError": "Odalar yüklenemedi",
     "pageTitle": "Odalar",
-    "pageDesc": "Ebrulu Konak'ın lüks ve konforlu odaları arasından seçim yapın. Her oda, rahatınız ve konforunuz için özenle tasarlanmıştır."
+    "pageDesc": "Ebrulu Konak'ın lüks ve konforlu odaları arasından seçim yapın. Her oda, rahatınız ve konforunuz için özenle tasarlanmıştır.",
+    "backToRooms": "Odalar sayfasına dön",
+    "defaultTitle": "Oda"
   },
   "restaurants": {
     "title": "Restoranlarımız",
     "subtitle": "Türk ve uluslararası mutfağından lezzetli yemekler, özel şef hizmetleriyle sunulmaktadır.",
     "cuisineSuffix": "Mutfağı",
-    "explore": "{{name}}'ı İncele",
+    "explore": "'ı İncele",
     "loadError": "Restoranlar yüklenemedi",
     "pageTitle": "Restoranlar",
     "pageDesc": "Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın.",
-    "emptyState": "Henüz restoran eklenmemiş"
+    "empty": "Henüz restoran eklenmemiş"
   },
   "gallery": {
     "title": "Galeri",
@@ -74,20 +76,30 @@
     "subjectPlaceholder": "İletişim konusu",
     "messagePlaceholder": "Mesajınız",
     "send": "GÖNDER",
+    "sendMessage": "Mesaj Gönder",
     "address": "Adres",
     "phone": "Telefon",
     "whatsapp": "Mesaj Gönder",
-    "mapsLink": "Google Maps'de Bul"
+    "mapsLink": "Google Maps'de Bul",
+    "formTitle": "İletişim"
   },
   "corporate": {
     "pageTitle": "Kurumsal",
     "pageDesc": "Ebrulu Konak hakkında bilgi edinin ve misyon, vizyon ve değerlerimizi keşfedin.",
-    "content": "Osmanlı mimarisi ve Safranbolu'nun tarihi dokusunu yansıtan Ebrulu Konak, konuklarına benzersiz bir deneyim sunmaktadır. Lüks ve tradisyonun mükemmel kombinasyonu ile her misafir, tarihi bir yolculuğa çıkmaktadır.\n\nOtelimizin restoranlarında, Safranbolu mutfağının en özel yemekleri, modern bir şekilde sunulmaktadır. Geleneksel tatlarla çağdaş sunum tarzının birleşimi, misafirlerimizi büyülemektedir.\n\nEbrulu Konak'ta verilen hizmet, sadece bir konaklama değil, aynı zamanda bir yaşam tarzıdır. Her detay, misafirlerimizin konforunu ve memnuniyetini ön planda tutarak tasarlanmıştır.\n\nProfesyonel ve eğitimli personelimiz, misafirlerimizin her isteğine yanıt vermek için hazırdır. Safranbolu'yu ziyaret ederken, Ebrulu Konak'ta kalarak, tarihin ve lüksün buluştuğu mükemmel bir deneyim yaşayacaksınız.\n\nSafranbolu'nun her köşesinde tarihin izleri görülürken, Ebrulu Konak'ın kapılarından geçtiğiniz andan itibaren, siz de bu tarihin bir parçası olmaktasınız.",
+    "about": "Osmanlı mimarisi ve Safranbolu'nun tarihi dokusunu yansıtan Ebrulu Konak, konuklarına benzersiz bir deneyim sunmaktadır. Lüks ve tradisyonun mükemmel kombinasyonu ile her misafir, tarihi bir yolculuğa çıkmaktadır.\n\nOtelimizin restoranlarında, Safranbolu mutfağının en özel yemekleri, modern bir şekilde sunulmaktadır. Geleneksel tatlarla çağdaş sunum tarzının birleşimi, misafirlerimizi büyülemektedir.\n\nEbrulu Konak'ta verilen hizmet, sadece bir konaklama değil, aynı zamanda bir yaşam tarzıdır. Her detay, misafirlerimizin konforunu ve memnuniyetini ön planda tutarak tasarlanmıştır.\n\nProfesyonel ve eğitimli personelimiz, misafirlerimizin her isteğine yanıt vermek için hazırdır. Safranbolu'yu ziyaret ederken, Ebrulu Konak'ta kalarak, tarihin ve lüksün buluştuğu mükemmel bir deneyim yaşayacaksınız.\n\nSafranbolu'nun her köşesinde tarihin izleri görülürken, Ebrulu Konak'ın kapılarından geçtiğiniz andan itibaren, siz de bu tarihin bir parçası olmaktasınız.",
     "mission": "Misyon",
     "missionText": "Safranbolu'yu ziyaret eden konuklarına, tarihin derinliğinde, lüksün rahatlığı içinde, misafirperverliğin sıcaklığında unutulmaz anılar yaşatmak.",
     "vision": "Vizyon",
     "visionText": "Safranbolu'nun en prestijli ve tercih edilen, Osmanlı mimarisini yaşatan, geleneksel ve modern değerlerin birleştiği, uluslararası standartlarda hizmet sunan otel olmaktır.",
-    "valuesTitle": "Temel Değerlerimiz"
+    "valuesTitle": "Temel Değerlerimiz",
+    "value1": "Kalite",
+    "value1Desc": "Misafirlerimize sunduğumuz hizmetlerin her detayında en yüksek kaliteyi sağlamak",
+    "value2": "Misafirperverlik",
+    "value2Desc": "Ebrulu Konak'ın temel değeri olan konuklara karşı samimi ve içten davranış",
+    "value3": "Ekip Ruhu",
+    "value3Desc": "Birlikte çalışan profesyonel ekibimizle mükemmelliğe ulaşmak",
+    "value4": "İnnovasyon",
+    "value4Desc": "Otelcilik sektöründe en güncel ve yenilikçi yaklaşımları benimsemek"
   },
   "reservation": {
     "pageTitle": "Otel Rezervasyonu",

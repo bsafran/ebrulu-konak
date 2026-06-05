@@ -1,11 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Button from '../common/Button';
 import Loading from '../common/Loading';
 import { useBooking } from '../../context/BookingContext';
 
 const RoomDetail = ({ room, loading }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { updateBooking } = useBooking();
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -35,7 +37,7 @@ const RoomDetail = ({ room, loading }) => {
   if (!room) {
     return (
       <div style={{ textAlign: 'center', padding: '48px 20px' }}>
-        <p style={{ color: '#d32f2f', fontWeight: '600' }}>Oda bulunamadı</p>
+        <p style={{ color: '#d32f2f', fontWeight: '600' }}>{t('rooms.notFound')}</p>
       </div>
     );
   }
@@ -157,7 +159,7 @@ const RoomDetail = ({ room, loading }) => {
           {room.features && room.features.length > 0 && (
             <div>
               <p style={{ fontSize: '12px', fontWeight: '600', color: '#a67c52', textTransform: 'uppercase', letterSpacing: '1px', margin: '0 0 16px 0' }}>
-                Oda Özellikleri
+                {t('rooms.features')}
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px 16px' }}>
                 {room.features.map((feature, idx) => (
@@ -180,11 +182,11 @@ const RoomDetail = ({ room, loading }) => {
             onMouseEnter={(e) => { e.target.style.backgroundColor = '#8a6140'; e.target.style.transform = 'scale(0.98)'; }}
             onMouseLeave={(e) => { e.target.style.backgroundColor = '#9c714b'; e.target.style.transform = 'scale(1)'; }}
           >
-            Şimdi Rezervasyon Yap
+            {t('rooms.bookNow')}
           </Button>
 
           <p style={{ fontSize: '12px', color: '#999', textAlign: 'center', margin: 0 }}>
-            Ödeme sayfasında tüm ödeme yöntemlerini göreceksiniz
+            {t('rooms.paymentNote')}
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Layout from '../components/common/Layout';
 import PageHeader from '../components/common/PageHeader';
 import Button from '../components/common/Button';
@@ -7,6 +8,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const ContactPage = () => {
+  const { t } = useTranslation();
   useScrollRestoration();
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const hotelImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
@@ -18,9 +20,9 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`İletişim: ${form.subject}`);
+    const subject = encodeURIComponent(`${t('contact.formTitle')}: ${form.subject}`);
     const body = encodeURIComponent(
-      `Ad: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+      `${t('contact.name')}: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
     );
     window.location.href = `mailto:ebrulukonak@hotmail.com?subject=${subject}&body=${body}`;
     setForm({ name: '', email: '', subject: '', message: '' });
@@ -29,19 +31,19 @@ const ContactPage = () => {
   const contactInfo = [
     {
       icon: FiMapPin,
-      label: 'Adres',
+      label: t('footer.address'),
       value: 'Babasultan Mah. Hıdırlık Yokuşu Sok. No: 13\n78600 Safranbolu/KARABÜK',
       link: null,
     },
     {
       icon: FiPhone,
-      label: 'Telefon',
+      label: t('footer.phone'),
       value: ['+90 (370) 712 07 14', '+90 (505) 765 61 78'],
       link: 'tel:+903707120714',
     },
     {
       icon: FiMail,
-      label: 'Email',
+      label: t('footer.email'),
       value: ['ebrulukonak@hotmail.com', 'ebrulukonaklar@gmail.com'],
       link: 'mailto:ebrulukonak@hotmail.com',
     },
@@ -50,7 +52,7 @@ const ContactPage = () => {
       label: 'WhatsApp',
       value: '+90 (505) 765 61 78',
       link: 'https://wa.me/905057656178',
-      buttonLabel: 'Mesaj Gönder',
+      buttonLabel: t('contact.sendMessage'),
     },
   ];
 
@@ -58,8 +60,8 @@ const ContactPage = () => {
     <Layout showFooter={false}>
       <div className="container-custom py-16">
         <PageHeader
-          title="Bize Ulaşın"
-          description="Sorularınız, önerileriniz veya rezervasyon hakkında bilgi almak için lütfen bizimle iletişime geçin."
+          title={t('contact.pageTitle')}
+          description={t('contact.pageDesc')}
           marginBottom="120px"
         />
 
@@ -90,7 +92,7 @@ const ContactPage = () => {
                 <label
                   className="text-xs font-semibold text-primary-accent uppercase tracking-wider block mb-2"
                 >
-                  Ad Soyad
+                  {t('contact.name')}
                 </label>
                 <input
                   type="text"
@@ -98,7 +100,7 @@ const ContactPage = () => {
                   value={form.name}
                   onChange={handleChange}
                   required
-                  placeholder="Adınız"
+                  placeholder={t('contact.namePlaceholder')}
                   className="w-full px-4 py-3 text-sm rounded-button bg-white text-gray-700 border outline-none focus:border-primary-accent transition-colors"
                   style={{ borderColor: '#e5d4c4', fontFamily: 'inherit' }}
                 />
@@ -109,7 +111,7 @@ const ContactPage = () => {
                 <label
                   className="text-xs font-semibold text-primary-accent uppercase tracking-wider block mb-2"
                 >
-                  Email
+                  {t('contact.email')}
                 </label>
                 <input
                   type="email"
@@ -117,7 +119,7 @@ const ContactPage = () => {
                   value={form.email}
                   onChange={handleChange}
                   required
-                  placeholder="Email adresiniz"
+                  placeholder={t('contact.emailPlaceholder')}
                   className="w-full px-4 py-3 text-sm rounded-button bg-white text-gray-700 border outline-none focus:border-primary-accent transition-colors"
                   style={{ borderColor: '#e5d4c4', fontFamily: 'inherit' }}
                 />
@@ -128,7 +130,7 @@ const ContactPage = () => {
                 <label
                   className="text-xs font-semibold text-primary-accent uppercase tracking-wider block mb-2"
                 >
-                  Konu
+                  {t('contact.subject')}
                 </label>
                 <input
                   type="text"
@@ -136,7 +138,7 @@ const ContactPage = () => {
                   value={form.subject}
                   onChange={handleChange}
                   required
-                  placeholder="İletişim konusu"
+                  placeholder={t('contact.subjectPlaceholder')}
                   className="w-full px-4 py-3 text-sm rounded-button bg-white text-gray-700 border outline-none focus:border-primary-accent transition-colors"
                   style={{ borderColor: '#e5d4c4', fontFamily: 'inherit' }}
                 />
@@ -147,14 +149,14 @@ const ContactPage = () => {
                 <label
                   className="text-xs font-semibold text-primary-accent uppercase tracking-wider block mb-2"
                 >
-                  Mesaj
+                  {t('contact.message')}
                 </label>
                 <textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
                   required
-                  placeholder="Mesajınız"
+                  placeholder={t('contact.messagePlaceholder')}
                   rows="6"
                   className="w-full px-4 py-3 text-sm rounded-button bg-white text-gray-700 border outline-none focus:border-primary-accent transition-colors resize-y"
                   style={{ borderColor: '#e5d4c4', fontFamily: 'inherit' }}
@@ -167,7 +169,7 @@ const ContactPage = () => {
                 size="lg"
                 type="submit"
               >
-                GÖNDER
+                {t('contact.send')}
               </Button>
             </form>
           </div>
@@ -182,7 +184,7 @@ const ContactPage = () => {
         >
           <div className="bg-primary-light rounded-card p-8 flex items-center justify-center transition-all duration-300 shadow-card hover:scale-[1.02] hover:shadow-card-hover cursor-pointer">
             <p className="text-lg font-semibold text-primary-dark m-0">
-              Google Maps'de Bul
+              {t('contact.mapsLink')}
             </p>
           </div>
         </a>

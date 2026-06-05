@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import Layout from '../components/common/Layout';
 import PageHeader from '../components/common/PageHeader';
 import RestaurantSection from '../components/restaurants/RestaurantSection';
@@ -9,6 +10,7 @@ import { useScrollRestoration } from '../hooks/useScrollRestoration';
 import { getRestaurants, formatRestaurantData } from '../services/strapiService';
 
 const RestaurantsPage = () => {
+  const { t } = useTranslation();
   useScrollRestoration();
   const { data, loading, error } = useApi(() => getRestaurants());
 
@@ -20,8 +22,8 @@ const RestaurantsPage = () => {
     <Layout>
       <div className="container-custom py-16">
         <PageHeader
-          title="Restoranlar"
-          description="Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın."
+          title={t('restaurants.pageTitle')}
+          description={t('restaurants.pageDesc')}
           marginBottom="120px"
         />
 
@@ -34,7 +36,7 @@ const RestaurantsPage = () => {
         {error && (
           <div className="text-center py-20">
             <p className="text-red-600 font-semibold text-base">
-              Restoranlar yüklenemedi
+              {t('restaurants.loadError')}
             </p>
           </div>
         )}

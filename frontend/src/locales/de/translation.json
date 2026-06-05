@@ -33,17 +33,19 @@
     "notFound": "Zimmer nicht gefunden",
     "loadError": "Zimmer konnten nicht geladen werden",
     "pageTitle": "Zimmer",
-    "pageDesc": "Wählen Sie aus den luxuriösen und komfortablen Zimmern des Ebrulu Konak. Jedes Zimmer wurde sorgfältig für Ihren Komfort und Ihre Bequemlichkeit gestaltet."
+    "pageDesc": "Wählen Sie aus den luxuriösen und komfortablen Zimmern des Ebrulu Konak. Jedes Zimmer wurde sorgfältig für Ihren Komfort und Ihre Bequemlichkeit gestaltet.",
+    "backToRooms": "Zurück zu den Zimmern",
+    "defaultTitle": "Zimmer"
   },
   "restaurants": {
     "title": "Unsere Restaurants",
     "subtitle": "Köstliche Gerichte aus der türkischen und internationalen Küche, serviert mit dedizierten Chefservices.",
     "cuisineSuffix": "Küche",
-    "explore": "{{name}} Erkunden",
+    "explore": "Erkunden",
     "loadError": "Restaurants konnten nicht geladen werden",
     "pageTitle": "Restaurants",
     "pageDesc": "Erleben Sie das Beste der türkischen und internationalen Küche in den gehobenen Restaurants des Ebrulu Konak.",
-    "emptyState": "Noch keine Restaurants hinzugefügt"
+    "empty": "Noch keine Restaurants hinzugefügt"
   },
   "gallery": {
     "title": "Galerie",
@@ -74,20 +76,30 @@
     "subjectPlaceholder": "Betreffzeile",
     "messagePlaceholder": "Ihre Nachricht",
     "send": "SENDEN",
+    "sendMessage": "Nachricht Senden",
     "address": "Adresse",
     "phone": "Telefon",
     "whatsapp": "Nachricht Senden",
-    "mapsLink": "Auf Google Maps Finden"
+    "mapsLink": "Auf Google Maps Finden",
+    "formTitle": "Kontakt"
   },
   "corporate": {
     "pageTitle": "Unternehmen",
     "pageDesc": "Erfahren Sie mehr über Ebrulu Konak und entdecken Sie unsere Mission, Vision und Werte.",
-    "content": "Das Ebrulu Konak spiegelt die osmanische Architektur und die historische Struktur von Safranbolu wider und bietet seinen Gästen ein einzigartiges Erlebnis. Die perfekte Kombination aus Luxus und Tradition ermöglicht es jedem Gast, sich auf eine historische Reise zu begeben.\n\nIn unseren Restaurants werden die speziellsten Gerichte der Safranbolu-Küche auf moderne Weise serviert. Die Kombination von traditionellen Aromen mit zeitgenössischer Präsentation verzaubert unsere Gäste.\n\nDer im Ebrulu Konak gebotene Service ist nicht nur eine Unterkunft, sondern auch ein Lebensstil. Jedes Detail ist mit dem Komfort und der Zufriedenheit unserer Gäste im Fokus gestaltet.\n\nUnser professionelles und geschultes Personal ist bereit, auf jeden Wunsch unserer Gäste zu reagieren. Wenn Sie Safranbolu besuchen und im Ebrulu Konak übernachten, erleben Sie eine perfekte Mischung aus Geschichte und Luxus.\n\nDurchwandert die Spuren der Geschichte jede Ecke von Safranbolu, werden Sie ab dem Moment, in dem Sie die Türen des Ebrulu Konak betreten, Teil dieser Geschichte.",
+    "about": "Das Ebrulu Konak spiegelt die osmanische Architektur und die historische Struktur von Safranbolu wider und bietet seinen Gästen ein einzigartiges Erlebnis. Die perfekte Kombination aus Luxus und Tradition ermöglicht es jedem Gast, sich auf eine historische Reise zu begeben.\n\nIn unseren Restaurants werden die speziellsten Gerichte der Safranbolu-Küche auf moderne Weise serviert. Die Kombination von traditionellen Aromen mit zeitgenössischer Präsentation verzaubert unsere Gäste.\n\nDer im Ebrulu Konak gebotene Service ist nicht nur eine Unterkunft, sondern auch ein Lebensstil. Jedes Detail ist mit dem Komfort und der Zufriedenheit unserer Gäste im Fokus gestaltet.\n\nUnser professionelles und geschultes Personal ist bereit, auf jeden Wunsch unserer Gäste zu reagieren. Wenn Sie Safranbolu besuchen und im Ebrulu Konak übernachten, erleben Sie eine perfekte Mischung aus Geschichte und Luxus.\n\nDurchwandert die Spuren der Geschichte jede Ecke von Safranbolu, werden Sie ab dem Moment, in dem Sie die Türen des Ebrulu Konak betreten, Teil dieser Geschichte.",
     "mission": "Mission",
     "missionText": "Gästen, die Safranbolu besuchen, unvergessliche Erinnerungen in der Tiefe der Geschichte, im Komfort des Luxus und in der Wärme der Gastfreundschaft zu bieten.",
     "vision": "Vision",
     "visionText": "Safranbulus prestigereichstes und bevorzugtes Hotel zu sein, die osmanische Architektur zu bewahren, traditionelle und moderne Werte zu verbinden und Dienstleistungen auf internationalen Standards zu bieten.",
-    "valuesTitle": "Unsere Kernwerte"
+    "valuesTitle": "Unsere Kernwerte",
+    "value1": "Qualität",
+    "value1Desc": "Gewährleistung der höchsten Qualität in jedem Detail der Dienstleistungen, die wir unseren Gästen anbieten",
+    "value2": "Gastfreundschaft",
+    "value2Desc": "Aufrichtige und genuine Behandlung gegenüber unseren Gästen, der Kernwert des Ebrulu Konak",
+    "value3": "Teamgeist",
+    "value3Desc": "Erreichung von Exzellenz zusammen mit unserem professionellen Team",
+    "value4": "Innovation",
+    "value4Desc": "Einführung der aktuellsten und innovativsten Ansätze in der Hotellerie"
   },
   "reservation": {
     "pageTitle": "Hotelreservierung",

@@ -33,17 +33,19 @@
     "notFound": "Room not found",
     "loadError": "Rooms could not be loaded",
     "pageTitle": "Rooms",
-    "pageDesc": "Choose from Ebrulu Konak's luxurious and comfortable rooms. Each room is carefully designed for your comfort and convenience."
+    "pageDesc": "Choose from Ebrulu Konak's luxurious and comfortable rooms. Each room is carefully designed for your comfort and convenience.",
+    "backToRooms": "Back to Rooms",
+    "defaultTitle": "Room"
   },
   "restaurants": {
     "title": "Our Restaurants",
     "subtitle": "Delicious dishes from Turkish and international cuisine, served with dedicated chef services.",
     "cuisineSuffix": "Cuisine",
-    "explore": "Explore {{name}}",
+    "explore": "Explore",
     "loadError": "Restaurants could not be loaded",
     "pageTitle": "Restaurants",
     "pageDesc": "Experience the best of Turkish and international cuisine in Ebrulu Konak's fine dining restaurants.",
-    "emptyState": "No restaurants added yet"
+    "empty": "No restaurants added yet"
   },
   "gallery": {
     "title": "Gallery",
@@ -74,20 +76,30 @@
     "subjectPlaceholder": "Message subject",
     "messagePlaceholder": "Your message",
     "send": "SEND",
+    "sendMessage": "Send Message",
     "address": "Address",
     "phone": "Phone",
     "whatsapp": "Send Message",
-    "mapsLink": "Find on Google Maps"
+    "mapsLink": "Find on Google Maps",
+    "formTitle": "Contact"
   },
   "corporate": {
     "pageTitle": "Corporate",
     "pageDesc": "Learn about Ebrulu Konak and discover our mission, vision, and values.",
-    "content": "Ebrulu Konak, reflecting Ottoman architecture and the historical texture of Safranbolu, offers a unique experience to its guests. The perfect combination of luxury and tradition allows every guest to embark on a historical journey.\n\nIn our restaurants, the most special dishes of Safranbolu cuisine are served in a modern manner. The combination of traditional flavors with contemporary presentation style enchants our guests.\n\nThe service provided at Ebrulu Konak is not just accommodation, but also a lifestyle. Every detail is designed with our guests' comfort and satisfaction at the forefront.\n\nOur professional and trained staff is ready to respond to every wish of our guests. When you visit Safranbolu and stay at Ebrulu Konak, you will experience a perfect blend of history and luxury.\n\nWhile the traces of history are seen in every corner of Safranbolu, the moment you enter the doors of Ebrulu Konak, you too become part of this history.",
+    "about": "Ebrulu Konak, reflecting Ottoman architecture and the historical texture of Safranbolu, offers a unique experience to its guests. The perfect combination of luxury and tradition allows every guest to embark on a historical journey.\n\nIn our restaurants, the most special dishes of Safranbolu cuisine are served in a modern manner. The combination of traditional flavors with contemporary presentation style enchants our guests.\n\nThe service provided at Ebrulu Konak is not just accommodation, but also a lifestyle. Every detail is designed with our guests' comfort and satisfaction at the forefront.\n\nOur professional and trained staff is ready to respond to every wish of our guests. When you visit Safranbolu and stay at Ebrulu Konak, you will experience a perfect blend of history and luxury.\n\nWhile the traces of history are seen in every corner of Safranbolu, the moment you enter the doors of Ebrulu Konak, you too become part of this history.",
     "mission": "Mission",
     "missionText": "To provide guests visiting Safranbolu with unforgettable memories in the depth of history, in the comfort of luxury, and in the warmth of hospitality.",
     "vision": "Vision",
     "visionText": "To be Safranbolu's most prestigious and preferred hotel, preserving Ottoman architecture, combining traditional and modern values, and providing services at international standards.",
-    "valuesTitle": "Our Core Values"
+    "valuesTitle": "Our Core Values",
+    "value1": "Quality",
+    "value1Desc": "Ensuring the highest quality in every detail of the services we provide to our guests",
+    "value2": "Hospitality",
+    "value2Desc": "Sincere and genuine treatment towards our guests, the core value of Ebrulu Konak",
+    "value3": "Team Spirit",
+    "value3Desc": "Achieving excellence together with our professional team",
+    "value4": "Innovation",
+    "value4Desc": "Adopting the most current and innovative approaches in the hospitality industry"
   },
   "reservation": {
     "pageTitle": "Hotel Reservation",

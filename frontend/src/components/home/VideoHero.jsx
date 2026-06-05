@@ -29,15 +29,6 @@ const VideoHero = ({ videoUrl, title, subtitle }) => {
 
       {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-center text-center text-white px-4">
-        <div className="max-w-3xl mx-auto space-y-6">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">
-            {defaultTitle}
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl drop-shadow-md">
-            {defaultSubtitle}
-          </p>
-        </div>
-
         {/* Scroll Indicator */}
         <div className="absolute bottom-8">
           <FiChevronDown className="w-8 h-8 text-white opacity-70" />
