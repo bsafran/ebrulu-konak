@@ -7,6 +7,7 @@ import { useScrollRestoration } from '../hooks/useScrollRestoration';
 const ReservationPage = () => {
   const { t } = useTranslation();
   useScrollRestoration();
+
   return (
     <Layout>
       <div className="container-custom py-16">
@@ -23,6 +24,7 @@ const ReservationPage = () => {
             frameBorder="0"
             title="HMS Rezervasyon Sistemi"
             style={{ display: 'block' }}
+            sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
           />
         </div>
       </div>
