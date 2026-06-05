@@ -12,6 +12,18 @@ const ReservationPage = () => {
     setRefreshKey(prev => prev + 1);
   }, []);
 
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      const iframe = document.querySelector('iframe');
+      if (iframe) {
+        iframe.src = iframe.src;
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
   useScrollRestoration();
 
   return (
