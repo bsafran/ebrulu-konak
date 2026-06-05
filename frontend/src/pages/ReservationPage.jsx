@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Layout from '../components/common/Layout';
 import PageHeader from '../components/common/PageHeader';
@@ -6,24 +6,6 @@ import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const ReservationPage = () => {
   const { t } = useTranslation();
-  const [refreshKey, setRefreshKey] = useState(0);
-
-  useEffect(() => {
-    setRefreshKey(prev => prev + 1);
-  }, []);
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      const iframe = document.querySelector('iframe');
-      if (iframe) {
-        iframe.src = iframe.src;
-      }
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
-  }, []);
-
   useScrollRestoration();
 
   return (
@@ -36,7 +18,6 @@ const ReservationPage = () => {
         />
         <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
           <iframe
-            key={refreshKey}
             src="https://ebrulu-konak.hmshotel.net/"
             width="100%"
             height="800px"
