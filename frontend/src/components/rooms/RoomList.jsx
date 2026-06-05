@@ -9,7 +9,7 @@ import { getRooms, formatRoomData } from '../../services/strapiService';
 
 const RoomList = () => {
   const { i18n } = useTranslation();
-  const { data, loading, error } = useApi(() => getRooms(i18n.language));
+  const { data, loading, error } = useApi(() => getRooms(i18n.language), [i18n.language]);
   const navigate = useNavigate();
   const [filterType, setFilterType] = useState('all');
   const [selectedRoom, setSelectedRoom] = useState(null);

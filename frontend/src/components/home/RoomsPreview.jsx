@@ -10,7 +10,7 @@ import { getRooms, formatRoomData } from '../../services/strapiService';
 
 const RoomsPreview = () => {
   const { t, i18n } = useTranslation();
-  const { data, loading, error } = useApi(() => getRooms(i18n.language));
+  const { data, loading, error } = useApi(() => getRooms(i18n.language), [i18n.language]);
   const windowWidth = useWindowSize();
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -10,10 +10,10 @@ import { useScrollRestoration } from '../hooks/useScrollRestoration';
 import { getRoomById, formatRoomData } from '../services/strapiService';
 
 const RoomDetailPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   useScrollRestoration();
   const { id } = useParams();
-  const { data, loading, error } = useApi(() => getRoomById(id), [id]);
+  const { data, loading, error } = useApi(() => getRoomById(id, i18n.language), [id, i18n.language]);
 
   const room = data?.data ? formatRoomData(data.data) : null;
 

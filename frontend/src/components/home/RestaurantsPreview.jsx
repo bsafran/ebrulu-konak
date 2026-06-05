@@ -8,7 +8,7 @@ import { getRestaurants, formatRestaurantData } from '../../services/strapiServi
 const RestaurantsPreview = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { data, loading, error } = useApi(() => getRestaurants(i18n.language));
+  const { data, loading, error } = useApi(() => getRestaurants(i18n.language), [i18n.language]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const fallbackImage = 'https://images.unsplash.com/photo-1504674900769-570d79d20a1f?w=800&h=600&fit=crop';
 

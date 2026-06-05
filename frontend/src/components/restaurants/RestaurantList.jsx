@@ -1,11 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import RestaurantCard from './RestaurantCard';
 import Loading from '../common/Loading';
 import useApi from '../../hooks/useApi';
 import { getRestaurants, formatRestaurantData } from '../../services/strapiService';
 
 const RestaurantList = () => {
-  const { data, loading, error } = useApi(() => getRestaurants());
+  const { i18n } = useTranslation();
+  const { data, loading, error } = useApi(() => getRestaurants(i18n.language), [i18n.language]);
 
   const restaurants = data?.data?.map(formatRestaurantData) || [];
 
