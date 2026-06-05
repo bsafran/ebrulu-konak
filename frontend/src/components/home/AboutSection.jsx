@@ -10,7 +10,7 @@ const AboutSection = () => {
       // Handle **text** format to bold
       const parts = para.split(/(\*\*.*?\*\*)/g);
       return (
-        <p key={idx} style={{ fontSize: '18px', lineHeight: '1.6', color: '#333', margin: 0 }}>
+        <p key={idx} style={{ fontSize: '18px', lineHeight: '1.6', color: '#666', margin: 0 }}>
           {parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
               return (
@@ -31,7 +31,7 @@ const AboutSection = () => {
       <div className="container-custom">
         <div className="space-y-12">
           {/* Top Intro Section with Dividers */}
-          <div className="max-w-2xl mx-auto text-center space-y-6">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
             {/* Top Divider */}
             <div className="flex items-center justify-center gap-3">
               <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
@@ -65,7 +65,7 @@ const AboutSection = () => {
             </div>
 
             {/* Long Description */}
-            <div className="max-w-2xl space-y-6">
+            <div className="max-w-3xl space-y-6">
               {renderParagraphs(t('about.description'))}
             </div>
           </div>
