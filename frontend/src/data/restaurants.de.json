@@ -1,0 +1,34 @@
+[
+  {
+    "id": 33,
+    "documentId": "wo4qqopruq6pju6wx2wwc2wh",
+    "name": "Taş Restaurant",
+    "description": "Das Taş Restaurant, unser zweites Restaurant in Ebrulu Konak, ist ein spezieller Essbereich, der die historische Atmosphäre von Safranbolu mit traditionellen Aromen verbindet.\n\nUnser Restaurant befindet sich im Hotelgelände und bietet mit einer Kapazität von 30 Personen ein ideales Ambiente für Gruppenessen, Touren und spezielle Veranstaltungen. Die beliebten Hausmannskost der traditionellen türkischen Küche, regionale Aromen und sorgfältig zubereitete Menüs bieten unseren Gästen ein aufrichtiges und unvergessliches kulinarisches Erlebnis.\n\nWir laden Sie ein, Safranbolus Kultur und Aromen in der friedlichen Atmosphäre historischer Herrenhäuser am selben Tisch zu entdecken.\n",
+    "cuisine": "Türkisch & International",
+    "openingHours": "10:00 - 23:00",
+    "createdAt": "2026-06-04T12:19:49.245Z",
+    "updatedAt": "2026-06-04T12:37:13.517Z",
+    "publishedAt": "2026-06-04T12:37:13.523Z",
+    "images": [
+      "/images/restaurants/restaurant-2/23.avif",
+      "/images/restaurants/restaurant-2/25.avif",
+      "/images/restaurants/restaurant-2/26.avif"
+    ]
+  },
+  {
+    "id": 34,
+    "documentId": "qb6pco0uhezw9pn2fks5ewj6",
+    "name": "Ebrulu Restaurant",
+    "description": "Das Ebrulu Restaurant, das Hauptrestaurant von Ebrulu Konak, bietet seinen Gästen reiche Aromen und warme Gastfreundschaft in der historischen Atmosphäre von Safranbolu.\n\nMit einer Kapazität von 60 Personen können Sie Ihren Tag mit sorgfältig zubereitetem Frühstücksbuffet beginnen und am Abend die ausgewählten Aromen der traditionellen türkischen Küche aus unserem Buffet genießen. Tagsüber bieten wir Getränkeservice für die Entspannung und den Genuss unserer Gäste an.\n\nDas Ebrulu Restaurant, wo traditionelle Aromen auf moderne Präsentationen treffen, bietet ein unvergessliches kulinarisches Erlebnis in der historischen Struktur von Safranbolu.\n ",
+    "cuisine": "Türkisch & International",
+    "openingHours": "10:00 - 23:00",
+    "createdAt": "2026-06-04T12:13:51.212Z",
+    "updatedAt": "2026-06-04T12:37:45.399Z",
+    "publishedAt": "2026-06-04T12:37:45.404Z",
+    "images": [
+      "/images/restaurants/restaurant-1/23.avif",
+      "/images/restaurants/restaurant-1/25.avif",
+      "/images/restaurants/restaurant-1/26.avif"
+    ]
+  }
+]

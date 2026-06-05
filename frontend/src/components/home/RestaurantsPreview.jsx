@@ -6,9 +6,9 @@ import useApi from '../../hooks/useApi';
 import { getRestaurants, formatRestaurantData } from '../../services/strapiService';
 
 const RestaurantsPreview = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { data, loading, error } = useApi(() => getRestaurants());
+  const { data, loading, error } = useApi(() => getRestaurants(i18n.language));
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const fallbackImage = 'https://images.unsplash.com/photo-1504674900769-570d79d20a1f?w=800&h=600&fit=crop';
 

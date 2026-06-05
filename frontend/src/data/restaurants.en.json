@@ -1,0 +1,34 @@
+[
+  {
+    "id": 33,
+    "documentId": "wo4qqopruq6pju6wx2wwc2wh",
+    "name": "Taş Restaurant",
+    "description": "Taş Restaurant, our second restaurant within Ebrulu Konak, is a special dining area that combines the historical atmosphere of Safranbolu with traditional flavors.\n\nLocated within the hotel grounds, our restaurant offers an ideal setting for group dinners, tour organizations, and special events with a capacity of 30 people. The beloved home-cooked dishes of traditional Turkish cuisine, regional flavors, and carefully prepared menus provide our guests with a sincere and unforgettable gastronomic experience.\n\nWe invite you to discover Safranbolu's culture and flavors at the same table in the peaceful atmosphere of historic mansions.\n",
+    "cuisine": "Turkish & International",
+    "openingHours": "10:00 - 23:00",
+    "createdAt": "2026-06-04T12:19:49.245Z",
+    "updatedAt": "2026-06-04T12:37:13.517Z",
+    "publishedAt": "2026-06-04T12:37:13.523Z",
+    "images": [
+      "/images/restaurants/restaurant-2/23.avif",
+      "/images/restaurants/restaurant-2/25.avif",
+      "/images/restaurants/restaurant-2/26.avif"
+    ]
+  },
+  {
+    "id": 34,
+    "documentId": "qb6pco0uhezw9pn2fks5ewj6",
+    "name": "Ebrulu Restaurant",
+    "description": "Ebrulu Restaurant, the main restaurant of Ebrulu Konak, offers its guests rich flavors and warm hospitality within the historical atmosphere of Safranbolu.\n\nWith a capacity of 60 people, you can start your day with carefully prepared open buffet breakfast, and in the evening, you can enjoy the selected flavors of traditional Turkish cuisine from our open buffet meals. Throughout the day, we provide beverage services for our guests' comfortable and enjoyable rest.\n\nEbrulu Restaurant, where traditional flavors meet modern presentations, offers an unforgettable gastronomic experience within the historic texture of Safranbolu.\n ",
+    "cuisine": "Turkish & International",
+    "openingHours": "10:00 - 23:00",
+    "createdAt": "2026-06-04T12:13:51.212Z",
+    "updatedAt": "2026-06-04T12:37:45.399Z",
+    "publishedAt": "2026-06-04T12:37:45.404Z",
+    "images": [
+      "/images/restaurants/restaurant-1/23.avif",
+      "/images/restaurants/restaurant-1/25.avif",
+      "/images/restaurants/restaurant-1/26.avif"
+    ]
+  }
+]

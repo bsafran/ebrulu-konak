@@ -1,5 +1,11 @@
-import roomsData from '../data/rooms.json';
-import restaurantsData from '../data/restaurants.json';
+import roomsTr from '../data/rooms.json';
+import roomsEn from '../data/rooms.en.json';
+import roomsDe from '../data/rooms.de.json';
+import roomsAr from '../data/rooms.ar.json';
+import restaurantsTr from '../data/restaurants.json';
+import restaurantsEn from '../data/restaurants.en.json';
+import restaurantsDe from '../data/restaurants.de.json';
+import restaurantsAr from '../data/restaurants.ar.json';
 import galleriesData from '../data/galleries.json';
 
 // Populate all nested relations and media
@@ -60,18 +66,42 @@ const formatRestaurantDisplay = (restaurant) => ({
   }))
 });
 
-// Rooms - Using local data
+// Helper - Get language-specific data
+const getRoomsDataByLanguage = (locale = 'tr') => {
+  const roomsMap = {
+    'en': roomsEn,
+    'de': roomsDe,
+    'ar': roomsAr,
+    'tr': roomsTr,
+  };
+  return roomsMap[locale] || roomsTr;
+};
+
+const getRestaurantsDataByLanguage = (locale = 'tr') => {
+  const restaurantsMap = {
+    'en': restaurantsEn,
+    'de': restaurantsDe,
+    'ar': restaurantsAr,
+    'tr': restaurantsTr,
+  };
+  return restaurantsMap[locale] || restaurantsTr;
+};
+
+// Rooms - Using local data with language support
 export const getRooms = async (locale = 'tr') => {
+  const roomsData = getRoomsDataByLanguage(locale);
   return { data: roomsData.map(formatRoomDisplay) };
 };
 
 export const getRoomById = async (slugOrId, locale = 'tr') => {
+  const roomsData = getRoomsDataByLanguage(locale);
   const room = roomsData.find(r => r.slug === slugOrId || r.id.toString() === slugOrId);
   return room ? { data: room } : { data: null };
 };
 
-// Restaurants - Using local data
+// Restaurants - Using local data with language support
 export const getRestaurants = async (locale = 'tr') => {
+  const restaurantsData = getRestaurantsDataByLanguage(locale);
   return { data: restaurantsData };
 };
 

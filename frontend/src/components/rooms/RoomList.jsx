@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import RoomCard from './RoomCard';
 import RoomModal from './RoomModal';
@@ -7,7 +8,8 @@ import useApi from '../../hooks/useApi';
 import { getRooms, formatRoomData } from '../../services/strapiService';
 
 const RoomList = () => {
-  const { data, loading, error } = useApi(() => getRooms());
+  const { i18n } = useTranslation();
+  const { data, loading, error } = useApi(() => getRooms(i18n.language));
   const navigate = useNavigate();
   const [filterType, setFilterType] = useState('all');
   const [selectedRoom, setSelectedRoom] = useState(null);

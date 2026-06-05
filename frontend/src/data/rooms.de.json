@@ -1,0 +1,124 @@
+[
+  {
+    "id": 5,
+    "documentId": "z59bs0ouoj00qwqwis8x1hev",
+    "title": "Standardzimmer Einzelbett",
+    "description": "Unser Zimmer verfügt über ein großes Doppelbett und ein Badezimmer mit Duschkabine.\n\nOttomanischer Sedar-Stil\n\n\nHolznachttisch\nLED-Fernseher\nKlimanlage\nZentralheizungssystem\nTelefon\nGeldschrank\nKleiderschrank\nWecksystem\nHaartrockner\nHochwertiges Handtuch- und Pantoffelset\nUmfangreiches Duschset\nPersönliche Zahnbürste\nWasserservice",
+    "price": null,
+    "maxGuests": null,
+    "slug": "standart-tek-kisilik",
+    "isStandart": true,
+    "isComfort": false,
+    "isAile": false,
+    "createdAt": "2026-06-04T12:21:41.226Z",
+    "updatedAt": "2026-06-04T12:27:23.832Z",
+    "publishedAt": "2026-06-04T12:27:23.837Z",
+    "features": "WiFi, TV",
+    "images": [
+      "/images/rooms/standart-tek-kisilik/1.jpeg"
+    ]
+  },
+  {
+    "id": 7,
+    "documentId": "gw7uytat812rcexadb29muhv",
+    "title": "Standardzimmer Doppelbett",
+    "description": "Unser Zimmer verfügt über zwei Einzelbetten und ein Badezimmer mit Duschkabine.\nOttomanischer Sedar-Stil\nHolznachttisch\nLED-Fernseher\nKlimanlage\nZentralheizungssystem\nTelefon\nGeldschrank\nKleiderschrank\nWecksystem\nHaartrockner\nHochwertiges Handtuch- und Pantoffelset\nUmfangreiches Duschset\nPersönliche Zahnbürste\nWasserservice",
+    "price": null,
+    "maxGuests": null,
+    "slug": "standart-cift-kisilik",
+    "isStandart": true,
+    "isComfort": false,
+    "isAile": false,
+    "createdAt": "2026-06-04T12:29:19.128Z",
+    "updatedAt": "2026-06-04T12:29:19.128Z",
+    "publishedAt": "2026-06-04T12:29:19.134Z",
+    "features": "WiFi, TV, Safe",
+    "images": [
+      "/images/rooms/standart-cift-kisilik/1.jpeg",
+      "/images/rooms/standart-cift-kisilik/2.jpeg"
+    ]
+  },
+  {
+    "id": 9,
+    "documentId": "utb6e81cf936jprde0clkm8n",
+    "title": "Standardzimmer Dreibett",
+    "description": "Unser Zimmer verfügt über zwei Einzelbetten und ein Badezimmer mit Duschkabine.\nOttomanischer Sedar-Stil\nHolznachttisch\nLED-Fernseher\nKlimanlage\nZentralheizungssystem\nTelefon\nGeldschrank\nKleiderschrank\nWecksystem\nHaartrockner\nHochwertiges Handtuch- und Pantoffelset\nUmfangreiches Duschset\nPersönliche Zahnbürste\nWasserservice",
+    "price": null,
+    "maxGuests": null,
+    "slug": "standart-üc-kisilik",
+    "isStandart": true,
+    "isComfort": false,
+    "isAile": false,
+    "createdAt": "2026-06-04T12:31:16.052Z",
+    "updatedAt": "2026-06-04T12:31:16.052Z",
+    "publishedAt": "2026-06-04T12:31:16.058Z",
+    "features": "WiFi, TV, Safe",
+    "images": [
+      "/images/rooms/standart-üc-kisilik/1.jpeg"
+    ]
+  },
+  {
+    "id": 11,
+    "documentId": "cjkqo9sc9az3mqe4bnkjeljn",
+    "title": "Standard-Familienzimmer",
+    "description": "Unser Zimmer verfügt über ein großes Doppelbett und ein Badezimmer mit Duschkabine.\nOttomanischer Sedar-Stil\nHolznachttisch\nLED-Fernseher\nKlimanlage\nZentralheizungssystem\nTelefon\nGeldschrank\nKleiderschrank\nWecksystem\nHaartrockner\nHochwertiges Handtuch- und Pantoffelset\nUmfangreiches Duschset\nPersönliche Zahnbürste\nWasserservice",
+    "price": null,
+    "maxGuests": null,
+    "slug": "standart-aile-odasi",
+    "isStandart": true,
+    "isComfort": false,
+    "isAile": true,
+    "createdAt": "2026-06-04T12:32:17.186Z",
+    "updatedAt": "2026-06-04T12:32:17.186Z",
+    "publishedAt": "2026-06-04T12:32:17.193Z",
+    "features": "WiFi, TV, Safe",
+    "images": [
+      "/images/rooms/standart-aile-odasi/1.jpeg",
+      "/images/rooms/standart-aile-odasi/2.jpeg",
+      "/images/rooms/standart-aile-odasi/3.jpeg",
+      "/images/rooms/standart-aile-odasi/4.jpeg",
+      "/images/rooms/standart-aile-odasi/5.jpeg"
+    ]
+  },
+  {
+    "id": 13,
+    "documentId": "x05i9h296eglvjhlpatb46gv",
+    "title": "Comfort-Doppelzimmer",
+    "description": "Unser Zimmer verfügt über ein großes Doppelbett und ein Badezimmer mit Duschkabine.\nOttomanischer Sedar-Stil\nHolznachttisch\nLED-Fernseher\nKlimanlage\nZentralheizungssystem\nTelefon\nGeldschrank\nKleiderschrank\nWecksystem\nHaartrockner\nHochwertiges Handtuch- und Pantoffelset\nUmfangreiches Duschset\nPersönliche Zahnbürste\nWasserservice",
+    "price": null,
+    "maxGuests": null,
+    "slug": "comfort-cift-kisilik",
+    "isStandart": false,
+    "isComfort": true,
+    "isAile": false,
+    "createdAt": "2026-06-04T12:33:00.801Z",
+    "updatedAt": "2026-06-04T12:33:00.801Z",
+    "publishedAt": "2026-06-04T12:33:00.807Z",
+    "features": "WiFi, TV, Safe",
+    "images": [
+      "/images/rooms/comfort-cift-kisilik/1.jpeg",
+      "/images/rooms/comfort-cift-kisilik/2.jpeg",
+      "/images/rooms/comfort-cift-kisilik/3.jpeg"
+    ]
+  },
+  {
+    "id": 15,
+    "documentId": "fp8popy0ishd12ep1vn5a2ya",
+    "title": "Comfort-Familienzimmer",
+    "description": "Unser Zimmer verfügt über ein großes Doppelbett und ein Badezimmer mit Duschkabine.\nOttomanischer Sedar-Stil\nHolznachttisch\nLED-Fernseher\nKlimanlage\nZentralheizungssystem\nTelefon\nGeldschrank\nKleiderschrank\nWecksystem\nHaartrockner\nHochwertiges Handtuch- und Pantoffelset\nUmfangreiches Duschset\nPersönliche Zahnbürste\nWasserservice",
+    "price": null,
+    "maxGuests": null,
+    "slug": "comfort-aile-odasi",
+    "isStandart": false,
+    "isComfort": true,
+    "isAile": true,
+    "createdAt": "2026-06-04T12:33:31.077Z",
+    "updatedAt": "2026-06-04T12:33:31.077Z",
+    "publishedAt": "2026-06-04T12:33:31.082Z",
+    "features": "WiFi, TV, Safe",
+    "images": [
+      "/images/rooms/comfort-aile-odasi/1.jpeg",
+      "/images/rooms/comfort-aile-odasi/2.jpeg"
+    ]
+  }
+]
