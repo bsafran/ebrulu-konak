@@ -10,9 +10,9 @@ import { useScrollRestoration } from '../hooks/useScrollRestoration';
 import { getRestaurants, formatRestaurantData } from '../services/strapiService';
 
 const RestaurantsPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   useScrollRestoration();
-  const { data, loading, error } = useApi(() => getRestaurants());
+  const { data, loading, error } = useApi(() => getRestaurants(i18n.language), [i18n.language]);
 
   const restaurants = useMemo(() => {
     return data?.data?.map(formatRestaurantData) || [];
