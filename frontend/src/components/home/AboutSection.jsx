@@ -10,7 +10,7 @@ const AboutSection = () => {
       // Handle **text** format to bold
       const parts = para.split(/(\*\*.*?\*\*)/g);
       return (
-        <p key={idx} style={{ fontSize: '18px', lineHeight: '1.8', color: '#333', margin: 0 }}>
+        <p key={idx} style={{ fontSize: '18px', lineHeight: '1.6', color: '#333', margin: 0 }}>
           {parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
               return (
@@ -65,7 +65,7 @@ const AboutSection = () => {
             </div>
 
             {/* Long Description */}
-            <div className="space-y-3" style={{ maxWidth: '4xl' }}>
+            <div className="space-y-4">
               {renderParagraphs(t('about.description'))}
             </div>
           </div>
