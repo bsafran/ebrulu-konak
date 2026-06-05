@@ -18,13 +18,12 @@ const ReservationPage = () => {
         />
         <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
           <iframe
-            src="http://ebrulu-konak.hmshotel.net/"
+            src="https://ebrulu-konak.hmshotel.net/"
             width="100%"
             height="800px"
             frameBorder="0"
             title="HMS Rezervasyon Sistemi"
             style={{ display: 'block' }}
-            sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
           />
         </div>
       </div>
