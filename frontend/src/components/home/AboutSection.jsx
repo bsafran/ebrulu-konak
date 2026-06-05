@@ -63,19 +63,19 @@ const AboutSection = () => {
           </div>
 
           {/* Main Section - Ebrulu Konak */}
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="space-y-8">
             <div>
-              <h2 style={{ fontSize: '48px', fontWeight: 'bold', color: '#000', margin: '0 0 16px 0' }}>
+              <h2 style={{ fontSize: '48px', fontWeight: 'bold', color: '#000', margin: '0 0 16px 0', textAlign: 'left' }}>
                 Ebrulu Konak
               </h2>
-              <p style={{ fontSize: '16px', color: '#9c714b', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <p style={{ fontSize: '16px', color: '#9c714b', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', textAlign: 'left' }}>
                 <span>→</span>
                 <span style={{ fontWeight: '600' }}>{t('about.subtitle')}</span>
               </p>
             </div>
 
             {/* Long Description */}
-            <div className="space-y-6">
+            <div className="space-y-6" style={{ maxWidth: '4xl' }}>
               {renderParagraphs(t('about.description'))}
             </div>
           </div>
