@@ -31,7 +31,7 @@ const AboutSection = () => {
       <div className="container-custom">
         <div className="space-y-12">
           {/* Top Intro Section with Dividers */}
-          <div className="max-w-4xl mx-auto text-center space-y-6">
+          <div className="max-w-2xl mx-auto text-center space-y-6">
             {/* Top Divider */}
             <div className="flex items-center justify-center gap-3">
               <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
@@ -65,7 +65,7 @@ const AboutSection = () => {
             </div>
 
             {/* Long Description */}
-            <div className="space-y-4">
+            <div className="max-w-2xl space-y-6">
               {renderParagraphs(t('about.description'))}
             </div>
           </div>
