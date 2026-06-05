@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Layout from '../components/common/Layout';
 import PageHeader from '../components/common/PageHeader';
@@ -6,6 +6,12 @@ import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 const ReservationPage = () => {
   const { t } = useTranslation();
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  useEffect(() => {
+    setRefreshKey(prev => prev + 1);
+  }, []);
+
   useScrollRestoration();
 
   return (
@@ -18,6 +24,7 @@ const ReservationPage = () => {
         />
         <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
           <iframe
+            key={refreshKey}
             src="https://ebrulu-konak.hmshotel.net/"
             width="100%"
             height="800px"
