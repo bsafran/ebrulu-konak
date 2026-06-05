@@ -39,19 +39,9 @@ const AboutSection = () => {
               <div className="flex-1 h-px" style={{ backgroundColor: '#9c714b' }}></div>
             </div>
 
-            {/* Intro Text */}
+            {/* Intro Text with Bold Title/Subtitle at End */}
             <div className="space-y-3">
               {renderParagraphs(t('about.intro'), true)}
-            </div>
-
-            {/* Title and Subtitle (bold, centered) */}
-            <div className="space-y-1">
-              <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#000', margin: 0, letterSpacing: '0.5px' }}>
-                {t('about.title')}
-              </h3>
-              <p style={{ fontSize: '16px', fontWeight: 'bold', color: '#000', margin: 0, letterSpacing: '0.5px' }}>
-                {t('about.subtitle')}
-              </p>
             </div>
 
             {/* Bottom Divider */}
