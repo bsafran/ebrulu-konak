@@ -10,7 +10,7 @@ const AboutSection = () => {
       // Handle **text** format to bold
       const parts = para.split(/(\*\*.*?\*\*)/g);
       return (
-        <p key={idx} style={{ fontSize: isIntro ? '16px' : '16px', lineHeight: '1.8', color: '#333', margin: 0 }}>
+        <p key={idx} style={{ fontSize: '18px', lineHeight: '1.8', color: '#333', margin: 0 }}>
           {parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
               return (
