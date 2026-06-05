@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../components/common/Layout';
 import VideoHero from '../components/home/VideoHero';
 import BookingStrip from '../components/home/BookingStrip';
-import IntroSection from '../components/home/IntroSection';
 import AboutSection from '../components/home/AboutSection';
 import RoomsPreview from '../components/home/RoomsPreview';
 import RestaurantsPreview from '../components/home/RestaurantsPreview';
@@ -33,7 +32,6 @@ const HomePage = () => {
         subtitle={siteSettings?.data?.heroSubtitle}
       />
       <BookingStrip />
-      <IntroSection title="" text={welcomeText} />
       <AboutSection title={aboutTitle} description={aboutText} />
       <RoomsPreview />
       <RestaurantsPreview />
