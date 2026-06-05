@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 import logo from '../../assets/logo.png';
 
 const Navbar = ({ transparent = false }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const LANGUAGES = [
+    { code: 'tr', flag: '🇹🇷', label: 'TR' },
+    { code: 'en', flag: '🇬🇧', label: 'EN' },
+    { code: 'de', flag: '🇩🇪', label: 'DE' },
+    { code: 'ar', flag: '🇸🇦', label: 'AR' },
+  ];
 
   const navLinks = [
-    { name: 'Ana Sayfa', path: '/' },
-    { name: 'Odalar', path: '/rooms' },
-    { name: 'Restoranlar', path: '/restaurants' },
-    { name: 'Kurumsal', path: '/corporate' },
-    { name: 'Galeri', path: '/gallery' },
-    { name: 'İletişim', path: '/contact' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.rooms'), path: '/rooms' },
+    { name: t('nav.restaurants'), path: '/restaurants' },
+    { name: t('nav.corporate'), path: '/corporate' },
+    { name: t('nav.gallery'), path: '/gallery' },
+    { name: t('nav.contact'), path: '/contact' },
   ];
 
   const navClasses = transparent
@@ -25,11 +34,34 @@ const Navbar = ({ transparent = false }) => {
     <>
       <nav className={navClasses} style={!transparent ? { backgroundColor: '#f3efea' } : {}}>
         <div className="w-full px-4 sm:px-8 md:px-12">
-          <div className="flex items-center h-20">
+          <div className="flex items-center h-20 gap-2">
             {/* Logo */}
             <Link to="/" className="flex items-center flex-shrink-0">
               <img src={logo} alt="Ebrulu Konak" className="h-16 w-auto" />
             </Link>
+
+            {/* Language Selector */}
+            <div className="ml-auto flex gap-2 mr-4">
+              {LANGUAGES.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => i18n.changeLanguage(lang.code)}
+                  className={`px-2 py-1 rounded text-sm font-semibold transition-colors ${
+                    i18n.language === lang.code
+                      ? 'bg-primary-dark text-white'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                  style={
+                    i18n.language === lang.code
+                      ? { backgroundColor: '#9c714b', color: 'white' }
+                      : { cursor: 'pointer' }
+                  }
+                  title={lang.label}
+                >
+                  {lang.flag} {lang.label}
+                </button>
+              ))}
+            </div>
 
             {/* Menu Button */}
             <button
@@ -112,7 +144,7 @@ const Navbar = ({ transparent = false }) => {
             style={{ backgroundColor: '#9c714b' }}
             onClick={() => setIsOpen(false)}
           >
-            Rezervasyon Yap
+            {t('nav.reservation')}
           </Link>
         </div>
       </div>

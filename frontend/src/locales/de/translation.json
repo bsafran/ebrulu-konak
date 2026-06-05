@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "rooms": "Zimmer",
+    "restaurants": "Restaurants",
+    "corporate": "Unternehmen",
+    "gallery": "Galerie",
+    "contact": "Kontakt",
+    "reservation": "Reservierung"
+  },
+  "hero": {
+    "title": "Willkommen im Ebrulu Konak",
+    "subtitle": "Wo Luxus auf Komfort trifft"
+  },
+  "booking": {
+    "checkIn": "Anreisedatum",
+    "checkOut": "Abreisedatum",
+    "guests": "Anzahl der Gäste",
+    "datePlaceholder": "Datum wählen",
+    "guestUnit": "Gast",
+    "search": "Zimmer Suchen"
+  },
+  "rooms": {
+    "title": "Unsere Zimmer",
+    "subtitle": "Die eleganten und komfortablen Zimmer des Ebrulu Konak wurden für Ihren größtmöglichen Komfort gestaltet.",
+    "viewAll": "Alle Zimmer Anzeigen",
+    "explore": "Zimmer Erkunden",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "features": "Zimmerausstattung",
+    "bookNow": "Jetzt Buchen",
+    "paymentNote": "Sie sehen alle Zahlungsmethoden auf der Zahlungsseite.",
+    "notFound": "Zimmer nicht gefunden",
+    "loadError": "Zimmer konnten nicht geladen werden",
+    "pageTitle": "Zimmer",
+    "pageDesc": "Wählen Sie aus den luxuriösen und komfortablen Zimmern des Ebrulu Konak. Jedes Zimmer wurde sorgfältig für Ihren Komfort und Ihre Bequemlichkeit gestaltet."
+  },
+  "restaurants": {
+    "title": "Unsere Restaurants",
+    "subtitle": "Köstliche Gerichte aus der türkischen und internationalen Küche, serviert mit dedizierten Chefservices.",
+    "cuisineSuffix": "Küche",
+    "explore": "{{name}} Erkunden",
+    "loadError": "Restaurants konnten nicht geladen werden",
+    "pageTitle": "Restaurants",
+    "pageDesc": "Erleben Sie das Beste der türkischen und internationalen Küche in den gehobenen Restaurants des Ebrulu Konak.",
+    "emptyState": "Noch keine Restaurants hinzugefügt"
+  },
+  "gallery": {
+    "title": "Galerie",
+    "subtitle": "Entdecken Sie die einzigartigen Details, die die Seele von Safranbolu widerspiegeln.",
+    "viewAll": "Vollständige Galerie Anzeigen",
+    "loadError": "Galerie konnte nicht geladen werden",
+    "pageTitle": "Galerie",
+    "pageDesc": "Entdecken Sie die einzigartigen Details, die die Seele von Safranbolu widerspiegeln."
+  },
+  "intro": {
+    "title": "Willkommen",
+    "text": "Das Ebrulu Konak ist stolz darauf, den luxuriösesten und komfortabelsten Hotelservice in der Region Yunak anzubieten. Mit seiner historischen Architektur, elegantem Design und seltenen Servicestandards streben wir danach, unseren Gästen ein unvergessliches Erlebnis zu bieten."
+  },
+  "about": {
+    "title": "Ebrulu Konak",
+    "subtitle": "Erleben Sie Geschichte in Safranbolu Neu",
+    "content": "Das Ebrulu Konak, gegründet 2004, besteht aus 5 historischen Herrenhäusern, die die historische Struktur von Safranbolu bewahren, und beherbergt 38 Zimmer. Es bietet den Gästen ein unvergessliches Erlebnis mit den Spuren der Vergangenheit in jeder Ecke.\n\nMit seiner historischen Architektur, elegantem Design und seltenen Servicestandards streben wir danach, unseren Gästen ein unvergessliches Erlebnis zu bieten.\n\nIn unseren Restaurantservices kombinieren wir traditionelle Safranbolu-Aromen mit modernen Präsentationen und bieten ein Menü, das den Geschmack unserer Gäste anspricht.\n\nDie Verpflichtung zu Qualität und Gästezufriedenheit ist der Grundstein unserer Servicephilosophie. Wir streben nach Exzellenz in jedem Detail und zielen darauf ab, die Erwartungen unserer Gäste zu übertreffen.\n\nAls Ebrulu Konak besteht unsere Mission darin, Safranbulus historischen und kulturellen Reichtum zu bewahren und dieses Erbe an zukünftige Generationen weiterzugeben."
+  },
+  "contact": {
+    "pageTitle": "Kontaktieren Sie Uns",
+    "pageDesc": "Bitte kontaktieren Sie uns mit Ihren Fragen, Vorschlägen oder um mehr über eine Reservierung zu erfahren.",
+    "name": "Vollständiger Name",
+    "email": "E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "namePlaceholder": "Ihr Name",
+    "emailPlaceholder": "Ihre E-Mail",
+    "subjectPlaceholder": "Betreffzeile",
+    "messagePlaceholder": "Ihre Nachricht",
+    "send": "SENDEN",
+    "address": "Adresse",
+    "phone": "Telefon",
+    "whatsapp": "Nachricht Senden",
+    "mapsLink": "Auf Google Maps Finden"
+  },
+  "corporate": {
+    "pageTitle": "Unternehmen",
+    "pageDesc": "Erfahren Sie mehr über Ebrulu Konak und entdecken Sie unsere Mission, Vision und Werte.",
+    "content": "Das Ebrulu Konak spiegelt die osmanische Architektur und die historische Struktur von Safranbolu wider und bietet seinen Gästen ein einzigartiges Erlebnis. Die perfekte Kombination aus Luxus und Tradition ermöglicht es jedem Gast, sich auf eine historische Reise zu begeben.\n\nIn unseren Restaurants werden die speziellsten Gerichte der Safranbolu-Küche auf moderne Weise serviert. Die Kombination von traditionellen Aromen mit zeitgenössischer Präsentation verzaubert unsere Gäste.\n\nDer im Ebrulu Konak gebotene Service ist nicht nur eine Unterkunft, sondern auch ein Lebensstil. Jedes Detail ist mit dem Komfort und der Zufriedenheit unserer Gäste im Fokus gestaltet.\n\nUnser professionelles und geschultes Personal ist bereit, auf jeden Wunsch unserer Gäste zu reagieren. Wenn Sie Safranbolu besuchen und im Ebrulu Konak übernachten, erleben Sie eine perfekte Mischung aus Geschichte und Luxus.\n\nDurchwandert die Spuren der Geschichte jede Ecke von Safranbolu, werden Sie ab dem Moment, in dem Sie die Türen des Ebrulu Konak betreten, Teil dieser Geschichte.",
+    "mission": "Mission",
+    "missionText": "Gästen, die Safranbolu besuchen, unvergessliche Erinnerungen in der Tiefe der Geschichte, im Komfort des Luxus und in der Wärme der Gastfreundschaft zu bieten.",
+    "vision": "Vision",
+    "visionText": "Safranbulus prestigereichstes und bevorzugtes Hotel zu sein, die osmanische Architektur zu bewahren, traditionelle und moderne Werte zu verbinden und Dienstleistungen auf internationalen Standards zu bieten.",
+    "valuesTitle": "Unsere Kernwerte"
+  },
+  "reservation": {
+    "pageTitle": "Hotelreservierung",
+    "pageDesc": "Vervollständigen Sie Ihre Reservierung, indem Sie Ihre Daten und Anzahl der Gäste auswählen."
+  },
+  "footer": {
+    "address": "Adresse",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "errors": {
+    "generic": "Ein Fehler ist aufgetreten",
+    "genericDesc": "Es gab ein Problem beim Anzeigen der Seite. Bitte aktualisieren Sie die Seite oder versuchen Sie es später erneut.",
+    "reload": "Seite Aktualisieren"
+  }
+}

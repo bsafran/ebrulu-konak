@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "rooms": "Odalar",
+    "restaurants": "Restoranlar",
+    "corporate": "Kurumsal",
+    "gallery": "Galeri",
+    "contact": "İletişim",
+    "reservation": "Rezervasyon Yap"
+  },
+  "hero": {
+    "title": "Ebrulu Konak'a Hoş Geldiniz",
+    "subtitle": "Lüksün ve Konforun Buluştuğu Yer"
+  },
+  "booking": {
+    "checkIn": "Giriş Tarihi",
+    "checkOut": "Çıkış Tarihi",
+    "guests": "Misafir Sayısı",
+    "datePlaceholder": "Tarih seçin",
+    "guestUnit": "Kişi",
+    "search": "Oda Ara"
+  },
+  "rooms": {
+    "title": "Odalarımız",
+    "subtitle": "Ebrulu Konak'ın zarif ve konforlu odaları, siz misafirlerimizin rahatı için tasarlanmıştır.",
+    "viewAll": "Tüm Odaları Görüntüle",
+    "explore": "Odayı İncele",
+    "prev": "Önceki",
+    "next": "Sonraki",
+    "features": "Oda Özellikleri",
+    "bookNow": "Şimdi Rezervasyon Yap",
+    "paymentNote": "Ödeme sayfasında tüm ödeme yöntemlerini göreceksiniz",
+    "notFound": "Oda bulunamadı",
+    "loadError": "Odalar yüklenemedi",
+    "pageTitle": "Odalar",
+    "pageDesc": "Ebrulu Konak'ın lüks ve konforlu odaları arasından seçim yapın. Her oda, rahatınız ve konforunuz için özenle tasarlanmıştır."
+  },
+  "restaurants": {
+    "title": "Restoranlarımız",
+    "subtitle": "Türk ve uluslararası mutfağından lezzetli yemekler, özel şef hizmetleriyle sunulmaktadır.",
+    "cuisineSuffix": "Mutfağı",
+    "explore": "{{name}}'ı İncele",
+    "loadError": "Restoranlar yüklenemedi",
+    "pageTitle": "Restoranlar",
+    "pageDesc": "Ebrulu Konak'ın seçkin restoranlarında Türk ve uluslararası mutfağın en iyi örneklerini tadın.",
+    "emptyState": "Henüz restoran eklenmemiş"
+  },
+  "gallery": {
+    "title": "Galeri",
+    "subtitle": "Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin.",
+    "viewAll": "Tam Galeriyi Görüntüle",
+    "loadError": "Galeri yüklenemedi",
+    "pageTitle": "Galeri",
+    "pageDesc": "Safranbolu'nun ruhunu yansıtan özgün detayları keşfedin."
+  },
+  "intro": {
+    "title": "Hoş Geldiniz",
+    "text": "Ebrulu Konak, Yunak bölgesinin en lüks ve konforlu otel hizmetini sunmaktan gurur duyar. İçerisinde barındırdığı tarihi mimarisi, zarif tasarımı ve ender bulunan hizmet standartları ile misafirlerimize unutulmaz bir deneyim yaşatmayı amaçlıyoruz."
+  },
+  "about": {
+    "title": "Ebrulu Konak",
+    "subtitle": "Safranbolu'da Tarihi Yeniden Yaşayın",
+    "content": "2004 yılında Safranbolu'nun tarihsel dokusunu koruyan, 5 adet tarihi konaktan oluşan ve 38 odasını barındıran Ebrulu Konak, her köşesinde geçmişin izlerini taşıyarak misafirlerine unutulmaz bir deneyim sunmaktadır.\n\nİçerisinde barındırdığı tarihi mimarisi, zarif tasarımı ve ender bulunan hizmet standartları ile misafirlerimize unutulmaz bir deneyim yaşatmayı amaçlıyoruz.\n\nRestoran hizmetlerimizde, geleneksel Safranbolu lezzetlerini modern sunuş şekli ile birleştirerek, misafirlerimizin damak zevkine hitap eden bir menü sunmaktayız.\n\nKalite ve misafir memnuniyeti ilkelerine bağlı kalmak, hizmet anlayışımızın temel taşıdır. Her detayda mükemmelliği arayarak, misafirlerimizin beklentilerini aşmayı hedefliyoruz.\n\nEbrulu Konak olarak, Safranbolu'nun tarihi ve kültürel zenginliğini yaşatmak, bu mirası gelecek kuşaklara aktarmak misyonumuz."
+  },
+  "contact": {
+    "pageTitle": "Bize Ulaşın",
+    "pageDesc": "Sorularınız, önerileriniz veya rezervasyon hakkında bilgi almak için lütfen bizimle iletişime geçin.",
+    "name": "Ad Soyad",
+    "email": "Email",
+    "subject": "Konu",
+    "message": "Mesaj",
+    "namePlaceholder": "Adınız",
+    "emailPlaceholder": "Email adresiniz",
+    "subjectPlaceholder": "İletişim konusu",
+    "messagePlaceholder": "Mesajınız",
+    "send": "GÖNDER",
+    "address": "Adres",
+    "phone": "Telefon",
+    "whatsapp": "Mesaj Gönder",
+    "mapsLink": "Google Maps'de Bul"
+  },
+  "corporate": {
+    "pageTitle": "Kurumsal",
+    "pageDesc": "Ebrulu Konak hakkında bilgi edinin ve misyon, vizyon ve değerlerimizi keşfedin.",
+    "content": "Osmanlı mimarisi ve Safranbolu'nun tarihi dokusunu yansıtan Ebrulu Konak, konuklarına benzersiz bir deneyim sunmaktadır. Lüks ve tradisyonun mükemmel kombinasyonu ile her misafir, tarihi bir yolculuğa çıkmaktadır.\n\nOtelimizin restoranlarında, Safranbolu mutfağının en özel yemekleri, modern bir şekilde sunulmaktadır. Geleneksel tatlarla çağdaş sunum tarzının birleşimi, misafirlerimizi büyülemektedir.\n\nEbrulu Konak'ta verilen hizmet, sadece bir konaklama değil, aynı zamanda bir yaşam tarzıdır. Her detay, misafirlerimizin konforunu ve memnuniyetini ön planda tutarak tasarlanmıştır.\n\nProfesyonel ve eğitimli personelimiz, misafirlerimizin her isteğine yanıt vermek için hazırdır. Safranbolu'yu ziyaret ederken, Ebrulu Konak'ta kalarak, tarihin ve lüksün buluştuğu mükemmel bir deneyim yaşayacaksınız.\n\nSafranbolu'nun her köşesinde tarihin izleri görülürken, Ebrulu Konak'ın kapılarından geçtiğiniz andan itibaren, siz de bu tarihin bir parçası olmaktasınız.",
+    "mission": "Misyon",
+    "missionText": "Safranbolu'yu ziyaret eden konuklarına, tarihin derinliğinde, lüksün rahatlığı içinde, misafirperverliğin sıcaklığında unutulmaz anılar yaşatmak.",
+    "vision": "Vizyon",
+    "visionText": "Safranbolu'nun en prestijli ve tercih edilen, Osmanlı mimarisini yaşatan, geleneksel ve modern değerlerin birleştiği, uluslararası standartlarda hizmet sunan otel olmaktır.",
+    "valuesTitle": "Temel Değerlerimiz"
+  },
+  "reservation": {
+    "pageTitle": "Otel Rezervasyonu",
+    "pageDesc": "Tarihlerinizi ve misafir sayısını seçerek rezervasyonunuzu tamamlayın."
+  },
+  "footer": {
+    "address": "Adres",
+    "phone": "Telefon",
+    "email": "Email",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "rights": "Tüm hakları saklıdır."
+  },
+  "errors": {
+    "generic": "Bir hata oluştu",
+    "genericDesc": "Sayfayı gösterirken bir sorun yaşandı. Lütfen sayfayı yenileyin veya daha sonra tekrar deneyin.",
+    "reload": "Sayfayı Yenile"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "home": "Home",
+    "rooms": "Rooms",
+    "restaurants": "Restaurants",
+    "corporate": "Corporate",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "reservation": "Make Reservation"
+  },
+  "hero": {
+    "title": "Welcome to Ebrulu Konak",
+    "subtitle": "Where Luxury Meets Comfort"
+  },
+  "booking": {
+    "checkIn": "Check-in Date",
+    "checkOut": "Check-out Date",
+    "guests": "Number of Guests",
+    "datePlaceholder": "Select date",
+    "guestUnit": "Guest",
+    "search": "Search Rooms"
+  },
+  "rooms": {
+    "title": "Our Rooms",
+    "subtitle": "Ebrulu Konak's elegant and comfortable rooms are designed for your utmost comfort.",
+    "viewAll": "View All Rooms",
+    "explore": "Explore Room",
+    "prev": "Previous",
+    "next": "Next",
+    "features": "Room Features",
+    "bookNow": "Book Now",
+    "paymentNote": "You will see all payment methods on the payment page.",
+    "notFound": "Room not found",
+    "loadError": "Rooms could not be loaded",
+    "pageTitle": "Rooms",
+    "pageDesc": "Choose from Ebrulu Konak's luxurious and comfortable rooms. Each room is carefully designed for your comfort and convenience."
+  },
+  "restaurants": {
+    "title": "Our Restaurants",
+    "subtitle": "Delicious dishes from Turkish and international cuisine, served with dedicated chef services.",
+    "cuisineSuffix": "Cuisine",
+    "explore": "Explore {{name}}",
+    "loadError": "Restaurants could not be loaded",
+    "pageTitle": "Restaurants",
+    "pageDesc": "Experience the best of Turkish and international cuisine in Ebrulu Konak's fine dining restaurants.",
+    "emptyState": "No restaurants added yet"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Discover the unique details that reflect the soul of Safranbolu.",
+    "viewAll": "View Full Gallery",
+    "loadError": "Gallery could not be loaded",
+    "pageTitle": "Gallery",
+    "pageDesc": "Discover the unique details that reflect the soul of Safranbolu."
+  },
+  "intro": {
+    "title": "Welcome",
+    "text": "Ebrulu Konak is proud to offer the most luxurious and comfortable hotel service in the Yunak region. With its historic architecture, elegant design, and rare service standards, we aim to provide our guests with an unforgettable experience."
+  },
+  "about": {
+    "title": "Ebrulu Konak",
+    "subtitle": "Relive History in Safranbolu",
+    "content": "Ebrulu Konak, established in 2004, consists of 5 historic mansions preserving the historical texture of Safranbolu and houses 38 rooms, offering guests an unforgettable experience with the traces of the past in every corner.\n\nWith its historic architecture, elegant design, and rare service standards, we aim to provide our guests with an unforgettable experience.\n\nIn our restaurant services, we combine traditional Safranbolu flavors with modern presentation, offering a menu that appeals to our guests' tastes.\n\nCommitment to quality and guest satisfaction is the cornerstone of our service philosophy. We strive for excellence in every detail and aim to exceed our guests' expectations.\n\nAs Ebrulu Konak, our mission is to preserve Safranbolu's historical and cultural richness and pass this heritage to future generations."
+  },
+  "contact": {
+    "pageTitle": "Contact Us",
+    "pageDesc": "Please contact us with your questions, suggestions, or to learn more about making a reservation.",
+    "name": "Full Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "subjectPlaceholder": "Message subject",
+    "messagePlaceholder": "Your message",
+    "send": "SEND",
+    "address": "Address",
+    "phone": "Phone",
+    "whatsapp": "Send Message",
+    "mapsLink": "Find on Google Maps"
+  },
+  "corporate": {
+    "pageTitle": "Corporate",
+    "pageDesc": "Learn about Ebrulu Konak and discover our mission, vision, and values.",
+    "content": "Ebrulu Konak, reflecting Ottoman architecture and the historical texture of Safranbolu, offers a unique experience to its guests. The perfect combination of luxury and tradition allows every guest to embark on a historical journey.\n\nIn our restaurants, the most special dishes of Safranbolu cuisine are served in a modern manner. The combination of traditional flavors with contemporary presentation style enchants our guests.\n\nThe service provided at Ebrulu Konak is not just accommodation, but also a lifestyle. Every detail is designed with our guests' comfort and satisfaction at the forefront.\n\nOur professional and trained staff is ready to respond to every wish of our guests. When you visit Safranbolu and stay at Ebrulu Konak, you will experience a perfect blend of history and luxury.\n\nWhile the traces of history are seen in every corner of Safranbolu, the moment you enter the doors of Ebrulu Konak, you too become part of this history.",
+    "mission": "Mission",
+    "missionText": "To provide guests visiting Safranbolu with unforgettable memories in the depth of history, in the comfort of luxury, and in the warmth of hospitality.",
+    "vision": "Vision",
+    "visionText": "To be Safranbolu's most prestigious and preferred hotel, preserving Ottoman architecture, combining traditional and modern values, and providing services at international standards.",
+    "valuesTitle": "Our Core Values"
+  },
+  "reservation": {
+    "pageTitle": "Hotel Reservation",
+    "pageDesc": "Complete your reservation by selecting your dates and number of guests."
+  },
+  "footer": {
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "rights": "All rights reserved."
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "genericDesc": "There was a problem displaying the page. Please refresh the page or try again later.",
+    "reload": "Reload Page"
+  }
+}
