@@ -5,12 +5,12 @@ import safranImage from '../../assets/safranbolupng.png';
 const AboutSection = () => {
   const { t } = useTranslation();
 
-  const renderParagraphs = (text) => {
+  const renderParagraphs = (text, isIntro = false) => {
     return text.split('\n\n').map((para, idx) => {
       // Handle **text** format to bold
       const parts = para.split(/(\*\*.*?\*\*)/g);
       return (
-        <p key={idx} className="text-base md:text-lg text-gray-700 leading-relaxed">
+        <p key={idx} style={{ fontSize: isIntro ? '16px' : '16px', lineHeight: '1.8', color: '#333', margin: 0 }}>
           {parts.map((part, i) => {
             if (part.startsWith('**') && part.endsWith('**')) {
               return (
@@ -41,15 +41,15 @@ const AboutSection = () => {
 
             {/* Intro Text */}
             <div className="space-y-6">
-              {renderParagraphs(t('about.intro'))}
+              {renderParagraphs(t('about.intro'), true)}
             </div>
 
             {/* Title and Subtitle (bold, centered) */}
-            <div className="space-y-1">
-              <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#000', margin: 0 }}>
+            <div className="space-y-0">
+              <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#000', margin: 0, letterSpacing: '0.5px' }}>
                 {t('about.title')}
               </h3>
-              <p style={{ fontSize: '16px', fontWeight: 'bold', color: '#000', margin: 0 }}>
+              <p style={{ fontSize: '16px', fontWeight: 'bold', color: '#000', margin: 0, letterSpacing: '0.5px' }}>
                 {t('about.subtitle')}
               </p>
             </div>
@@ -65,12 +65,12 @@ const AboutSection = () => {
           {/* Main Section - Ebrulu Konak */}
           <div className="space-y-8">
             <div>
-              <h2 style={{ fontSize: '48px', fontWeight: 'bold', color: '#000', margin: '0 0 16px 0', textAlign: 'left' }}>
+              <h2 style={{ fontSize: '56px', fontWeight: 'bold', color: '#000', margin: '0 0 8px 0', textAlign: 'left', lineHeight: '1.2' }}>
                 Ebrulu Konak
               </h2>
-              <p style={{ fontSize: '16px', color: '#9c714b', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', textAlign: 'left' }}>
+              <p style={{ fontSize: '16px', color: '#9c714b', margin: 0, display: 'flex', alignItems: 'center', gap: '8px', textAlign: 'left', fontWeight: '500' }}>
                 <span>→</span>
-                <span style={{ fontWeight: '600' }}>{t('about.subtitle')}</span>
+                <span>{t('about.subtitle')}</span>
               </p>
             </div>
 
