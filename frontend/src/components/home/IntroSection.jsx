@@ -1,9 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-const IntroSection = ({ title = 'Hoş Geldiniz', text = '' }) => {
-  const displayText = text || `Ebrulu Konak, Yunak bölgesinin en lüks ve konforlu otel hizmetini sunmaktan gurur duyar.
-              İçerisinde barındırdığı tarihi mimarisi, zarif tasarımı ve ender bulunan hizmet standartları
-              ile misafirlerimize unutulmaz bir deneyim yaşatmayı amaçlıyoruz.`;
+const IntroSection = ({ title, text }) => {
+  const { t } = useTranslation();
+  const displayTitle = title || t('intro.title');
+  const displayText = text || t('intro.text');
 
   const renderText = () => {
     const lines = displayText.split('\n');
@@ -35,10 +36,10 @@ const IntroSection = ({ title = 'Hoş Geldiniz', text = '' }) => {
           </div>
 
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-dark">
-            {title}
+            {displayTitle}
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed preserve-whitespace">
-            {renderText()}
+            {displayText}
           </p>
 
           {/* Decorative Divider - Below Text */}

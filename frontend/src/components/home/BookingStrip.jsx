@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import DatePicker from 'react-datepicker';
 import { useBooking } from '../../context/BookingContext';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const BookingStrip = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { booking, updateBooking } = useBooking();
   const [checkIn, setCheckIn] = useState(booking.checkIn);
   const [checkOut, setCheckOut] = useState(booking.checkOut);
@@ -96,7 +98,7 @@ const BookingStrip = () => {
             {/* Check-in Date */}
             <div style={inputContainerStyle}>
               <label htmlFor="check-in" style={labelStyle}>
-                Giriş Tarihi
+                {t('booking.checkIn')}
               </label>
               <div style={inputWrapperStyle}>
                 <DatePicker
@@ -105,7 +107,7 @@ const BookingStrip = () => {
                   onChange={handleCheckIn}
                   dateFormat="dd/MM/yyyy"
                   minDate={new Date()}
-                  placeholderText="Tarih seçin"
+                  placeholderText={t('booking.datePlaceholder')}
                   aria-label="Giriş Tarihi"
                   wrapperClassName="booking-datepicker"
                   className="booking-datepicker-input"
@@ -121,7 +123,7 @@ const BookingStrip = () => {
             {/* Check-out Date */}
             <div style={inputContainerStyle}>
               <label htmlFor="check-out" style={labelStyle}>
-                Çıkış Tarihi
+                {t('booking.checkOut')}
               </label>
               <div style={inputWrapperStyle}>
                 <DatePicker
@@ -130,7 +132,7 @@ const BookingStrip = () => {
                   onChange={handleCheckOut}
                   dateFormat="dd/MM/yyyy"
                   minDate={checkIn || new Date()}
-                  placeholderText="Tarih seçin"
+                  placeholderText={t('booking.datePlaceholder')}
                   aria-label="Çıkış Tarihi"
                   wrapperClassName="booking-datepicker"
                   className="booking-datepicker-input"
@@ -146,7 +148,7 @@ const BookingStrip = () => {
             {/* Guests */}
             <div style={inputContainerStyle}>
               <label htmlFor="guests" style={labelStyle}>
-                Misafir Sayısı
+                {t('booking.guests')}
               </label>
               <div style={inputWrapperStyle}>
                 <select
@@ -162,7 +164,7 @@ const BookingStrip = () => {
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                     <option key={num} value={num}>
-                      {num} {num === 1 ? 'Kişi' : 'Kişi'}
+                      {num} {t('booking.guestUnit')}
                     </option>
                   ))}
                 </select>
@@ -203,7 +205,7 @@ const BookingStrip = () => {
                     e.currentTarget.style.transform = 'scale(1)';
                   }}
                 >
-                  Oda Ara
+                  {t('booking.search')}
                 </button>
               </div>
             </div>

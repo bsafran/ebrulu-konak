@@ -1,19 +1,21 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const contactInfo = [
     {
       icon: FiMapPin,
-      title: 'Adres',
+      title: t('footer.address'),
       content: 'Babasultan Mah. Hıdırlık Yokuşu Sok. No: 13 78600 Safranbolu/KARABÜK/TÜRKİYE',
     },
     {
       icon: FiPhone,
-      title: 'Telefon',
+      title: t('footer.phone'),
       content: [
         { text: '+90 (370) 712 07 14', link: 'tel:+903707120714' },
         { text: '+90 (505) 765 61 78', link: 'tel:+905057656178' },
@@ -22,7 +24,7 @@ const Footer = () => {
     },
     {
       icon: FiMail,
-      title: 'Email',
+      title: t('footer.email'),
       content: [
         { text: 'ebrulukonak@hotmail.com', link: 'mailto:ebrulukonak@hotmail.com' },
         { text: 'ebrulukonaklar@gmail.com', link: 'mailto:ebrulukonaklar@gmail.com' },
@@ -32,9 +34,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: FaInstagram, url: 'https://www.instagram.com/ebrulukonak/', label: 'Instagram' },
-    { icon: FaFacebook, url: 'https://www.facebook.com/ebrulukonaklar', label: 'Facebook' },
-    { icon: FaWhatsapp, url: 'https://wa.me/905057656178', label: 'WhatsApp' },
+    { icon: FaInstagram, url: 'https://www.instagram.com/ebrulukonak/', label: t('footer.instagram') },
+    { icon: FaFacebook, url: 'https://www.facebook.com/ebrulukonaklar', label: t('footer.facebook') },
+    { icon: FaWhatsapp, url: 'https://wa.me/905057656178', label: t('footer.whatsapp') },
   ];
 
   return (
@@ -98,7 +100,7 @@ const Footer = () => {
           </div>
 
           <p className="text-center text-sm text-gray-600">
-            © {currentYear} Ebrulu Konak. Tüm hakları saklıdır.
+            © {currentYear} Ebrulu Konak. {t('footer.rights')}
           </p>
         </div>
       </div>

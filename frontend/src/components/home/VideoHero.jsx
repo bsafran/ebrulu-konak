@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FiChevronDown } from 'react-icons/fi';
 
-const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle = 'Lüksün ve Konforun Buluştuğu Yer' }) => {
+const VideoHero = ({ videoUrl, title, subtitle }) => {
+  const { t } = useTranslation();
+  const defaultTitle = title || t('hero.title');
+  const defaultSubtitle = subtitle || t('hero.subtitle');
   return (
     <div className="relative w-full overflow-hidden" style={{ height: '100vh', marginTop: '-80px', paddingTop: '80px' }}>
       {/* Video Background */}
@@ -27,10 +31,10 @@ const VideoHero = ({ videoUrl, title = 'Ebrulu Konak\'a Hoş Geldiniz', subtitle
       <div className="relative h-full flex flex-col items-center justify-center text-center text-white px-4">
         <div className="max-w-3xl mx-auto space-y-6">
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">
-            {title}
+            {defaultTitle}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl drop-shadow-md">
-            {subtitle}
+            {defaultSubtitle}
           </p>
         </div>
 

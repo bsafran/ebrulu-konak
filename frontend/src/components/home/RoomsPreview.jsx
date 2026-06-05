@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FiChevronLeft, FiChevronRight, FiArrowRight } from 'react-icons/fi';
 import Loading from '../common/Loading';
 import Button from '../common/Button';
@@ -8,6 +9,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import { getRooms, formatRoomData } from '../../services/strapiService';
 
 const RoomsPreview = () => {
+  const { t } = useTranslation();
   const { data, loading, error } = useApi(() => getRooms());
   const windowWidth = useWindowSize();
   const fallbackImage = 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop';
@@ -66,9 +68,9 @@ const RoomsPreview = () => {
     <section className="py-20" style={{ backgroundColor: '#f3efea' }}>
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-dark mb-4">Odalarımız</h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-dark mb-4">{t('rooms.title')}</h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-4">
-            Ebrulu Konak'ın zarif ve konforlu odaları, siz misafirlerimizin rahatı için tasarlanmıştır.
+            {t('rooms.subtitle')}
           </p>
 
           {/* Decorative Divider - Below Subtitle */}
@@ -83,7 +85,7 @@ const RoomsPreview = () => {
           <Loading />
         ) : error ? (
           <div className="text-center py-12">
-            <p className="text-red-600 font-semibold">Odalar yüklenemedi</p>
+            <p className="text-red-600 font-semibold">{t('rooms.loadError')}</p>
           </div>
         ) : (
           <>
@@ -100,7 +102,7 @@ const RoomsPreview = () => {
                   opacity: currentIndex === 0 ? 0.5 : 1,
                   cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
                 }}
-                aria-label="Önceki"
+                aria-label={t('rooms.prev')}
               >
                 <FiChevronLeft className="w-6 h-6" />
               </button>
@@ -190,7 +192,7 @@ const RoomsPreview = () => {
                               <Link to={`/rooms/${formattedRoom.slug}`} className="no-underline">
                                 <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-8 py-4 rounded-full cursor-pointer hover:bg-white transition-colors">
                                   <span className="text-primary-dark font-semibold text-lg">
-                                    Odayı İncele
+                                    {t('rooms.explore')}
                                   </span>
                                   <FiArrowRight className="w-5 h-5 text-primary-dark" />
                                 </div>
@@ -214,7 +216,7 @@ const RoomsPreview = () => {
                   opacity: currentIndex === maxIndex ? 0.5 : 1,
                   cursor: currentIndex === maxIndex ? 'not-allowed' : 'pointer',
                 }}
-                aria-label="Sonraki"
+                aria-label={t('rooms.next')}
               >
                 <FiChevronRight className="w-6 h-6" />
               </button>
@@ -244,7 +246,7 @@ const RoomsPreview = () => {
                     e.currentTarget.style.color = '#9c714b';
                   }}
                 >
-                  Tüm Odaları Görüntüle
+                  {t('rooms.viewAll')}
                 </button>
               </Link>
             </div>
